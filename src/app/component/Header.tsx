@@ -7,7 +7,7 @@ export default function Header() {
 		<header>
 			<Logo>
 				<Image
-					src="/images/common/header/logo.svg"
+					src="/images/desktop/common/header/logo.svg"
 					width={315}
 					height={32}
 					alt={process.env.SITE_TITLE ?? ""}
