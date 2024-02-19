@@ -1,32 +1,32 @@
 [
-	{
-		"slug": "marketing",
-		"name": "Webマーケティング",
-		"subpages": [
-			{
-				"slug": "features",
-				"name": "特長"
-			},
-			{
-				"slug": "flow",
-				"name": "ご依頼の流れ"
-			}
-		]
-	},
-	{
-		"slug": "outsourcing",
-		"name": "アウトソーシング"
-	},
-	{
-		"slug": "blog",
-		"name": "ブログ"
-	},
-	{
-		"slug": "information",
-		"name": "事務所概要"
-	},
-	{
-		"slug": "contact",
-		"name": "お問い合わせ"
-	}
+  {
+    "slug": "marketing",
+    "name": "Webマーケティング",
+    "subpages": [
+      {
+        "slug": "features",
+        "name": "特長"
+      },
+      {
+        "slug": "flow",
+        "name": "ご依頼の流れ"
+      }
+    ]
+  },
+  {
+    "slug": "outsourcing",
+    "name": "アウトソーシング"
+  },
+  {
+    "slug": "blog",
+    "name": "ブログ"
+  },
+  {
+    "slug": "information",
+    "name": "事務所概要"
+  },
+  {
+    "slug": "contact",
+    "name": "お問い合わせ"
+  }
 ]

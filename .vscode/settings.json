@@ -1,15 +1,15 @@
 {
-	"editor.codeActionsOnSave": {
-		"quickfix.biome": "explicit",
-		"source.addMissingImports": "explicit",
-		"source.fixAll.eslint": "explicit",
-		"source.organizeImports.biome": "explicit"
-	},
-	"editor.defaultFormatter": "biomejs.biome",
-	"editor.formatOnPaste": true,
-	"editor.formatOnSave": true,
-	"markuplint.defaultConfig": {
-		"excludeFiles": ["**/node_modules/**"],
-		"extends": ["markuplint:recommended"]
-	}
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.addMissingImports": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "markuplint.defaultConfig": {
+    "excludeFiles": ["**/node_modules/**"],
+    "extends": ["markuplint:recommended"]
+  }
 }

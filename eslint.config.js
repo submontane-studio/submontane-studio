@@ -5,44 +5,44 @@ import reactPlugin from "eslint-plugin-react";
 import hooksPlugin from "eslint-plugin-react-hooks";
 
 export default [
-	{
-		files: ["**/*.{js,jsx,ts,tsx}"],
-	},
+  {
+    files: ["**/*.{js,jsx,ts,tsx}"],
+  },
 
-	{
-		ignores: [
-			"**/dist/**",
-			"**/node_modules/**",
-			"**/.next/**",
-			"eslint.config.js",
-			"*.d.ts",
-			"next.config.js",
-		],
-	},
+  {
+    ignores: [
+      "**/dist/**",
+      "**/node_modules/**",
+      "**/.next/**",
+      "eslint.config.js",
+      "*.d.ts",
+      "next.config.js",
+    ],
+  },
 
-	{
-		languageOptions: {
-			parser: typescriptParser,
-			parserOptions: {
-				ecmaVersion: 2018,
-				sourceType: "module",
-				project: "./tsconfig.json",
-			},
-		},
-	},
+  {
+    languageOptions: {
+      parser: typescriptParser,
+      parserOptions: {
+        ecmaVersion: 2018,
+        sourceType: "module",
+        project: "./tsconfig.json",
+      },
+    },
+  },
 
-	{
-		plugins: {
-			react: reactPlugin,
-			"react-hooks": hooksPlugin,
-			"@next/next": nextPlugin,
-		},
-		rules: {
-			...reactPlugin.configs["jsx-runtime"].rules,
-			...hooksPlugin.configs.recommended.rules,
-			...nextPlugin.configs.recommended.rules,
-			...nextPlugin.configs["core-web-vitals"].rules,
-			"@next/next/no-img-element": "error",
-		},
-	},
+  {
+    plugins: {
+      react: reactPlugin,
+      "react-hooks": hooksPlugin,
+      "@next/next": nextPlugin,
+    },
+    rules: {
+      ...reactPlugin.configs["jsx-runtime"].rules,
+      ...hooksPlugin.configs.recommended.rules,
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs["core-web-vitals"].rules,
+      "@next/next/no-img-element": "error",
+    },
+  },
 ];
