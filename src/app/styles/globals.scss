@@ -1,1 +1,6 @@
 @use './foundation/base' as *;
+@use './foundation/var' as *;
+
+.header{
+  background: var(--color-base);
+}

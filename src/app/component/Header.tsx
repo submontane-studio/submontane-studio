@@ -1,15 +1,17 @@
 import Image from "next/image";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
+import Hamburger from "./hamburger";
 
 export default function Header() {
   return (
-    <header>
+    <header className="header">
+      <Hamburger />
       <Logo>
         <Image
-          src="/images/desktop/common/header/logo.svg"
-          width={315}
-          height={32}
+          src="/images/mobile/common/header/logo.svg"
+          width={186}
+          height={12}
           alt={process.env.SITE_TITLE ?? ""}
         />
       </Logo>
