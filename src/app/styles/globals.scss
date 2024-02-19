@@ -1,6 +1,38 @@
 @use './foundation/base' as *;
 @use './foundation/var' as *;
 
+body{
+  position: relative;
+}
 .header{
   background: var(--color-base);
+  width: calc(100vw - 40px);
+  display: flex;
+  align-items: center;
+  padding-block: 13px 12px;
+  padding-inline: 20px;
+  border-radius: 3px;
+}
+.hamburger{
+  margin-inline-end: 20px;
+  button{
+    width: 18px;
+  }
+}
+.logo{
+  width: 125px;
+}
+.navigation{
+  visibility: hidden;
+  position: absolute;
+  left: -100%;
+  top: 0;
+  transition: all 0.3s ease;
+  max-width: 280px;
+  overflow: hidden;
+  width: 74.666%;
+  &.is-open{
+    visibility: visible;
+    left: 0;
+  }
 }

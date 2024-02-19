@@ -1,6 +1,9 @@
 .keyvisual{
-  background: url(/images/mobile/home/photo_keyvisual01.jpg) no-repeat center center;
+  background: url(/images/mobile/home/photo_keyvisual01.jpg) no-repeat center center / cover;
+  padding-block-start: 25px;
+  padding-inline: 20px;
+  min-height: 100svh;
   @media (min-resolution: 72dpi) {
-    background: url(/images/mobile/home/photo_keyvisual01@2x.jpg) no-repeat center center;
+    background: url(/images/mobile/home/photo_keyvisual01@2x.jpg) no-repeat center center / cover;
   }
 }

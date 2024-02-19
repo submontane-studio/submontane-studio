@@ -3,7 +3,7 @@ import Items from "./navigation.json";
 
 export default function Navigation() {
   return (
-    <nav>
+    <nav id="navigation" className="navigation">
       <ul>
         {Items.map((item) => (
           <li key={item.slug}>

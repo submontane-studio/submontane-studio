@@ -8,9 +8,9 @@ export default function Logo({
   const current: string = usePathname();
 
   return current === "/" ? (
-    <h1>{children}</h1>
+    <h1 className="logo">{children}</h1>
   ) : (
-    <p>
+    <p className="logo">
       <Link href="/">{children}</Link>
     </p>
   );
