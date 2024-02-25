@@ -10,7 +10,7 @@ const slideNav = () => {
     : nav?.classList.add("is-open");
 };
 
-export default function Hamburger() {
+export function Open() {
   const matches = useMediaQuery("(max-width: 768px)");
   return matches ? (
     <div id="hamburger" className="hamburger">
@@ -23,5 +23,21 @@ export default function Hamburger() {
         />
       </button>
     </div>
+  ) : null;
+}
+
+export function Close() {
+  const matches = useMediaQuery("(max-width: 768px)");
+  return matches ? (
+    <p id="close" className="close">
+      <button type="button" onClick={slideNav}>
+        <Image
+          src="/images/mobile/common/header/ico_close.svg"
+          width={36}
+          height={35}
+          alt="メニューを閉じる"
+        />
+      </button>
+    </p>
   ) : null;
 }

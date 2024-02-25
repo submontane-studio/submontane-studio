@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { Close } from "./hamburger";
 import Items from "./navigation.json";
 
 export default function Navigation() {
   return (
     <nav id="navigation" className="navigation">
+      <Close />
       <ul>
         {Items.map((item) => (
           <li key={item.slug}>
