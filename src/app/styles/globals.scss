@@ -3,6 +3,8 @@
 
 body{
   position: relative;
+  font-family: var(--font-inter), var(--font-biz), sans-serif;
+  letter-spacing: .1rem;
 }
 .header{
   background: var(--color-base);
