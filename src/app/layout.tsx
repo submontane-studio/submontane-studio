@@ -18,10 +18,10 @@ const biz = BIZ_UDPGothic({
 
 export const metadata: Metadata = {
   title: {
-    default: `${process.env.SITE_TITLE}`,
-    template: `%s | ${process.env.SITE_TITLE}`,
+    default: `${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
+    template: `%s | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
   },
-  description: "",
+  description: `${process.env.SITE_DESCRIPTION}`,
 };
 
 export default function RootLayout({

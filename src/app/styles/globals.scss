@@ -1,10 +1,12 @@
 @use './foundation/base' as *;
 @use './foundation/var' as *;
+@use './foundation/function' as *;
 
 body{
   position: relative;
   font-family: var(--font-inter), var(--font-biz), sans-serif;
   letter-spacing: .1rem;
+  font-size: rem(14);
 }
 .header{
   background: var(--color-base);
@@ -17,6 +19,7 @@ body{
 }
 .hamburger{
   margin-inline-end: 20px;
+  display: flex;
   button{
     width: 18px;
   }
