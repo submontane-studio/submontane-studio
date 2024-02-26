@@ -6,7 +6,7 @@ export default function Navigation() {
   return (
     <nav id="navigation" className="navigation">
       <Close />
-      <ul>
+      <ul className="navigation-list">
         {Items.map((item) => (
           <li key={item.slug}>
             {item.slug === "marketing" ? (

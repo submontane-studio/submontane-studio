@@ -29,7 +29,7 @@ export function Open() {
 export function Close() {
   const matches = useMediaQuery("(max-width: 768px)");
   return matches ? (
-    <p id="close" className="close">
+    <p id="close" className="nav-close">
       <button type="button" onClick={slideNav}>
         <Image
           src="/images/mobile/common/header/ico_close.svg"
