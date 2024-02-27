@@ -64,6 +64,37 @@ body{
     }
     .hasChildren{
       border-block-end: 1px solid #2F535A;
+      position: relative;
+      @media screen and (min-width: 768px){
+        cursor: pointer;
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: rotate(45deg) translateY(calc(-50% - 3px));
+        width: 0;
+        height: 0;
+        border-right: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        display: block;
+        width: 6px;
+        height: 6px;
+      }
+    }
+    .navigation-children{
+      max-height: 0;
+      overflow: hidden;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      &.is-open{
+        max-height: 100vh;
+        visibility: visible;
+      }
+      li{
+        background: rgba(0,0,0,.4);
+      }
     }
   }
 }

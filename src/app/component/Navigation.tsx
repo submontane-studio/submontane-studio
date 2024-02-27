@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Close } from "./hamburger";
+import { Close, ParentItem } from "./hamburger";
 import Items from "./navigation.json";
 
 export default function Navigation() {
@@ -8,25 +8,27 @@ export default function Navigation() {
       <Close />
       <ul className="navigation-list">
         {Items.map((item) => (
-          <li key={item.slug}>
+          <ParentItem slug={item.slug}>
             {item.slug === "marketing" ? (
-              <span className="hasChildren">{item.name}</span>
+              <>
+                <span className="hasChildren">{item.name}</span>
+                <ul className="navigation-children">
+                  {item.subpages?.map((subItem) => (
+                    <li key={subItem.slug}>
+                      <Link
+                        key={subItem.slug}
+                        href={`${item.slug}/${subItem.slug}`}
+                      >
+                        {subItem.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
             ) : (
               <Link href={item.slug}>{item.name}</Link>
             )}
-            <ul>
-              {item.subpages?.map((subItem) => (
-                <li key={subItem.slug}>
-                  <Link
-                    key={subItem.slug}
-                    href={`${item.slug}/${subItem.slug}`}
-                  >
-                    {subItem.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
+          </ParentItem>
         ))}
       </ul>
     </nav>

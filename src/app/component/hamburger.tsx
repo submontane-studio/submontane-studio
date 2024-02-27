@@ -2,19 +2,53 @@
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
 
-const slideNav = () => {
+const SlideNav = () => {
   const hamburger = document.getElementById("hamburger");
   const nav = document.getElementById("navigation");
-  nav?.classList.contains("is-open")
-    ? nav?.classList.remove("is-open")
-    : nav?.classList.add("is-open");
+  nav?.classList.toggle("is-open");
 };
+
+const SlideChildren = () => {
+  const hasChildren = document.getElementById("js-hasChildren");
+  const children = hasChildren?.querySelector("span")?.nextElementSibling;
+  children?.classList.toggle("is-open");
+};
+
+export function ParentItem({
+  children,
+  slug,
+}: Readonly<{ children: React.ReactNode; slug: string }>) {
+  const matches = useMediaQuery("(max-width: 768px)");
+
+  return slug === "marketing" ? (
+    matches ? (
+      <li
+        key={slug}
+        id="js-hasChildren"
+        onClick={SlideChildren}
+        onKeyDown={SlideChildren}
+      >
+        {children}
+      </li>
+    ) : (
+      <li
+        id="js-hasChildren"
+        onMouseEnter={SlideChildren}
+        onMouseLeave={SlideChildren}
+      >
+        {children}
+      </li>
+    )
+  ) : (
+    <li key={slug}>{children}</li>
+  );
+}
 
 export function Open() {
   const matches = useMediaQuery("(max-width: 768px)");
   return matches ? (
     <div id="hamburger" className="hamburger">
-      <button type="button" onClick={slideNav}>
+      <button type="button" onClick={SlideNav}>
         <Image
           src="/images/mobile/common/header/ico_hamburger.svg"
           width={18}
@@ -30,7 +64,7 @@ export function Close() {
   const matches = useMediaQuery("(max-width: 768px)");
   return matches ? (
     <p id="close" className="nav-close">
-      <button type="button" onClick={slideNav}>
+      <button type="button" onClick={SlideNav}>
         <Image
           src="/images/mobile/common/header/ico_close.svg"
           width={36}
