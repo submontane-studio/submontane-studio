@@ -8,7 +8,7 @@ export default function Navigation() {
       <Close />
       <ul className="navigation-list">
         {Items.map((item) => (
-          <ParentItem slug={item.slug}>
+          <ParentItem slug={item.slug} key={item.slug}>
             {item.slug === "marketing" ? (
               <>
                 <span className="hasChildren">{item.name}</span>

@@ -17,6 +17,8 @@ export default [
       "eslint.config.js",
       "*.d.ts",
       "next.config.js",
+      "**/public/*.js",
+      "**/public/*.ts",
     ],
   },
 

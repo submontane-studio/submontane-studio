@@ -1,5 +1,9 @@
 import { Metadata } from "next";
+import config from "next/config";
 import { BIZ_UDPGothic, Inter } from "next/font/google";
+import localFont from "next/font/local";
+import local from "next/font/local";
+import Script from "next/script";
 import "./styles/globals.scss";
 
 const inter = Inter({
@@ -16,6 +20,18 @@ const biz = BIZ_UDPGothic({
   variable: "--font-biz",
 });
 
+const futura = localFont({
+  src: [
+    {
+      path: "../../public/font/futura/Bold/Futura-Bol.woff",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  variable: "--font-futura",
+});
+
 export const metadata: Metadata = {
   title: {
     default: `${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
@@ -30,7 +46,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${inter.variable} ${biz.variable}`}>
+    <html
+      lang="ja"
+      className={`${inter.variable} ${biz.variable} ${futura.variable} wf-fot-udkakugo-large-pr6n-n5-active wf-fot-udkakugo-large-pr6n-n7-active wf-fot-udkakugo-large-pr6n-n4-active wf-active`}
+    >
+      <head>
+        <Script src="/scripts/typekit.js" strategy="beforeInteractive" />
+      </head>
       <body>{children}</body>
     </html>
   );

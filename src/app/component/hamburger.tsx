@@ -32,6 +32,7 @@ export function ParentItem({
       </li>
     ) : (
       <li
+        key={slug}
         id="js-hasChildren"
         onMouseEnter={SlideChildren}
         onMouseLeave={SlideChildren}
