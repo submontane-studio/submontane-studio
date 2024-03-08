@@ -1,0 +1,10 @@
+@use '../../styles/foundation/function' as *;
+
+.button{
+  margin-inline: auto;
+}
+.contact{
+  font-size: rem(16);
+  color: #fff;
+  background: var(--color-secondary);
+}

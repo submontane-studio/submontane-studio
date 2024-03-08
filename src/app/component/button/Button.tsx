@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./Button.module.scss";
+import styles from "./button.module.scss";
 
 export function Contact({ label = "お問い合わせ" } = {}) {
   return (
