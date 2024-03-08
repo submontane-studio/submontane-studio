@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Contact } from "./button/Button";
 import { Close, ParentItem } from "./hamburger";
 import Items from "./navigation.json";
 
@@ -17,7 +18,7 @@ export default function Navigation() {
                     <li key={subItem.slug}>
                       <Link
                         key={subItem.slug}
-                        href={`${item.slug}/${subItem.slug}`}
+                        href={`/${item.slug}/${subItem.slug}`}
                       >
                         {subItem.name}
                       </Link>
@@ -26,11 +27,12 @@ export default function Navigation() {
                 </ul>
               </>
             ) : (
-              <Link href={item.slug}>{item.name}</Link>
+              <Link href={`/${item.slug}`}>{item.name}</Link>
             )}
           </ParentItem>
         ))}
       </ul>
+      <Contact />
     </nav>
   );
 }
