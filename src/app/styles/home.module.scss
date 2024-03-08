@@ -1,9 +1,37 @@
+@use './foundation/function' as *;
+
 .keyvisual{
   background: url(/images/mobile/home/photo_keyvisual01.jpg) no-repeat center center / cover;
   padding-block-start: 25px;
   padding-inline: 20px;
   min-height: 100svh;
+  display: flex;
+  flex-direction: column;
   @media (min-resolution: 72dpi) {
     background: url(/images/mobile/home/photo_keyvisual01@2x.jpg) no-repeat center center / cover;
+  }
+}
+.catch{
+  font-family: var(--font-futura), sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: rem(24);
+  justify-content: center;
+  display: inline-flex;
+  min-height: calc( 100svh - 65px );
+  flex-direction: column;
+  .line{
+    display: inline-block;
+    background: rgba(5,48,56,0.8);
+    padding-inline: 10px;
+    padding-block: 5px;
+    line-height: 1.2;
+    width: fit-content;
+    &:first-of-type{
+      border-radius: 3px 3px 3px 0;
+    }
+    &:last-of-type{
+      border-radius:0 0 3px 3px
+    }
   }
 }

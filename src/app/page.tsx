@@ -6,6 +6,10 @@ export default function Home() {
     <>
       <div className={styles.keyvisual}>
         <Header />
+        <p className={styles.catch}>
+          <span className={styles.line}>Climb Higher,</span>
+          <span className={styles.line}>Together</span>
+        </p>
       </div>
     </>
   );
