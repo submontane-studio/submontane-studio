@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"markuplint.defaultConfig": {
+			"excludeFiles": [
+				"**/node_modules/**"
+			],
+			"extends": [
+				"markuplint:recommended"
+			]
+		}
+	}
+}
