@@ -1,4 +1,5 @@
 import Header from "./component/Header";
+import Information from "./component/Information";
 import styles from "./styles/home.module.scss";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
           <span className={styles.line}>Climb Higher,</span>
           <span className={styles.line}>Together</span>
         </p>
+        <Information />
       </div>
     </>
   );

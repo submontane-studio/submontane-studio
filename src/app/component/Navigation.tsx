@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Contact } from "../component/button/Button";
-import { Close, ParentItem } from "./hamburger";
+import { Close, ParentItem } from "./Hamburger";
 import Items from "./navigation.json";
 
 export default function Navigation() {
