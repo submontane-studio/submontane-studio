@@ -25,6 +25,7 @@ export function ParentItem({
       <li
         key={slug}
         id="js-hasChildren"
+        className={slug}
         onClick={SlideChildren}
         onKeyDown={SlideChildren}
       >
@@ -34,6 +35,7 @@ export function ParentItem({
       <li
         key={slug}
         id="js-hasChildren"
+        className={slug}
         onMouseEnter={SlideChildren}
         onMouseLeave={SlideChildren}
       >
@@ -41,7 +43,9 @@ export function ParentItem({
       </li>
     )
   ) : (
-    <li key={slug}>{children}</li>
+    <li key={slug} className={slug}>
+      {children}
+    </li>
   );
 }
 

@@ -96,5 +96,12 @@ body{
         background: rgba(0,0,0,.4);
       }
     }
+    &.contact{
+      display: none;
+      @media screen and (min-width: 768px){
+        display: block;
+
+      }
+    }
   }
 }

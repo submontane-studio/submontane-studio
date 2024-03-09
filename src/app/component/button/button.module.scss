@@ -2,9 +2,39 @@
 
 .button{
   margin-inline: auto;
+  text-align: center;
 }
 .contact{
   font-size: rem(16);
   color: #fff;
-  background: var(--color-secondary);
+  a{
+    font-weight: 700;
+    text-decoration: none;
+    min-height: 60px;
+    background: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    position: relative;
+    &:after{
+      content:"";
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-right:2px solid #fff;
+      border-bottom: 2px solid #fff;
+      position: absolute;
+      top: 50%;
+      right: 17px;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+  }
+  &.is-nav{
+    width: 240px;
+    margin:60px auto 0;
+    @media screen and (min-width: 768px){
+      display: block;
+    }
+  }
 }
