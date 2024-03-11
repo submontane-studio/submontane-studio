@@ -11,8 +11,8 @@ export default function Home() {
           <span className={styles.line}>Climb Higher,</span>
           <span className={styles.line}>Together</span>
         </p>
-        <Information />
       </div>
+      <Information />
     </>
   );
 }

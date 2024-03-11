@@ -38,6 +38,46 @@
 .information{
   background: #fff;
   border-radius: 5px;
-  border: 1px solid #eee;
   box-shadow: 2px 2px 0 rgba(10,10,10, 0.1);
+  margin-block-start: -60px;
+  margin-inline: 20px;
+  h2{
+    font-size: rem(14);
+    font-weight: 700;
+    background: #222;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+    border-radius: 3px 3px 0 0;
+    &:before{
+      content: url(/images/mobile/home/ico_info01.svg);
+      padding-block-start: 5px;
+      margin-inline-end: 10px;
+    }
+  }
+  &-list{
+    padding:30px;
+    border: 1px solid #eee;
+    border-radius: 0 0 5px 5px;
+    li{
+      a{
+        text-decoration: none;
+      }
+      .time{
+        font-size: 11px;
+        margin-bottom: 10px;
+      }
+      h3{
+        font-size: 14px;
+        line-height: 1.8;
+        &:after{
+          content:url(/images/mobile/home/ico_arrow01.svg);
+          padding-block-start: 2px;
+          margin-inline-start: 8px;
+        }
+      }
+    }
+  }
 }
