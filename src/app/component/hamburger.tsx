@@ -6,12 +6,21 @@ const SlideNav = () => {
   const hamburger = document.getElementById("hamburger");
   const nav = document.getElementById("navigation");
   nav?.classList.toggle("is-open");
+  if (nav?.getAttribute("aria-hidden") === "true") {
+    nav?.setAttribute("aria-hidden", "false");
+  } else {
+    nav?.setAttribute("aria-hidden", "true");
+  }
 };
-
 const SlideChildren = () => {
   const hasChildren = document.getElementById("js-hasChildren");
   const children = hasChildren?.querySelector("span")?.nextElementSibling;
   children?.classList.toggle("is-open");
+  if (children?.getAttribute("aria-expanded") === "true") {
+    children?.setAttribute("aria-expanded", "false");
+  } else {
+    children?.setAttribute("aria-expanded", "true");
+  }
 };
 
 export function ParentItem({
@@ -53,7 +62,12 @@ export function Open() {
   const matches = useMediaQuery("(max-width: 768px)");
   return matches ? (
     <div id="hamburger" className="hamburger">
-      <button type="button" onClick={SlideNav}>
+      <button
+        type="button"
+        onClick={SlideNav}
+        aria-controls="navigation"
+        aria-expanded="false"
+      >
         <Image
           src="/images/mobile/common/header/ico_hamburger.svg"
           width={18}
