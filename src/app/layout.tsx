@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import config from "next/config";
 import { BIZ_UDPGothic, Inter } from "next/font/google";
 import localFont from "next/font/local";
-import local from "next/font/local";
 import Script from "next/script";
 import "./styles/globals.scss";
 
@@ -48,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${inter.variable} ${biz.variable} ${futura.variable} wf-fot-udkakugo-large-pr6n-n5-active wf-fot-udkakugo-large-pr6n-n7-active wf-fot-udkakugo-large-pr6n-n4-active wf-active`}
+      className={`${inter.variable} ${biz.variable} ${futura.variable}`}
     >
       <head>
         <Script src="/scripts/typekit.js" strategy="beforeInteractive" />

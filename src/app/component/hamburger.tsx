@@ -87,7 +87,7 @@ export function Close() {
         <Image
           src="/images/mobile/common/header/ico_close.svg"
           width={36}
-          height={35}
+          height={36}
           alt="メニューを閉じる"
         />
       </button>

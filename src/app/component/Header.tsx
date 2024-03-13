@@ -10,7 +10,7 @@ export default function Header() {
       <Logo>
         <Image
           src="/images/mobile/common/header/logo.svg"
-          width={186}
+          width={125}
           height={12}
           alt={process.env.SITE_TITLE ?? ""}
         />
