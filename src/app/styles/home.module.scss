@@ -41,6 +41,8 @@
   box-shadow: 2px 2px 0 rgba(10,10,10, 0.1);
   margin-block-start: -60px;
   margin-inline: 20px;
+  position: relative;
+  z-index: 2;
   h2{
     font-size: rem(14);
     font-weight: 700;
@@ -61,6 +63,7 @@
     padding:30px;
     border: 1px solid #eee;
     border-radius: 0 0 5px 5px;
+    height: 250px;
     li{
       a{
         text-decoration: none;
@@ -83,6 +86,7 @@
 }
 
 .services{
-  padding:200px;
   background: var(--color-primary);
+  margin-block-start: -250px;
+  padding-block-start: 305px;
 }

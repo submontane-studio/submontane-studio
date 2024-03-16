@@ -1,5 +1,6 @@
 import Header from "./component/Header";
 import Information from "./component/Information";
+import Services from "./component/Services";
 import styles from "./styles/home.module.scss";
 
 export default function Home() {
@@ -13,9 +14,7 @@ export default function Home() {
         </p>
       </div>
       <Information />
-      <section className={styles.services}>
-        <p>test</p>
-      </section>
+      <Services />
     </>
   );
 }
