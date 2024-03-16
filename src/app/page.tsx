@@ -13,6 +13,9 @@ export default function Home() {
         </p>
       </div>
       <Information />
+      <section className={styles.services}>
+        <p>test</p>
+      </section>
     </>
   );
 }

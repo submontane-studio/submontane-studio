@@ -5,7 +5,7 @@ export default function Information() {
   return (
     <section className={styles.information}>
       <h2>お知らせ</h2>
-      <ul className={styles["information-list"]}>
+      <ul id="information" className={styles["information-list"]}>
         <InformationItem />
       </ul>
     </section>

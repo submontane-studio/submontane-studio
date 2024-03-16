@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Contact } from "../component/button/Button";
+import { Contact } from "./button/Button";
 import { Close, ParentItem } from "./hamburger";
 import Items from "./navigation.json";
 
