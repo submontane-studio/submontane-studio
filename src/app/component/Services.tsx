@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "../styles/home.module.scss";
+import ServiceItem from "./ServiceItem";
 
 const services = [
   {
@@ -8,7 +9,6 @@ const services = [
       width: 29,
       height: 24,
     },
-    color: "#FE6A9D",
     slug: "web",
     heading: "Webサイト制作",
     description:
@@ -21,7 +21,6 @@ const services = [
       width: 25,
       height: 24,
     },
-    color: "#36B0C1",
     slug: "sns",
     heading: "SNS運用支援",
     description:
@@ -34,7 +33,6 @@ const services = [
       width: 31,
       height: 23,
     },
-    color: "#2FCE4E",
     slug: "outsourcing",
     heading: "アウトソーシング請負",
     description:
@@ -47,7 +45,6 @@ const services = [
       width: 24,
       height: 24,
     },
-    color: "#FEDE6A",
     slug: "seo",
     heading: "SEO対策",
     description:
@@ -60,7 +57,6 @@ const services = [
       width: 26,
       height: 20,
     },
-    color: "#6A8BFE",
     slug: "management",
     heading: "保守・管理",
     description:
@@ -82,17 +78,16 @@ const services = [
   },
 ];
 
+const expand = (e: React.ChangeEvent<HTMLInputElement>) => {
+  console.log(e.target);
+};
+
 export default function Services() {
   return (
     <section className={styles.services}>
       <ul className={styles["services-list"]}>
         {services.map((services) => (
-          <li
-            key={services.slug}
-            className={`services-item${
-              services.contract ? " is-contract" : ""
-            }`}
-          >
+          <ServiceItem slug={services.slug} isContract={services.contract}>
             <div className="heading">
               <div className="icon">
                 <Image
@@ -103,11 +98,11 @@ export default function Services() {
                 />
               </div>
               <h2>{services.heading}</h2>
-              <div className="description">
-                <p>{services.description}</p>
-              </div>
             </div>
-          </li>
+            <div className="description">
+              <p>{services.description}</p>
+            </div>
+          </ServiceItem>
         ))}
       </ul>
     </section>

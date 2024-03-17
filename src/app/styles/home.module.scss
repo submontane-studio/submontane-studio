@@ -89,4 +89,85 @@
   background: var(--color-primary);
   margin-block-start: -250px;
   padding-block-start: 305px;
+  padding-inline: 40px;
+  &-list{
+    display:flex;
+    flex-direction: column;
+  }
+  :global{
+    .services-item{
+      background: #fff;
+      padding-block: 30px;
+      padding-inline: 20px;
+      border-radius: 3px;
+      .heading{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-block-end: 30px;
+        h2{
+          font-weight: 700;
+          font-size: rem(20);
+          margin-inline-start: 10px;
+        }
+      }
+      .icon{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3px;
+      }
+      &.web{
+        .icon{
+          background: #FE6A9D;
+        }
+      }
+      &.sns{
+        .icon{
+          background: #36B0C1;
+        }
+      }
+      &.outsourcing{
+        .icon{
+          background: #2FCE4E;
+        }
+        h2{
+          font-size: rem(18);
+        }
+      }
+      &.seo{
+        .icon{
+          background: #FEDE6A;
+        }
+      }
+      &.management{
+        .icon{
+          background: #6A8BFE;
+        }
+      }
+      &.advertise{
+        .icon{
+          background: #FF6161;
+        }
+      }
+      & + .services-item{
+        margin-block-start: 40px;
+      }
+      .description{
+        font-size: rem(14);
+        line-height: 1.8;
+      }
+      &.is-contract{
+        .heading{
+          margin-block-end: 0;
+        }
+        .description{
+          max-height: 0;
+          overflow: hidden;
+        }
+      }
+    }
+  }
 }
