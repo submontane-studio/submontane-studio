@@ -100,6 +100,16 @@
       padding-block: 30px;
       padding-inline: 20px;
       border-radius: 3px;
+      position: relative;
+      &:before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        display: block;
+        border-inline-end: 2px solid --color-primary;
+        border-block-end: 2px solid --color-primary;
+      }
       .heading{
         display: flex;
         flex-direction: row;

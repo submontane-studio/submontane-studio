@@ -78,16 +78,16 @@ const services = [
   },
 ];
 
-const expand = (e: React.ChangeEvent<HTMLInputElement>) => {
-  console.log(e.target);
-};
-
 export default function Services() {
   return (
     <section className={styles.services}>
       <ul className={styles["services-list"]}>
         {services.map((services) => (
-          <ServiceItem slug={services.slug} isContract={services.contract}>
+          <ServiceItem
+            key={services.slug}
+            slug={services.slug}
+            isContract={services.contract}
+          >
             <div className="heading">
               <div className="icon">
                 <Image
