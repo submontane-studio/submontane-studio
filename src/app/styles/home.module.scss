@@ -88,7 +88,7 @@
 .services{
   background: var(--color-primary);
   margin-block-start: -250px;
-  padding-block-start: 305px;
+  padding-block: 305px 60px;
   padding-inline: 40px;
   &-list{
     display:flex;
@@ -101,6 +101,7 @@
       padding-inline: 20px;
       border-radius: 3px;
       position: relative;
+      transition: all 0.3s ease;
       &:before{
         content: '';
         position: absolute;
@@ -170,12 +171,24 @@
         line-height: 1.8;
       }
       &.is-contract{
+        overflow: hidden;
+        max-height: 110px;
         .heading{
-          margin-block-end: 0;
+          position: relative;
+          &::after{
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
         }
-        .description{
-          max-height: 0;
-          overflow: hidden;
+        &.is-expanded{
+          max-height: 100vh
         }
       }
     }
