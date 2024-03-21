@@ -118,8 +118,9 @@
         margin-block-end: 30px;
         h2{
           font-weight: 700;
-          font-size: rem(20);
+          font-size: rem(18);
           margin-inline-start: 10px;
+          font-family: fot-udkakugo-large-pr6n, sans-serif;
         }
       }
       .icon{
@@ -191,6 +192,23 @@
           max-height: 100vh
         }
       }
+    }
+  }
+}
+.message{
+  background: url(/images/mobile/home/bg_message01.svg) left top / contain no-repeat;
+  padding-inline: 20px;
+  padding-block: 37.333% 80px;
+  h2{
+    font-size: rem(20);
+    font-weight: 700;
+    font-family: fot-udkakugo-large-pr6n, sans-serif;
+    margin-block-end: 30px;
+  }
+  :global{
+    .txt{
+      font-size: rem(14);
+      line-height: 2;
     }
   }
 }

@@ -1,5 +1,6 @@
 import Header from "./component/Header";
 import Information from "./component/Information";
+import Message from "./component/Message";
 import Services from "./component/Services";
 import styles from "./styles/home.module.scss";
 
@@ -15,6 +16,7 @@ export default function Home() {
       </div>
       <Information />
       <Services />
+      <Message />
     </>
   );
 }
