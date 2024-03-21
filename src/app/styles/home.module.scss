@@ -53,6 +53,7 @@
     justify-content: center;
     min-height: 60px;
     border-radius: 3px 3px 0 0;
+    font-family: fot-udkakugo-large-pr6n, sans-serif;
     &:before{
       content: url(/images/mobile/home/ico_info01.svg);
       padding-block-start: 5px;
@@ -210,5 +211,20 @@
       font-size: rem(14);
       line-height: 2;
     }
+  }
+}
+.blog{
+  padding-block:50px 60px;
+  padding-inline: 20px;
+  background: var(--color-primary);
+  color: #fff;
+  h2{
+    font-size: rem(24);
+    font-weight: 700;
+    background: url(/images/mobile/home/bg_heading01.svg) center bottom no-repeat;
+    padding-block-end: 20px;
+    text-align: center;
+    margin-block-end: 40px;
+    font-family: fot-udkakugo-large-pr6n, sans-serif;
   }
 }

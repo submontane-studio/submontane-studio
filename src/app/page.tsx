@@ -1,3 +1,4 @@
+import Blog from "./component/Blog";
 import Header from "./component/Header";
 import Information from "./component/Information";
 import Message from "./component/Message";
@@ -17,6 +18,7 @@ export default function Home() {
       <Information />
       <Services />
       <Message />
+      <Blog />
     </>
   );
 }
