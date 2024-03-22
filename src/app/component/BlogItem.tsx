@@ -1,5 +1,6 @@
 import { format, parse } from "@formkit/tempo";
 import { headers } from "next/headers";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/home.module.scss";
 
@@ -8,9 +9,12 @@ type Item = {
   publishedAt: string;
   updatedAt?: string;
   title: string;
-  category: object;
-  keyvisual: {
-    url: URL;
+  category: {
+    id: string;
+    name: string;
+  };
+  keyvisual?: {
+    url: string;
   };
 };
 
@@ -26,5 +30,49 @@ export default async function BlogItem() {
 
   const data = await res.json();
 
-  return <code>{JSON.stringify(data)}</code>;
+  return (
+    <ul className={styles["blog-list"]}>
+      {data.contents.map((item: Item) => (
+        <li className="blog-item" key={item.id}>
+          <Link href={`posts/${item.id}`}>
+            <p className={`category is-${item.category.id}`}>
+              {item.category.name}
+            </p>
+            <div className="keyvisual">
+              <Image
+                src={
+                  item.keyvisual?.url
+                    ? item.keyvisual?.url
+                    : "/images/mobile/common/mohammad-alizade-XgeZu2jBaVI-unsplash.jpg"
+                }
+                alt=""
+                fill={true}
+              />
+            </div>
+            <div className="date">
+              <p className="published">
+                <time
+                  dateTime={format(item.publishedAt, "YYYY-MM-DD")}
+                  aria-label={format(item.publishedAt, "公開日 YYYY年MM月DD日")}
+                >
+                  {format(item.publishedAt, "YYYY.MM.DD")}
+                </time>
+              </p>
+              {item.updatedAt && (
+                <p className="updated">
+                  <time
+                    dateTime={format(item.updatedAt, "YYYY-MM-DD")}
+                    aria-label={format(item.updatedAt, "更新日 YYYY年MM月DD日")}
+                  >
+                    {format(item.updatedAt, "YYYY.MM.DD")}
+                  </time>
+                </p>
+              )}
+            </div>
+            <h3>{item.title}</h3>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
 }

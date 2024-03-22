@@ -1,4 +1,6 @@
 import Blog from "./component/Blog";
+import Conversion from "./component/Conversion";
+import Footer from "./component/Footer";
 import Header from "./component/Header";
 import Information from "./component/Information";
 import Message from "./component/Message";
@@ -19,6 +21,8 @@ export default function Home() {
       <Services />
       <Message />
       <Blog />
+      <Conversion />
+      <Footer />
     </>
   );
 }

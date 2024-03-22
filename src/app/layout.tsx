@@ -26,6 +26,11 @@ const futura = localFont({
       weight: "700",
       style: "normal",
     },
+    {
+      path: "../../public/font/futura/Medium/Futura-Med.woff",
+      weight: "500",
+      style: "normal",
+    },
   ],
   display: "swap",
   variable: "--font-futura",
