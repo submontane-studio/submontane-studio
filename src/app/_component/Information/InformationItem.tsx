@@ -1,7 +1,7 @@
 import { format, parse } from "@formkit/tempo";
 import { headers } from "next/headers";
 import Link from "next/link";
-import styles from "../styles/home.module.scss";
+import styles from "../../styles/home.module.scss";
 type Item = {
   id: string;
   publishedAt: string;

@@ -1,10 +1,10 @@
-import Blog from "./component/Blog";
-import Conversion from "./component/Conversion";
-import Footer from "./component/Footer";
-import Header from "./component/Header";
-import Information from "./component/Information";
-import Message from "./component/Message";
-import Services from "./component/Services";
+import Blog from "./_component/Blog/Blog";
+import Conversion from "./_component/Conversion";
+import Footer from "./_component/Footer";
+import Header from "./_component/Header";
+import Information from "./_component/Information/Information";
+import Message from "./_component/Message/Message";
+import Services from "./_component/Services/Services";
 import styles from "./styles/home.module.scss";
 
 export default function Home() {

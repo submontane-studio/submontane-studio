@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Logo from "./Logo";
-import Navigation from "./Navigation";
+import Navigation from "./Navigation/Navigation";
 import { Open } from "./hamburger";
 
 export default function Header() {

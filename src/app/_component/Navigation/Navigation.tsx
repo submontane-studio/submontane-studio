@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Contact } from "./button/Button";
-import { Close, ParentItem } from "./hamburger";
+import { Contact } from "../Button/Button";
+import { Close, ParentItem } from "../hamburger";
 import Items from "./navigation.json";
 
 export default function Navigation() {

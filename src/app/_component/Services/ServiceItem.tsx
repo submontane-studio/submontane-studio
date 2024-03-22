@@ -1,6 +1,6 @@
 "use client";
 
-import useMediaQuery from "./useMediaQuery";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function ServiceItem({
   children,

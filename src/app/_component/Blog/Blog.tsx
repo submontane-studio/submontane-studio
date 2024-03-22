@@ -1,6 +1,6 @@
-import styles from "../styles/home.module.scss";
+import styles from "../../styles/home.module.scss";
+import { ButtonWhite } from "../Button/Button";
 import BlogItem from "./BlogItem";
-import { ButtonWhite } from "./button/Button";
 
 export default function Blog() {
   return (
