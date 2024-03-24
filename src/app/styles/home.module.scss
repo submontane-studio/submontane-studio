@@ -152,6 +152,8 @@
       width: 90.885%;
       margin-inline: auto;
       max-width: 1745px;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
   }
   :global{
@@ -162,25 +164,31 @@
       border-radius: 3px;
       position: relative;
       transition: all 0.3s ease;
-      &:before{
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        display: block;
-        border-inline-end: 2px solid --color-primary;
-        border-block-end: 2px solid --color-primary;
+      @media screen and (min-width: 768px) {
+        margin-block-start: 40px;
+        padding-inline:40px;
+        padding-block: 30px 40px;
       }
       .heading{
         display: flex;
         flex-direction: row;
         align-items: center;
         margin-block-end: 30px;
+        @media screen and (min-width: 768px) {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-block-end: 10px;
+        }
         h2{
           font-weight: 700;
           font-size: rem(18);
           margin-inline-start: 10px;
           font-family: fot-udkakugo-large-pr6n, sans-serif;
+          @media screen and (min-width: 768px) {
+            font-size: rem(21);
+            margin-inline-start: 0;
+            margin-block-start: 10px;
+          }
         }
       }
       .icon{
@@ -190,18 +198,31 @@
         align-items: center;
         justify-content: center;
         border-radius: 3px;
+        @media screen and (min-width: 768px) {
+          width: 60px;
+          height: 60px;
+        }
       }
       &.web{
+        @media screen and (min-width: 768px) {
+          width: 35.243%;
+        }
         .icon{
           background: #FE6A9D;
         }
       }
       &.sns{
+        @media screen and (min-width: 768px) {
+          width: 24.928%;
+        }
         .icon{
           background: #36B0C1;
         }
       }
       &.outsourcing{
+        @media screen and (min-width: 768px) {
+          width: 35.243%;
+        }
         .icon{
           background: #2FCE4E;
         }
@@ -210,22 +231,42 @@
         }
       }
       &.seo{
+        @media screen and (min-width: 768px) {
+          width: 30.487%;
+        }
         .icon{
           background: #FEDE6A;
         }
       }
       &.management{
+        @media screen and (min-width: 768px) {
+          width: 34.383%;
+        }
         .icon{
           background: #6A8BFE;
         }
       }
       &.advertise{
+        @media screen and (min-width: 768px) {
+          width: 30.487%;
+        }
         .icon{
           background: #FF6161;
         }
       }
       & + .services-item{
         margin-block-start: 40px;
+        @media screen and (min-width: 768px) {
+          margin-block-start: 0;
+          &:not(:nth-of-type(3n+1)){
+            margin-inline-start: 2.292%;
+          }
+        }
+      }
+      &:first-of-type{
+        @media screen and (min-width: 768px) {
+          margin-block-start: 0;
+        }
       }
       .description{
         font-size: rem(14);
@@ -234,6 +275,11 @@
       &.is-contract{
         overflow: hidden;
         max-height: 110px;
+        @media screen and (min-width: 768px) {
+          margin-block-start: 40px;
+          max-height: none;
+          overflow: auto;
+        }
         .heading{
           position: relative;
           &::after{
@@ -243,9 +289,13 @@
             right: 8px;
             width: 8px;
             height: 8px;
+            display: block;
             border-right: 2px solid var(--color-primary);
             border-bottom: 2px solid var(--color-primary);
             transform: translate(-50%, -50%) rotate(45deg);
+            @media screen and (min-width: 768px) {
+              display: none;
+            }
           }
         }
         &.is-expanded{
