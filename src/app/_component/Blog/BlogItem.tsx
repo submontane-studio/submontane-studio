@@ -47,6 +47,7 @@ export default async function BlogItem() {
                 }
                 alt=""
                 fill={true}
+                sizes="(max-width: 640px) 100vw, 33.33%"
               />
             </div>
             <div className="date">
