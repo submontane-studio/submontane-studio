@@ -11,5 +11,6 @@
   "markuplint.defaultConfig": {
     "excludeFiles": ["**/node_modules/**"],
     "extends": ["markuplint:recommended"]
-  }
+  },
+  "html-css-class-completion.enableEmmetSupport": true
 }

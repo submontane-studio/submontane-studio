@@ -1,5 +1,5 @@
 import styles from "../styles/home.module.scss";
-import { Contact } from "./button/Button";
+import { Contact } from "./Button/Button";
 
 export default function Conversion() {
   return (

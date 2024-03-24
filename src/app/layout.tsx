@@ -6,7 +6,7 @@ import Script from "next/script";
 import "./styles/globals.scss";
 
 const inter = Inter({
-  weight: ["400", "700"],
+  weight: ["400", "600"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",

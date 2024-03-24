@@ -12,15 +12,32 @@ const SlideNav = () => {
     nav?.setAttribute("aria-hidden", "true");
   }
 };
+// const SlideChildren = () => {
+//   const hasChildren = document.getElementById("js-hasChildren");
+//   const children =
+//     hasChildren?.querySelector(".hasChildren")?.nextElementSibling;
+//   children?.classList.toggle("is-open");
+//   if (children?.getAttribute("aria-expanded") === "true") {
+//     children?.setAttribute("aria-expanded", "false");
+//   } else {
+//     children?.setAttribute("aria-expanded", "true");
+//   }
+// };
+
 const SlideChildren = () => {
   const hasChildren = document.getElementById("js-hasChildren");
-  const children = hasChildren?.querySelector("span")?.nextElementSibling;
-  children?.classList.toggle("is-open");
-  if (children?.getAttribute("aria-expanded") === "true") {
-    children?.setAttribute("aria-expanded", "false");
-  } else {
-    children?.setAttribute("aria-expanded", "true");
-  }
+  const children =
+    hasChildren?.querySelector(".hasChildren")?.nextElementSibling;
+  children?.classList.add("is-open");
+  children?.setAttribute("aria-expanded", "true");
+};
+const FoldChildren = () => {
+  const hasChildren = document.getElementById("js-hasChildren");
+  const children =
+    hasChildren?.querySelector(".hasChildren")?.nextElementSibling;
+
+  children?.classList.remove("is-open");
+  children?.setAttribute("aria-expanded", "false");
 };
 
 export function ParentItem({
@@ -46,7 +63,8 @@ export function ParentItem({
         id="js-hasChildren"
         className={slug}
         onMouseEnter={SlideChildren}
-        onMouseLeave={SlideChildren}
+        onMouseLeave={FoldChildren}
+        onFocus={SlideChildren}
       >
         {children}
       </li>

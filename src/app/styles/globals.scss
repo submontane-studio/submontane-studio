@@ -17,6 +17,12 @@ body{
   padding-block: 15px 14px;
   padding-inline: 20px;
   border-radius: 3px;
+  @media screen and (min-width: 768px){
+    width: calc(100vw - 80px);
+    padding-block: 0;
+    padding-inline: 30px 40px;
+
+  }
 }
 .hamburger{
   margin-inline-end: 20px;
@@ -28,6 +34,14 @@ body{
 .logo{
   width: 150px;
   height: auto;
+  @media screen and (min-width: 768px){
+    width: 240px;
+    margin-inline-end: auto;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 .navigation{
   visibility: hidden;
@@ -42,6 +56,16 @@ body{
   background: rgba(5, 48, 56, .9);
   backdrop-filter: blur(4px);
   z-index:100;
+  @media screen and (min-width: 768px) {
+    position: static;
+    visibility: visible;
+    height: auto;
+    width: auto;
+    max-width: none;
+    background: transparent;
+    display: inline-flex;
+    overflow: visible;
+  }
   &.is-open{
     visibility: visible;
     left: 0;
@@ -52,11 +76,22 @@ body{
   justify-content: flex-end;
   margin-block: 15px 35px;
   margin-inline-end:16px;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 .navigation-list{
   border-block-start: 1px solid #2F535A;
+  @media screen and (min-width: 768px) {
+    border-block-start: none;
+  }
   li{
     border-block-end: 1px solid #2F535A;
+    @media screen and (min-width: 768px) {
+      border-block-end: none;
+      display: inline-flex;
+      position: relative;
+    }
     a,.hasChildren{
       display: block;
       padding-block: 20px;
@@ -64,12 +99,20 @@ body{
       color: #fff;
       font-weight: 700;
       text-decoration: none;
+      @media screen and (min-width: 768px) {
+        display: inline-flex;
+        color: var(--color-primary);
+        padding-block: 30px;
+        padding-inline: 0;
+        font-size: rem(16);
+      }
     }
     .hasChildren{
       border-block-end: 1px solid #2F535A;
       position: relative;
       @media screen and (min-width: 768px){
         cursor: pointer;
+        border-block-end: 0;
       }
       &::after{
         content: '';
@@ -84,6 +127,14 @@ body{
         display: block;
         width: 6px;
         height: 6px;
+        @media screen and (min-width: 768px) {
+          display: none;
+        }
+      }
+    }
+    &.marketing{
+      @media screen and (min-width: 768px) {
+        flex-direction: column;
       }
     }
     .navigation-children{
@@ -91,19 +142,90 @@ body{
       overflow: hidden;
       visibility: hidden;
       transition: all 0.3s ease;
+      @media screen and (min-width: 768px) {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 280px;
+        padding-block-start: 30px;
+        flex-direction: column;
+        &::before{
+          content:"";
+          clip-path: polygon(50% 0, 100% 100%, 0 100%);
+          height: calc(20px / 2);
+          width: 20px;
+          display: block;
+          position: absolute;
+          background: rgba(34,34,34,.8);
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
       &.is-open{
         max-height: 100vh;
         visibility: visible;
       }
       li{
         background: rgba(0,0,0,.4);
+        @media screen and (min-width: 768px) {
+          background: transparent;
+          display: flex;
+          background: rgba(34,34,34,.8);
+          width: 100%;
+          &+li{
+            margin-inline-start: 0;
+            a{
+              border-block-start: 1px solid #fff;
+            }
+          }
+          a{
+            margin-inline: 20px;
+            color: #bbb;
+            display: flex;
+            width: 100%;
+            font-size: rem(14);
+            padding-block: 25px;
+            padding-inline-start:25px;
+            position: relative;
+            @media (hover: hover){
+              &:hover{
+                color: #fff;
+              }
+            }
+            &:before{
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 5px;
+              transform: translateY(-50%) rotate(-45deg);
+              display: block;
+              width: 6px;
+              height: 6px;
+              border-inline-end: 2px solid #fff;
+              border-block-end: 2px solid #fff;
+            }
+            &:first-of-type{
+              border-radius: 3px 3px 0 0;
+            }
+            &:last-of-type{
+              border-radius: 0 0 3px 3px;
+            }
+          }
+        }
       }
     }
     &.contact{
       display: none;
       @media screen and (min-width: 768px){
-        display: block;
+        display: inline-flex;
 
+      }
+    }
+    &+li{
+      @media screen and (min-width: 768px) {
+        margin-inline-start: 30px;
       }
     }
   }

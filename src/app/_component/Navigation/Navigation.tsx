@@ -12,7 +12,12 @@ export default function Navigation() {
           <ParentItem slug={item.slug} key={item.slug}>
             {item.slug === "marketing" ? (
               <>
-                <span className="hasChildren" aria-expanded="true">
+                <span
+                  role="menuitem"
+                  className="hasChildren"
+                  aria-expanded="true"
+                  tabIndex={0}
+                >
                   {item.name}
                 </span>
                 <ul className="navigation-children">
@@ -21,6 +26,7 @@ export default function Navigation() {
                       <Link
                         key={subItem.slug}
                         href={`${item.slug}/${subItem.slug}`}
+                        role="menuitem"
                       >
                         {subItem.name}
                       </Link>
@@ -29,7 +35,9 @@ export default function Navigation() {
                 </ul>
               </>
             ) : (
-              <Link href={item.slug}>{item.name}</Link>
+              <Link href={item.slug} role="menuitem">
+                {item.name}
+              </Link>
             )}
           </ParentItem>
         ))}

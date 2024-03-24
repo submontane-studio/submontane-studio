@@ -10,6 +10,14 @@
   @media (min-resolution: 72dpi) {
     background: url(/images/mobile/home/photo_keyvisual01@2x.jpg) no-repeat center center / cover;
   }
+  @media screen and (min-width: 768px) {
+    background: url(/images/desktop/home/photo_keyvisual01.jpg) no-repeat center center / cover;
+    padding-block-start: 40px;
+    padding-inline: 40px;
+    @media (min-resolution: 72dpi) {
+      background: url(/images/desktop/home/photo_keyvisual01@2x.jpg) no-repeat center center / cover;
+    }
+  }
 }
 .catch{
   font-family: var(--font-futura), sans-serif;
@@ -20,6 +28,9 @@
   display: inline-flex;
   min-height: calc( 100svh - 65px );
   flex-direction: column;
+  @media screen and (min-width: 768px) {
+    font-size: rem(42);
+  }
   .line{
     display: inline-block;
     background: rgba(5,48,56,0.8);
