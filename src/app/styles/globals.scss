@@ -8,6 +8,10 @@ body{
   letter-spacing: .13rem;
   font-size: rem(14);
   font-feature-settings: "palt";
+  @media screen and (min-width: 768px) {
+    min-width: 1200px;
+    font-size: rem(16);
+  }
 }
 .header{
   background: var(--color-base);

@@ -271,6 +271,10 @@
       .description{
         font-size: rem(14);
         line-height: 1.8;
+        @media screen and (min-width: 768px) {
+          font-size: rem(16);
+          line-height: 2;
+        }
       }
       &.is-contract{
         overflow: hidden;
@@ -309,16 +313,62 @@
   background: url(/images/mobile/home/bg_message01.svg) left top / contain no-repeat;
   padding-inline: 20px;
   padding-block: 37.333% 80px;
+  @media screen and (min-width: 768px) {
+    background: none;
+    padding-block: 120px 140px;
+    padding-inline: 0;
+    position: relative;
+    &:before{
+      content:"";
+      width: 22.8333%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background:url(/images/desktop/home/bg_message01.svg) left top repeat-x;
+    }
+  }
   h2{
     font-size: rem(20);
     font-weight: 700;
     font-family: fot-udkakugo-large-pr6n, sans-serif;
     margin-block-end: 30px;
+    @media screen and (min-width: 768px) {
+      font-size: rem(36);
+      position: relative;
+      display: inline-flex;
+      padding-inline-end: 330px;
+      margin-inline-end: auto;
+      margin-block-end: 40px;
+      &:after{
+        content:"";
+        display: block;
+        width: 300px;
+        height: 1px;
+        background: var(--color-primary);
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
   }
   :global{
+    .inner{
+      @media screen and (min-width: 768px) {
+        width: 1200px;
+        margin-inline: auto;
+        min-width: 1200px;
+      }
+    }
     .txt{
       font-size: rem(14);
       line-height: 2;
+      @media screen and (min-width: 768px) {
+        font-size: rem(16);
+        width: 900px;
+        margin-inline-start: auto;
+      }
     }
   }
 }
