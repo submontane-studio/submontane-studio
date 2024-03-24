@@ -103,8 +103,15 @@ body{
         display: inline-flex;
         color: var(--color-primary);
         padding-block: 30px;
-        padding-inline: 0;
+        padding-inline: 15px;
         font-size: rem(16);
+        transition: background 0.3s ease;
+        @media (hover: hover){
+          &:hover{
+            color: #222;
+            background: #f2f2f2;
+          }
+        }
       }
     }
     .hasChildren{
@@ -192,6 +199,7 @@ body{
             @media (hover: hover){
               &:hover{
                 color: #fff;
+                background: transparent;
               }
             }
             &:before{
@@ -221,11 +229,6 @@ body{
       @media screen and (min-width: 768px){
         display: inline-flex;
 
-      }
-    }
-    &+li{
-      @media screen and (min-width: 768px) {
-        margin-inline-start: 30px;
       }
     }
   }

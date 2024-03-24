@@ -5,7 +5,7 @@ import Items from "./navigation.json";
 
 export default function Navigation() {
   return (
-    <nav id="navigation" className="navigation" aria-hidden="true">
+    <nav id="navigation" className="navigation" aria-hidden="false">
       <Close />
       <ul className="navigation-list">
         {Items.map((item) => (
