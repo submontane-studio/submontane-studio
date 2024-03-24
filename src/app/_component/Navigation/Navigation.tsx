@@ -15,8 +15,8 @@ export default function Navigation() {
                 <span
                   role="menuitem"
                   className="hasChildren"
-                  aria-expanded="true"
                   tabIndex={0}
+                  aria-haspopup="true"
                 >
                   {item.name}
                 </span>
@@ -27,6 +27,7 @@ export default function Navigation() {
                         key={subItem.slug}
                         href={`${item.slug}/${subItem.slug}`}
                         role="menuitem"
+                        aria-expanded="false"
                       >
                         {subItem.name}
                       </Link>

@@ -77,6 +77,7 @@ export function Open() {
         onClick={SlideNav}
         aria-controls="navigation"
         aria-expanded="false"
+        aria-haspopup="true"
       >
         <Image
           src="/images/mobile/common/header/ico_hamburger.svg"
