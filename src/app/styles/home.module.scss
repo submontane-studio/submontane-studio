@@ -4,7 +4,7 @@
   background: url(/images/mobile/home/photo_keyvisual01.jpg) no-repeat center center / cover;
   padding-block-start: 25px;
   padding-inline: 20px;
-  min-height: 100svh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   @media (min-resolution: 72dpi) {
@@ -54,6 +54,12 @@
   margin-inline: 20px;
   position: relative;
   z-index: 2;
+  @media screen and (min-width: 768px) {
+    width: 1000px;
+    margin-inline: auto;
+    display: flex;
+    margin-block-start: -80px;
+  }
   h2{
     font-size: rem(14);
     font-weight: 700;
@@ -65,6 +71,11 @@
     min-height: 60px;
     border-radius: 3px 3px 0 0;
     font-family: fot-udkakugo-large-pr6n, sans-serif;
+    @media screen and (min-width: 768px) {
+      width: 250px;
+      font-size: rem(16);
+      border-radius: 3px 0 0 3px;
+    }
     &:before{
       content: url(/images/mobile/home/ico_info01.svg);
       padding-block-start: 5px;
@@ -76,22 +87,49 @@
     border: 1px solid #eee;
     border-radius: 0 0 5px 5px;
     height: 250px;
+    @media screen and (min-width: 768px) {
+      width: calc(100% - 250px);
+      height: 140px;
+      padding-block:20px;
+      padding-inline: 30px 60px;
+    }
     li{
       a{
         text-decoration: none;
+        @media screen and (min-width: 768px) {
+          display: flex;
+          @media (hover: hover){
+            &:hover{
+              h3{
+                text-decoration: underline;
+              }
+            }
+          }
+        }
       }
       .time{
-        font-size: 11px;
+        font-size: rem(14);
         margin-bottom: 10px;
+        @media screen and (min-width: 768px) {
+          margin-bottom: 0;
+          padding-block-start: .3em;
+          font-size: rem(12);
+        }
       }
       h3{
-        font-size: 14px;
+        font-size: rem(14);
         line-height: 1.8;
+        @media screen and (min-width: 768px) {
+          margin-inline-start: 20px;
+        }
         &:after{
           content:url(/images/mobile/home/ico_arrow01.svg);
           padding-block-start: 2px;
           margin-inline-start: 8px;
         }
+      }
+      &+li{
+        margin-block-start: 10px;
       }
     }
   }
@@ -102,9 +140,19 @@
   margin-block-start: -250px;
   padding-block: 305px 60px;
   padding-inline: 40px;
+  @media screen and (min-width: 768px) {
+    margin-block-start: -60px;
+    padding-block: 40px 60px;
+    padding-inline: 0;
+  }
   &-list{
     display:flex;
     flex-direction: column;
+    @media screen and (min-width: 768px) {
+      width: 90.885%;
+      margin-inline: auto;
+      max-width: 1745px;
+    }
   }
   :global{
     .services-item{
