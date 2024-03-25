@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 export default function Observer({
@@ -11,10 +12,18 @@ export default function Observer({
   classNameInView?: string | undefined;
   initialInView: boolean;
 }) {
+  const [offsetHeight, setOffsetHeight] = useState(0);
+
+  useEffect(() => {
+    const ob = (document.querySelector(".is-observer") as HTMLElement)
+      ?.offsetHeight;
+    setOffsetHeight(ob || 0);
+  }, []);
+
   const { ref, inView, entry } = useInView({
     threshold: 0,
     initialInView: initialInView,
-    rootMargin: "-84px",
+    rootMargin: `-${offsetHeight}px`,
   });
 
   return (

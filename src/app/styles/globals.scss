@@ -25,7 +25,24 @@ body{
     width: calc(100vw - 80px);
     padding-block: 0;
     padding-inline: 30px 40px;
+    position: relative;
 
+  }
+}
+.is-fixed{
+  .header{
+    position: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-inline: 20px;
+    z-index:100;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    @media screen and (min-width: 768px){
+      padding-inline:80px;
+    }
   }
 }
 .hamburger{
