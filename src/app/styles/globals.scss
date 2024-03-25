@@ -242,33 +242,139 @@ body{
   padding-inline: 20px;
   padding-block: 50px;
   color: #fff;
+  @media screen and (min-width: 768px) {
+    background: url('/images/desktop/common/conversion/bg_cv01.jpg') no-repeat center center / cover;
+    padding-block:80px;
+    padding-inline: 0;
+    @media (min-resolution: 72dpi) {
+      background: url('/images/desktop/common/conversion/bg_cv01@2x.jpg') no-repeat center center / cover;
+    }
+  }
   h2{
-    font-size: rem(20);
+    font-size: rem(16);
     font-family: fot-udkakugo-large-pr6n, sans-serif;
     font-weight: 700;
     text-align: center;
     margin-block-end: 20px;
+    @media screen and (min-width: 768px) {
+      font-size: rem(20);
+      margin-block-end: 40px;
+    }
+    em{
+      font-size: rem(20);
+      font-style: normal;
+      @media screen and (min-width: 768px) {
+        font-size: rem(32)
+      }
+    }
   }
   .txt{
     text-align: center;
     font-size: rem(14);
     line-height: 2;
     margin-block-end: 35px;
+    @media screen and (min-width: 768px) {
+      font-size: rem(16);
+      margin-block-end: 40px;
+    }
   }
 }
 .footer{
   background: #222;
   padding-block: 20px;
   text-align: center;
+  @media screen and (min-width: 768px) {
+    padding-block:60px;
+    text-align: left;
+  }
+  &-inner{
+    @media screen and (min-width: 768px) {
+      width: 1200px;
+      margin-inline: auto;
+      display: flex;
+    }
+  }
   .logo{
     margin-inline: auto;
     width: 211px;
     margin-block-end: 60px;
+    @media screen and (min-width: 768px) {
+      margin-inline: 0 auto;
+      width: 300px;
+    }
   }
   .copyright{
-    font-size: 11px;
-    font-family: var(--font-futura), sans-serif;
     color: #fff;
     font-weight: 500;
+    @media screen and (min-width: 768px) {
+      text-align: center;
+      margin-block-start: 100px;
+    }
+    small{
+      font-size: rem(11);
+      font-family: var(--font-futura), sans-serif;
+      @media screen and (min-width: 768px) {
+        font-size: rem(14);
+      }
+    }
+  }
+  &-navigation{
+    @media screen and (min-width: 768px) {
+      display: flex;
+    }
+    li{
+      a,.hasChildren{
+        @media screen and (min-width: 768px) {
+          color: #fff;
+          font-weight: 700;
+          text-decoration: none;
+          font-size: rem(14);
+        }
+      }
+      a{
+        @media screen and (min-width: 768px) {
+          @media (hover:hover) {
+            &:hover{
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      &+li{
+        @media screen and (min-width: 768px) {
+          margin-inline-start: 40px;
+        }
+      }
+      .navigation-children{
+        li{
+          @media screen and (min-width: 768px) {
+            margin-block-start: 10px;
+          }
+          a{
+            @media screen and (min-width: 768px) {
+              position: relative;
+              padding-inline-start: 30px;
+              display: block;
+              &:before{
+                content:"";
+                display: block;
+                width: 15px;
+                height: 1px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                background: #fff;
+                transform: translateY(-50%);
+              }
+            }
+          }
+          &+li{
+            @media screen and (min-width: 768px) {
+              margin-inline-start: 0;
+            }
+          }
+        }
+      }
+    }
   }
 }

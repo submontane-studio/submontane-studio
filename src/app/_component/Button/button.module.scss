@@ -20,6 +20,12 @@
     justify-content: center;
     border-radius: 3px;
     position: relative;
+    transition: all .3s ease;
+    @media (hover: hover){
+      &:hover{
+        opacity: .6;
+      }
+    }
     &:after{
       content:"";
       display: block;
@@ -52,6 +58,16 @@ font-size: rem(16);
     align-items: center;
     justify-content: center;
     position: relative;
+    transition: all .3s ease;
+    @media (hover: hover){
+      &:hover{
+        background: #fff;
+        color: var(--color-primary);
+        &:after{
+          border-color: var(--color-primary);
+        }
+      }
+    }
     &:after{
       content:"";
       display: block;
