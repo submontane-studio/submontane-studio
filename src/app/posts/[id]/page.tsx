@@ -1,4 +1,6 @@
-export default async function Page({ params }: { params: { id: string } }) {
+import Header from "../../_component/Header";
+
+export default async function Post({ params }: { params: { id: string } }) {
   const res = await fetch(
     `https://submontane.microcms.io/api/v1/posts/${params.id}`,
     {
@@ -10,5 +12,10 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   const data = await res.json();
 
-  return <div>My Post: {data.title}</div>;
+  return (
+    <div className="is-blog">
+      <Header />
+      {data.title}
+    </div>
+  ); //<div>My Post: {data.title}</div>;
 }
