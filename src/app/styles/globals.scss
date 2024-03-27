@@ -45,6 +45,12 @@ body{
     }
   }
 }
+.is-blog{
+  .header{
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+}
 .hamburger{
   margin-inline-end: 20px;
   display: flex;
