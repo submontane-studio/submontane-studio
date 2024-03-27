@@ -1,20 +1,91 @@
 import { format, parse } from "@formkit/tempo";
+import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import Script from "next/script";
 import Header from "../../_component/Header";
 import styles from "./styles/[id].module.scss";
 
-export default async function Post({ params }: { params: { id: string } }) {
-  const res = await fetch(
-    `https://submontane.microcms.io/api/v1/posts/${params.id}`,
-    {
-      headers: {
-        "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
-      },
+const fetchData = async (id: string) => {
+  const res = await fetch(`https://submontane.microcms.io/api/v1/posts/${id}`, {
+    headers: {
+      "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
     },
-  );
+  });
+  const json = await res.json();
 
-  const data = await res.json();
+  return json;
+};
+
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const id = params.id;
+
+  const data = await fetchData(id);
+
+  const previousImage = (await parent).openGraph?.images || [];
+
+  return {
+    title: {
+      default: `${data.title} | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
+      template: `%s | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
+    },
+    description: `${process.env.SITE_DESCRIPTION}`,
+    openGraph: {
+      images: [
+        ...previousImage,
+        ...(typeof searchParams["og:image"] === "string"
+          ? [
+              {
+                url: searchParams["og:image"],
+                width: 1200,
+                height: 630,
+                alt: "",
+              },
+            ]
+          : []),
+      ],
+      title: `${data.title} | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
+      description: `${process.env.SITE_DESCRIPTION}`,
+      url: `https://submontane.jp/posts/${id}`,
+      siteName: `${process.env.SITE_TITLE}`,
+      locale: "ja_JP",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${data.title} | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
+      description: `${process.env.SITE_DESCRIPTION}`,
+      images: [
+        ...previousImage,
+        {
+          url:
+            typeof searchParams["og:image"] === "string"
+              ? searchParams["og:image"]
+              : "/images/mobile/common/OGP.jpg",
+          width: 1200,
+          height: 630,
+          alt: "",
+        },
+      ],
+    },
+    verification: {},
+    alternates: {
+      canonical: `https://submontane.jp/posts/${id}`,
+    },
+  };
+}
+
+export default async function Post({ params }: { params: { id: string } }) {
+  const id = params.id;
+
+  const data = await fetchData(id);
 
   return (
     <>
@@ -66,12 +137,34 @@ export default async function Post({ params }: { params: { id: string } }) {
           </div>
           <ul className="share">
             <li>
+              <div
+                className="fb-share-button"
+                data-href="https://www.google.com"
+                data-layout=""
+                data-size=""
+              >
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsubmontane.jp%2F&amp;src=sdkpreparse"
+                  className="fb-xfbml-parse-ignore"
+                >
+                  シェアする
+                </a>
+              </div>
+            </li>
+            <li>
               <a
                 href="https://twitter.com/share?ref_src=twsrc%5Etfw"
                 className="twitter-share-button"
                 data-show-count="false"
               >
-                Tweet
+                <object
+                  data="/images/mobile/common/ico_x01.svg"
+                  type="image/svg+xml"
+                  name="Xでシェア"
+                  aria-label="Xでシェア"
+                />
               </a>
               <Script async src="https://platform.twitter.com/widgets.js" />
             </li>
@@ -79,6 +172,14 @@ export default async function Post({ params }: { params: { id: string } }) {
           <section className="body">{data.content}</section>
         </article>
       </main>
+      <div id="fb-root" />
+      <Script
+        async
+        defer
+        crossOrigin="anonymous"
+        src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v19.0"
+        nonce="Nw2FbKjd"
+      />
     </>
   ); //<div>My Post: {data.title}</div>;
 }

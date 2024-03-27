@@ -42,6 +42,25 @@ export const metadata: Metadata = {
     template: `%s | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
   },
   description: `${process.env.SITE_DESCRIPTION}`,
+  openGraph: {
+    images: "/images/mobile/common/OGP.jpg",
+    title: `${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
+    description: `${process.env.SITE_DESCRIPTION}`,
+    url: "https://submontane.jp",
+    siteName: `${process.env.SITE_TITLE}`,
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
+    description: `${process.env.SITE_DESCRIPTION}`,
+    images: "/images/mobile/common/OGP.jpg",
+  },
+  verification: {},
+  alternates: {
+    canonical: "https://submontane.jp",
+  },
 };
 
 export default function RootLayout({
