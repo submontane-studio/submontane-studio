@@ -1,6 +1,7 @@
 import { format, parse } from "@formkit/tempo";
 import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Script from "next/script";
 import Header from "../../_component/Header";
 import styles from "./styles/[id].module.scss";
@@ -139,7 +140,7 @@ export default async function Post({ params }: { params: { id: string } }) {
             <li>
               <div
                 className="fb-share-button"
-                data-href="https://www.google.com"
+                data-href={`https://submontane.jp/posts/${id}`}
                 data-layout=""
                 data-size=""
               >
@@ -149,13 +150,20 @@ export default async function Post({ params }: { params: { id: string } }) {
                   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsubmontane.jp%2F&amp;src=sdkpreparse"
                   className="fb-xfbml-parse-ignore"
                 >
-                  シェアする
+                  <object
+                    data="/images/mobile/common/ico_fb01.svg"
+                    type="image/svg+xml"
+                    name="Facebookでシェア"
+                    aria-label="Facebookでシェア"
+                  />
                 </a>
               </div>
             </li>
             <li>
-              <a
-                href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+              <Link
+                href={`https://twitter.com/share?ref_src=twsrc%5Etfw&text=${encodeURI(
+                  data.title,
+                )}`}
                 className="twitter-share-button"
                 data-show-count="false"
               >
@@ -165,8 +173,37 @@ export default async function Post({ params }: { params: { id: string } }) {
                   name="Xでシェア"
                   aria-label="Xでシェア"
                 />
-              </a>
+              </Link>
               <Script async src="https://platform.twitter.com/widgets.js" />
+            </li>
+            <li>
+              <Link
+                href={`https://social-plugins.line.me/lineit/share?url=https://submontane.jp/posts/${id}&text=${encodeURI(
+                  data.title,
+                )}`}
+              >
+                <object
+                  data="/images/mobile/common/ico_line01.svg"
+                  type="image/svg+xml"
+                  name="LINEでシェア"
+                  aria-label="LINEでシェア"
+                />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={`http://b.hatena.ne.jp/add?mode=confirm&url=https://submontane.jp/posts/${id}&title=${data.title}`}
+                className="hatena-bookmark-button"
+                data-hatena-bookmark-layout="basic"
+                title="このエントリーをはてなブックマークに追加"
+              >
+                <object
+                  data="/images/mobile/common/ico_hatena01.svg"
+                  type="image/svg+xml"
+                  name="はてなブックマークでシェア"
+                  aria-label="はてなブックマークでシェア"
+                />
+              </Link>
             </li>
           </ul>
           <section className="body">{data.content}</section>
