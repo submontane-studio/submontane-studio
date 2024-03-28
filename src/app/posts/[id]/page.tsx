@@ -1,6 +1,8 @@
 import { Button } from "@/app/_component/Button/Button";
 import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
+import getPostDetail from "@/app/_lib/getPostDetail";
+import getPostIds from "@/app/_lib/getPostIds";
 import { format } from "@formkit/tempo";
 import parse from "html-react-parser";
 import type { Metadata, ResolvingMetadata } from "next";
@@ -11,17 +13,6 @@ import Header from "../../_component/Header";
 import Tocbot from "./Tocbot";
 import styles from "./styles/[id].module.scss";
 
-const fetchData = async (id: string) => {
-  const res = await fetch(`https://submontane.microcms.io/api/v1/posts/${id}`, {
-    headers: {
-      "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
-    },
-  });
-  const json = await res.json();
-
-  return json;
-};
-
 type Props = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
@@ -31,23 +22,29 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const id = params.id;
+  const data = await getPostDetail(params.id);
 
-  const data = await fetchData(id);
-
-  const previousImage = (await parent).openGraph?.images || [];
+  // const previousImage = (await parent).openGraph?.images || [];
 
   return {
+    metadataBase: new URL("https://submontane.jp"),
     title: {
       default: `${data.title} | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
       template: `%s | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
     },
     description: `${process.env.SITE_DESCRIPTION}`,
     openGraph: {
-      images: [data.keyvisual?.url, ...previousImage],
+      images: [
+        `${
+          data.keyvisual?.url
+            ? data.keyvisual?.url
+            : "https://submontane.jp/images/mobile/common/OGP.jpg"
+        }`,
+        //...previousImage,
+      ],
       title: `${data.title} | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
       description: `${process.env.SITE_DESCRIPTION}`,
-      url: `https://submontane.jp/posts/${id}`,
+      url: `https://submontane.jp/posts/${data.id}`,
       siteName: `${process.env.SITE_TITLE}`,
       locale: "ja_JP",
       type: "website",
@@ -56,19 +53,33 @@ export async function generateMetadata(
       card: "summary_large_image",
       title: `${data.title} | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
       description: `${process.env.SITE_DESCRIPTION}`,
-      images: [data.keyvisual?.url],
+      images: [
+        `${
+          data.keyvisual?.url
+            ? data.keyvisual?.url
+            : "https://submontane.jp/images/mobile/common/OGP.jpg"
+        }`,
+      ],
     },
     verification: {},
     alternates: {
-      canonical: `https://submontane.jp/posts/${id}`,
+      canonical: `https://submontane.jp/posts/${data.id}`,
     },
   };
 }
 
-export default async function Post({ params }: { params: { id: string } }) {
-  const id = params.id;
+export async function generateStaticParams({
+  params,
+}: { params: { id: string } }) {
+  const data = await getPostIds();
 
-  const data = await fetchData(id);
+  return data.contents.map((item: { id: string }) => ({
+    id: item.id,
+  }));
+}
+
+export default async function Post({ params }: { params: { id: string } }) {
+  const data = await getPostDetail(params.id);
 
   return (
     <>
@@ -122,7 +133,7 @@ export default async function Post({ params }: { params: { id: string } }) {
             <li>
               <div
                 className="fb-share-button"
-                data-href={`https://submontane.jp/posts/${id}`}
+                data-href={`https://submontane.jp/posts/${data.id}`}
                 data-layout=""
                 data-size=""
               >
@@ -169,9 +180,9 @@ export default async function Post({ params }: { params: { id: string } }) {
             </li>
             <li>
               <Link
-                href={`https://social-plugins.line.me/lineit/share?url=https://submontane.jp/posts/${id}&text=${encodeURI(
-                  data.title,
-                )}`}
+                href={`https://social-plugins.line.me/lineit/share?url=https://submontane.jp/posts/${
+                  data.id
+                }&text=${encodeURI(data.title)}`}
                 className="line"
               >
                 <svg
@@ -194,7 +205,7 @@ export default async function Post({ params }: { params: { id: string } }) {
             </li>
             <li>
               <Link
-                href={`http://b.hatena.ne.jp/add?mode=confirm&url=https://submontane.jp/posts/${id}&title=${data.title}`}
+                href={`http://b.hatena.ne.jp/add?mode=confirm&url=https://submontane.jp/posts/${data.id}&title=${data.title}`}
                 className="hatena hatena-bookmark-button"
                 data-hatena-bookmark-layout="basic"
                 title="このエントリーをはてなブックマークに追加"
