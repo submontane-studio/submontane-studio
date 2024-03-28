@@ -401,3 +401,22 @@ body{
     }
   }
 }
+.toc{
+  width: calc(100% - 40px);
+  margin-inline: auto;
+  border:1px solid #e0e0e0;
+  padding-block:20px;
+  padding-inline: 30px;
+  margin-block-end: 40px;
+  li{
+    ol,ul{
+      padding-inline-start: 20px;
+      margin-block-start: 10px;
+    }
+    a{
+      font-size: rem(14);
+      font-weight: 700;
+      text-decoration: none;
+    }
+  }
+}

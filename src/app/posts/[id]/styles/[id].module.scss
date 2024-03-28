@@ -149,3 +149,82 @@
     object-fit: cover;
   }
 }
+.share{
+  display: flex;
+  background: #f6f6f6;
+  width: calc(100% - 40px);
+  margin-inline: auto;
+  margin-block-end: 30px;
+  li{
+    width: 25%;
+    a{
+      padding-block:15px;
+      display: flex;
+      justify-content: center;
+      transition: all 0.3s ease;
+      svg{
+        width: 20px;
+      }
+      &:global{
+        &.facebook{
+          fill: var(--color-primary);
+          @media (hover: hover){
+            &:hover{
+              background: #0965fe;
+              #facebook{
+                fill: #fff;
+              }
+            }
+          }
+        }
+        &.x{
+          fill: var(--color-primary);
+          @media (hover: hover){
+            &:hover{
+              background: #000;
+              fill: #fff;
+              #x{
+                fill: #fff;
+              }
+            }
+          }
+        }
+        &.line{
+          #line{
+            fill: var(--color-primary);
+          }
+          #line-word{
+            fill:#f6f6f6;
+          }
+          @media (hover: hover){
+            &:hover{
+              background: #06c755;
+              #line{
+                fill: #fff;
+              }
+              #line-word{
+                fill:#06c755;
+              }
+            }
+          }
+        }
+        &.hatena{
+          fill:var(--color-primary);
+          @media (hover: hover){
+            &:hover{
+              background: #01a5df;
+              fill: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.body{
+  padding-inline:20px;
+  pre{
+    width: 100%;
+    white-space: normal;
+  }
+}

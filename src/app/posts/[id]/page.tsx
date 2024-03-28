@@ -1,9 +1,11 @@
-import { format, parse } from "@formkit/tempo";
+import { format } from "@formkit/tempo";
+import parse from "html-react-parser";
 import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import Header from "../../_component/Header";
+import Tocbot from "./Tocbot";
 import styles from "./styles/[id].module.scss";
 
 const fetchData = async (id: string) => {
@@ -39,19 +41,7 @@ export async function generateMetadata(
     },
     description: `${process.env.SITE_DESCRIPTION}`,
     openGraph: {
-      images: [
-        ...previousImage,
-        ...(typeof searchParams["og:image"] === "string"
-          ? [
-              {
-                url: searchParams["og:image"],
-                width: 1200,
-                height: 630,
-                alt: "",
-              },
-            ]
-          : []),
-      ],
+      images: [data.keyvisual?.url, ...previousImage],
       title: `${data.title} | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
       description: `${process.env.SITE_DESCRIPTION}`,
       url: `https://submontane.jp/posts/${id}`,
@@ -63,18 +53,7 @@ export async function generateMetadata(
       card: "summary_large_image",
       title: `${data.title} | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
       description: `${process.env.SITE_DESCRIPTION}`,
-      images: [
-        ...previousImage,
-        {
-          url:
-            typeof searchParams["og:image"] === "string"
-              ? searchParams["og:image"]
-              : "/images/mobile/common/OGP.jpg",
-          width: 1200,
-          height: 630,
-          alt: "",
-        },
-      ],
+      images: [data.keyvisual?.url],
     },
     verification: {},
     alternates: {
@@ -136,7 +115,7 @@ export default async function Post({ params }: { params: { id: string } }) {
               alt=""
             />
           </div>
-          <ul className="share">
+          <ul className={styles.share}>
             <li>
               <div
                 className="fb-share-button"
@@ -144,19 +123,25 @@ export default async function Post({ params }: { params: { id: string } }) {
                 data-layout=""
                 data-size=""
               >
-                <a
+                <Link
                   target="_blank"
                   rel="noreferrer"
                   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsubmontane.jp%2F&amp;src=sdkpreparse"
-                  className="fb-xfbml-parse-ignore"
+                  className="facebook fb-xfbml-parse-ignore"
                 >
-                  <object
-                    data="/images/mobile/common/ico_fb01.svg"
-                    type="image/svg+xml"
-                    name="Facebookでシェア"
+                  <svg
+                    role="img"
                     aria-label="Facebookでシェア"
-                  />
-                </a>
+                    viewBox="0 0 36 36"
+                    width={36}
+                    height={36}
+                  >
+                    <use
+                      id="facebook"
+                      href="/images/mobile/common/ico_fb01.svg#facebook"
+                    />
+                  </svg>
+                </Link>
               </div>
             </li>
             <li>
@@ -164,15 +149,18 @@ export default async function Post({ params }: { params: { id: string } }) {
                 href={`https://twitter.com/share?ref_src=twsrc%5Etfw&text=${encodeURI(
                   data.title,
                 )}`}
-                className="twitter-share-button"
+                className="x twitter-share-button"
                 data-show-count="false"
               >
-                <object
-                  data="/images/mobile/common/ico_x01.svg"
-                  type="image/svg+xml"
-                  name="Xでシェア"
+                <svg
+                  role="img"
                   aria-label="Xでシェア"
-                />
+                  viewBox="0 0 32 32"
+                  width={32}
+                  height={32}
+                >
+                  <use href="/images/mobile/common/ico_x01.svg#x" />
+                </svg>
               </Link>
               <Script async src="https://platform.twitter.com/widgets.js" />
             </li>
@@ -181,32 +169,49 @@ export default async function Post({ params }: { params: { id: string } }) {
                 href={`https://social-plugins.line.me/lineit/share?url=https://submontane.jp/posts/${id}&text=${encodeURI(
                   data.title,
                 )}`}
+                className="line"
               >
-                <object
-                  data="/images/mobile/common/ico_line01.svg"
-                  type="image/svg+xml"
-                  name="LINEでシェア"
+                <svg
+                  role="img"
                   aria-label="LINEでシェア"
-                />
+                  viewBox="0 0 36 34"
+                  width={36}
+                  height={34}
+                >
+                  <use
+                    id="line"
+                    href="/images/mobile/common/ico_line01.svg#line"
+                  />
+                  <use
+                    id="line-word"
+                    href="/images/mobile/common/ico_line01.svg#line-word"
+                  />
+                </svg>
               </Link>
             </li>
             <li>
               <Link
                 href={`http://b.hatena.ne.jp/add?mode=confirm&url=https://submontane.jp/posts/${id}&title=${data.title}`}
-                className="hatena-bookmark-button"
+                className="hatena hatena-bookmark-button"
                 data-hatena-bookmark-layout="basic"
                 title="このエントリーをはてなブックマークに追加"
               >
-                <object
-                  data="/images/mobile/common/ico_hatena01.svg"
-                  type="image/svg+xml"
-                  name="はてなブックマークでシェア"
+                <svg
+                  role="img"
                   aria-label="はてなブックマークでシェア"
-                />
+                  viewBox="0 0 32 27"
+                  width={32}
+                  height={27}
+                >
+                  <use href="/images/mobile/common/ico_hatena01.svg#hatena" />
+                </svg>
               </Link>
             </li>
           </ul>
-          <section className="body">{data.content}</section>
+          <Tocbot />
+          <div id="body" className={styles.body}>
+            {parse(data.content)}
+          </div>
         </article>
       </main>
       <div id="fb-root" />
