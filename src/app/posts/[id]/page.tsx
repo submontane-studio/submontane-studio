@@ -1,3 +1,6 @@
+import { Button } from "@/app/_component/Button/Button";
+import Conversion from "@/app/_component/Conversion";
+import Footer from "@/app/_component/Footer";
 import { format } from "@formkit/tempo";
 import parse from "html-react-parser";
 import type { Metadata, ResolvingMetadata } from "next";
@@ -214,6 +217,7 @@ export default async function Post({ params }: { params: { id: string } }) {
           </div>
         </article>
       </main>
+      <Button buttonName="button-blog" label="記事一覧へ戻る" url="/posts/" />
       <div id="fb-root" />
       <Script
         async
@@ -222,6 +226,8 @@ export default async function Post({ params }: { params: { id: string } }) {
         src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v19.0"
         nonce="Nw2FbKjd"
       />
+      <Conversion />
+      <Footer />
     </>
   ); //<div>My Post: {data.title}</div>;
 }

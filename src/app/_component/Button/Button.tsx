@@ -13,6 +13,18 @@ export function Contact({ label = "お問い合わせ", isNav = true } = {}) {
   );
 }
 
+export function Button({
+  label = "詳しくはこちら",
+  url = "/",
+  buttonName,
+}: { label?: string; url?: string; buttonName: string }) {
+  return (
+    <p className={`${buttonName} ${styles.button} ${styles.normal}`}>
+      <Link href={url}>{label}</Link>
+    </p>
+  );
+}
+
 export function ButtonWhite({ label = "詳しくはこちら", url = "/" }) {
   return (
     <p className={`${styles.button} ${styles.white}`}>
