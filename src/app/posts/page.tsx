@@ -31,6 +31,15 @@ type Post = {
   content: string;
 };
 
+type Category = {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  publishedAt: Date;
+  revisitedAt: Date;
+  name: string;
+};
+
 export default async function Index() {
   const data = await getPosts();
   const categories = await getCategories();
@@ -44,7 +53,18 @@ export default async function Index() {
         <h1>HEADLINE</h1>
         <div className={styles.narrowing}>
           <div className="category">
-            <p className="category-heading">カテゴリで絞り込み</p>
+            <p role="heading" className="category-heading" aria-level={2}>
+              カテゴリーで絞り込み
+            </p>
+            <ul role="menu" className="category-list">
+              {categories.contents.map((category: Category) => (
+                <li key={category.id}>
+                  <Link role="menuitem" href={`/posts/${category.id}`}>
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
