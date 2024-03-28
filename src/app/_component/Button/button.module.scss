@@ -11,6 +11,11 @@
       width: calc(100% - 40px);
       margin-inline: auto;
       margin-block-end: 100px;
+      @media screen and (min-width: 768px) {
+        width: calc(100% - 80px);
+        max-width: 600px;
+        margin-block-end: 200px;
+      }
     }
   }
 }

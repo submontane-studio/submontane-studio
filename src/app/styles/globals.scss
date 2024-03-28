@@ -408,15 +408,36 @@ body{
   padding-block:20px;
   padding-inline: 30px;
   margin-block-end: 40px;
+  @media screen and (min-width: 768px) {
+    width: 1200px;
+    max-width: calc(100% - 80px);
+    padding-block: 40px;
+    padding-inline: 50px;
+    margin-block-end: 80px;
+  }
   li{
     ol,ul{
       padding-inline-start: 20px;
+      margin-block-start: 10px;
+      @media screen and (min-width: 768px) {
+        padding-inline-start: 30px;
+      }
+    }
+    &+li{
       margin-block-start: 10px;
     }
     a{
       font-size: rem(14);
       font-weight: 700;
       text-decoration: none;
+      @media screen and (min-width: 768px) {
+        font-size: rem(16);
+        @media (hover: hover) {
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
     }
   }
 }
