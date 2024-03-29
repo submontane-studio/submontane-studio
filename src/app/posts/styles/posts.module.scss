@@ -1,1 +1,168 @@
 @use '../../styles/foundation/function' as *;
+
+.heading{
+  padding-inline: 20px;
+  h1{
+    font-family: var(--font-futura), sans-serif;
+    letter-spacing: 0;
+    margin-block: 20px;
+  }
+}
+.narrowing{
+  width: 100%;
+  display: flex;
+}
+.category{
+  width: 240px;
+  position: relative;
+  :global{
+    .category-heading{
+      padding-inline: 35px 30px;
+      padding-block: 5px;
+      position: relative;
+      &:before{
+        content:"";
+        display: block;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background: url(/images/mobile/posts/ico_tree01.svg) no-repeat center center / contain;
+      }
+    }
+    .category-list{
+      position: absolute;
+      left: 0;
+      top:100%;
+      width: 200px;
+      z-index: 10;
+      background: rgba(34,34,34,.8);
+      backdrop-filter: blur(10px);
+      padding: 10px;
+      li{
+        &+li{
+          border-block-start: 1px solid #fff;
+        }
+        a{
+          color: #fff;
+          text-decoration: none;
+          display: block;
+          padding-block:15px;
+          padding-inline:10px
+        }
+      }
+    }
+  }
+}
+.posts{
+  padding-inline: 20px;
+  li{
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      width: calc(33.333% - 60px);
+    }
+    a{
+      display: block;
+      text-decoration: none;
+    }
+  }
+  :global{
+    .category{
+      width: 100%;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      font-size: rem(14);
+      font-weight: 700;
+      padding-inline:15px;
+      &.is-javascript{
+        background: #FFC700;
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 24px;
+          height: 24px;
+          background: url(/images/mobile/common/ico_js01.svg) no-repeat center center / contain;
+          margin-inline-end: 10px;
+        }
+      }
+      &.is-design{
+        background: linear-gradient(270deg, #FBC2EB 0%, #A6C1EE 100%);
+        @media screen and (min-width: 768px) {
+          background: linear-gradient(0deg, #FBC2EB 0%, #A6C1EE 100%);
+        }
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 24px;
+          height: 24px;
+          background: url(/images/mobile/common/ico_design01.svg) no-repeat center center / contain;
+          margin-inline-end: 5px;
+        }
+      }
+      &.is-css{
+        background: #1D92FF;
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 24px;
+          height: 24px;
+          background: url(/images/mobile/common/ico_css01.svg) no-repeat center center / contain;
+          margin-inline-end: 10px;
+        }
+      }
+      &.is-html{
+        background: #FF5050;
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 24px;
+          height: 24px;
+          background: url(/images/mobile/common/ico_html01.svg) no-repeat center center / contain;
+          margin-inline-end: 10px;
+        }
+      }
+      &.is-php{
+        background: #6C81E1;
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 32px;
+          height: 24px;
+          background: url(/images/mobile/common/ico_php01.svg) no-repeat center center / contain;
+          margin-inline-end: 10px;
+        }
+      }
+      &.is-info{
+        background: var(--color-primary);
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 24px;
+          height: 24px;
+          background: url(/images/mobile/common/ico_info01.svg) no-repeat center center / contain;
+          margin-inline-end: 10px;
+        }
+      }
+      &.is-alert{
+        background: #FF2626;
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 20px;
+          height: 20px;
+          background: url(/images/mobile/common/ico_alert01.svg) no-repeat center center / contain;
+          margin-inline-end: 10px;
+        }
+      }
+    }
+    .keyvisual{
+      width: 100%;
+      height: 235px;
+      position: relative;
+    }
+  }
+}
