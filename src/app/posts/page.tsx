@@ -1,3 +1,4 @@
+import { format } from "@formkit/tempo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -65,6 +66,27 @@ export default async function Index() {
                   sizes="100vw"
                   fill={true}
                 />
+              </div>
+              <div className={styles.date}>
+                <p className="published">
+                  <time
+                    dateTime={format(data.publishedAt, "YYYY-MM-DD")}
+                    aria-label={format(
+                      data.publishedAt,
+                      "公開日 YYYY年MM月DD日",
+                    )}
+                  >
+                    {format(data.publishedAt, "YYYY.MM.DD")}
+                  </time>
+                </p>
+                <p className="updated">
+                  <time
+                    dateTime={format(data.updatedAt, "YYYY-MM-DD")}
+                    aria-label={format(data.updatedAt, "更新日 YYYY年MM月DD日")}
+                  >
+                    {format(data.updatedAt, "YYYY.MM.DD")}
+                  </time>
+                </p>
               </div>
               <h2>{post.title}</h2>
             </Link>

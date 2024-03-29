@@ -9,27 +9,45 @@
   }
 }
 .narrowing{
-  width: 100%;
+  min-width: 100%;
   display: flex;
+  position: relative;
+  justify-content: flex-end;
+  margin-block-end: 40px;
 }
 .category{
-  width: 240px;
+  max-width: 275px;
   position: relative;
+  padding-inline-end: 60px;
   :global{
     .category-heading{
-      padding-inline: 35px 30px;
+      padding-inline: 30px 20px;
       padding-block: 5px;
       position: relative;
+      font-weight: 700;
+      font-size: rem(12);
       &:before{
         content:"";
         display: block;
-        width: 32px;
-        height: 32px;
+        width: 24px;
+        height: 24px;
         position: absolute;
         top: 50%;
         left: 0;
         transform: translateY(-50%);
         background: url(/images/mobile/posts/ico_tree01.svg) no-repeat center center / contain;
+      }
+      &:after{
+        content: "";
+        width: 6px;
+        height: 6px;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        border-right:2px solid #000;
+        border-bottom: 2px solid #000;
+        transform: translateY(calc(-50% - 3px)) rotate(45deg);
       }
     }
     .category-list{
@@ -40,7 +58,12 @@
       z-index: 10;
       background: rgba(34,34,34,.8);
       backdrop-filter: blur(10px);
-      padding: 10px;
+      padding-inline: 10px;
+      padding-block:5px;
+      max-height: 0;
+      visibility: hidden;
+      overflow: hidden;
+      transition: all .3s ease;
       li{
         &+li{
           border-block-start: 1px solid #fff;
@@ -53,11 +76,40 @@
           padding-inline:10px
         }
       }
+      &.is-expand{
+        visibility: visible;
+        max-height: 200vh;
+      }
+    }
+  }
+}
+.search{
+  position: absolute;
+  left: 0;
+  right: 0;
+  input{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    border:1px solid #000;
+    border-radius:0;
+    appearance: none;
+    min-height: 30px;
+    background: transparent;
+    padding-inline:0 29px;
+    transition: all .3s ease;
+    background:url(/images/mobile/posts/ico_search01.svg) #fff no-repeat calc(100% - 6px) center / 16px;
+    &:focus{
+      width: calc(100vw - 40px);
     }
   }
 }
 .posts{
   padding-inline: 20px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
   li{
     width: 100%;
     @media screen and (min-width: 768px) {
@@ -66,6 +118,9 @@
     a{
       display: block;
       text-decoration: none;
+    }
+    &+li{
+      margin-block-start: 40px;
     }
   }
   :global{
@@ -163,6 +218,55 @@
       width: 100%;
       height: 235px;
       position: relative;
+      margin-block-end: 20px;
+    }
+  }
+  .date{
+    display: flex;
+    margin-block-end: 10px;
+    :global{
+      .published,.updated{
+        font-size: rem(14);
+        color: var(--color-primary);
+      }
+      .published{
+        display: flex;
+        align-items: center;
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 20px;
+          height: 20px;
+          background: url(/images/mobile/common/ico_clock02.svg) no-repeat center center / contain;
+          margin-inline-end: 5px;
+          @media screen and (min-width: 768px) {
+            margin-inline-end: 10px;
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+      .updated{
+        display: flex;
+        align-items: center;
+        margin-inline-start: 15px;
+        @media screen and (min-width: 768px) {
+          margin-inline-start: 25px;
+        }
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 20px;
+          height: 20px;
+          background: url(/images/mobile/common/ico_repeat02.svg) no-repeat center center / contain;
+          margin-inline-end: 5px;
+          @media screen and (min-width: 768px) {
+            width: 24px;
+            height: 24px;
+            margin-inline-end: 10px;
+          }
+        }
+      }
     }
   }
 }
