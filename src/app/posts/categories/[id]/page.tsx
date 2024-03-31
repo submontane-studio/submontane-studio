@@ -1,14 +1,11 @@
+import type { Post } from "@/app/@types/post";
 import getCategories from "@/app/_lib/getCategories";
 import getCategorizedPosts from "@/app/_lib/getCategorizedPosts";
-type Posts = {
-  title: string;
-  id: string;
-};
 
 export async function generateStaticParams() {
   const categories = await getCategories();
 
-  return categories.contents.map((posts: Posts) => ({
+  return categories.contents.map((posts: Post) => ({
     id: posts.id,
   }));
 }
@@ -17,5 +14,5 @@ export default async function categorizedPosts({
   params,
 }: { params: { id: string } }) {
   const data = await getCategorizedPosts(params.id);
-  return data.contents.map((posts: Posts) => <h2>{posts.title}</h2>);
+  return data.contents.map((posts: Post) => <h2>{posts.title}</h2>);
 }

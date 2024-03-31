@@ -1,32 +1,20 @@
+import type { Post } from "@/app/@types/post";
 import { format } from "@formkit/tempo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
+import Conversion from "../_component/Conversion";
+import Footer from "../_component/Footer";
 import Header from "../_component/Header";
 import getCategories from "../_lib/getCategories";
 import getPosts from "../_lib/getPosts";
 import Category from "./_component/Category";
+import More from "./_component/More";
 import SearchBox from "./_component/SearchBox";
 import styles from "./styles/posts.module.scss";
 
-type Post = {
-  id: string;
-  updatedAt: Date;
-  publishedAt: Date;
-  pin: boolean;
-  title: string;
-  category: {
-    id: string;
-    name: string;
-  };
-  keyvisual?: {
-    url: string;
-    height: number;
-    width: number;
-  };
-  content: string;
-};
+const pages = 1;
 
 export const metadata: Metadata = {
   title: "SUBMONTANE STUDIO BLOG",
@@ -48,7 +36,7 @@ export default async function Index() {
           <SearchBox />
         </div>
       </div>
-      <ul className={styles.posts}>
+      <ul id="js-posts" className={styles.posts}>
         {data.contents.map((post: Post, index: number) => (
           <li key={post.id}>
             <Link href={`/posts/${post.id}`}>
@@ -93,6 +81,9 @@ export default async function Index() {
           </li>
         ))}
       </ul>
+      {data.totalCount > 10 ? <More item={9} /> : null}
+      <Conversion />
+      <Footer />
     </>
   );
 }
