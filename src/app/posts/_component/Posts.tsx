@@ -5,25 +5,10 @@ import Link from "next/link";
 import type { CategoryListType } from "../../@types/category";
 import type { PostList } from "../../@types/post";
 import styles from "../styles/posts.module.scss";
-import Category from "./Category";
-import SearchBox from "./SearchBox";
 
-export default function Posts({
-  data,
-  categories,
-}: { data: PostList; categories: CategoryListType }) {
+export default function Posts({ data }: { data: PostList }) {
   return (
     <>
-      <div className="is-blog">
-        <Header />
-      </div>
-      <div className={styles.heading}>
-        <h1>BLOG</h1>
-        <div className={styles.narrowing}>
-          <Category contents={categories} />
-          <SearchBox />
-        </div>
-      </div>
       <ul className={styles.posts}>
         {data.contents.map((post) => (
           <li key={post.id}>

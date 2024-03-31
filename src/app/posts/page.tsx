@@ -21,7 +21,17 @@ export default async function Index() {
 
   return (
     <>
-      <Posts data={data} categories={categories} />
+      <div className="is-blog">
+        <Header />
+      </div>
+      <div className={styles.heading}>
+        <h1>BLOG</h1>
+        <div className={styles.narrowing}>
+          <Category contents={categories} />
+          <SearchBox />
+        </div>
+      </div>
+      <Posts data={data} />
     </>
   );
 }
