@@ -1,17 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import type { CategoryListType, CategoryType } from "../../@types/category";
 import styles from "../styles/posts.module.scss";
-
-type Categories = {
-  id: string;
-  createdAt: Date;
-  updatedAt: Date;
-  publishedAt: Date;
-  revisitedAt: Date;
-  name: string;
-};
-
 const expand = (e: React.MouseEvent<HTMLButtonElement>) => {
   const target = e.currentTarget;
   const category = target.nextElementSibling;
@@ -20,7 +11,7 @@ const expand = (e: React.MouseEvent<HTMLButtonElement>) => {
   }
 };
 
-export default function Category(categories: { contents: Categories[] }) {
+export default function Category({ contents }: { contents: CategoryListType }) {
   return (
     <>
       <div className={styles.category}>
@@ -34,7 +25,7 @@ export default function Category(categories: { contents: Categories[] }) {
           カテゴリーで絞り込み
         </button>
         <ul id="js-category-list" role="menu" className="category-list">
-          {categories.contents.map((category: Categories) => (
+          {contents.contents.map((category: CategoryType) => (
             <li key={category.id}>
               <Link role="menuitem" href={`/posts/categories/${category.id}`}>
                 {category.name}

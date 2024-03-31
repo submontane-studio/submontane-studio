@@ -15,3 +15,12 @@ export type Post = {
   };
   content: string;
 };
+
+export type PostList = {
+  contents: Post[];
+  totalCount: number;
+  offset: number;
+  limit: number;
+  totalPage: number;
+  currentPage: number;
+};
