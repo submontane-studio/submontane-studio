@@ -31,7 +31,7 @@ export default async function Index() {
           <SearchBox />
         </div>
       </div>
-      <Posts data={data} />
+      <Posts className="index" data={data} />
     </>
   );
 }

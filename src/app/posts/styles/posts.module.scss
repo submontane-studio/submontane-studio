@@ -305,50 +305,48 @@
       margin-block-end: 20px;
     }
   }
-  .date{
+  &:global(.date){
     display: flex;
     margin-block-end: 10px;
-    :global{
-      .published,.updated{
-        font-size: rem(14);
-        color: var(--color-primary);
-      }
-      .published{
-        display: flex;
-        align-items: center;
-        &:before{
-          content:"";
-          display: inline-flex;
-          width: 20px;
-          height: 20px;
-          background: url(/images/mobile/common/ico_clock02.svg) no-repeat center center / contain;
-          margin-inline-end: 5px;
-          @media screen and (min-width: 768px) {
-            margin-inline-end: 10px;
-            width: 24px;
-            height: 24px;
-          }
-        }
-      }
-      .updated{
-        display: flex;
-        align-items: center;
-        margin-inline-start: 15px;
+    .published,.updated{
+      font-size: rem(14);
+      color: var(--color-primary);
+    }
+    .published{
+      display: flex;
+      align-items: center;
+      &:before{
+        content:"";
+        display: inline-flex;
+        width: 20px;
+        height: 20px;
+        background: url(/images/mobile/common/ico_clock02.svg) no-repeat center center / contain;
+        margin-inline-end: 5px;
         @media screen and (min-width: 768px) {
-          margin-inline-start: 25px;
+          margin-inline-end: 10px;
+          width: 24px;
+          height: 24px;
         }
-        &:before{
-          content:"";
-          display: inline-flex;
-          width: 20px;
-          height: 20px;
-          background: url(/images/mobile/common/ico_repeat02.svg) no-repeat center center / contain;
-          margin-inline-end: 5px;
-          @media screen and (min-width: 768px) {
-            width: 24px;
-            height: 24px;
-            margin-inline-end: 10px;
-          }
+      }
+    }
+    .updated{
+      display: flex;
+      align-items: center;
+      margin-inline-start: 15px;
+      @media screen and (min-width: 768px) {
+        margin-inline-start: 25px;
+      }
+      &:before{
+        content:"";
+        display: inline-flex;
+        width: 20px;
+        height: 20px;
+        background: url(/images/mobile/common/ico_repeat02.svg) no-repeat center center / contain;
+        margin-inline-end: 5px;
+        @media screen and (min-width: 768px) {
+          width: 24px;
+          height: 24px;
+          margin-inline-end: 10px;
         }
       }
     }
@@ -356,6 +354,47 @@
   &:global{
     &+.conversion{
       margin-block-start: 100px;
+    }
+    &.index{
+      li{
+        &:first-of-type{
+          a{
+            @media screen and (min-width: 768px) {
+              display: flex;
+            }
+          }
+          @media screen and (min-width: 768px) {
+            margin-block-end: 50px;
+            width: 100%;
+          }
+          .keyvisual{
+            @media screen and (min-width: 768px) {
+              width: 600px;
+            }
+          }
+          .date{
+            @media screen and (min-width: 768px) {
+              margin-block-start: 110px;
+            }
+          }
+        }
+        &:nth-of-type(3n+2){
+          @media screen and (min-width: 768px) {
+            margin-inline-start: 0;
+          }
+        }
+        &:nth-of-type(3n+4){
+          @media screen and (min-width: 768px) {
+            margin-inline-start: 30px;
+            margin-block-start: 0;
+          }
+          &:not(:nth-of-type(-3n+7)),&:nth-of-type(7){
+            @media screen and (min-width: 768px) {
+              margin-block-start: 50px;
+            }
+          }
+        }
+      }
     }
   }
 }

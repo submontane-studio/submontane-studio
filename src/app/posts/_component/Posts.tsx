@@ -6,10 +6,13 @@ import type { CategoryListType } from "../../@types/category";
 import type { PostList } from "../../@types/post";
 import styles from "../styles/posts.module.scss";
 
-export default function Posts({ data }: { data: PostList }) {
+export default function Posts({
+  className,
+  data,
+}: { className: string; data: PostList }) {
   return (
     <>
-      <ul className={styles.posts}>
+      <ul className={`${className} ${styles.posts}`}>
         {data.contents.map((post) => (
           <li key={post.id}>
             <Link href={`/posts/${post.id}`}>
@@ -28,7 +31,7 @@ export default function Posts({ data }: { data: PostList }) {
                   fill={true}
                 />
               </div>
-              <div className={styles.date}>
+              <div className="date">
                 <p className="published">
                   <time
                     dateTime={format(post.publishedAt, "YYYY-MM-DD")}
