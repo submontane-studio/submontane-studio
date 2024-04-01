@@ -29,7 +29,7 @@ export default async function categorizedPosts({
         <Header />
       </div>
       <div className={styles.heading}>
-        <h1>BLOG</h1>
+        <h1>カテゴリー : {data.contents[0].category.name}</h1>
         <div className={styles.narrowing}>
           <Category contents={category} />
           <SearchBox />

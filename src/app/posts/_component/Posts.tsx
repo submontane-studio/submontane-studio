@@ -7,12 +7,12 @@ import type { PostList } from "../../@types/post";
 import styles from "../styles/posts.module.scss";
 
 export default function Posts({
-  className,
   data,
-}: { className: string; data: PostList }) {
+  className = "",
+}: { data: PostList; className?: string }) {
   return (
     <>
-      <ul className={`${className} ${styles.posts}`}>
+      <ul className={`${styles.posts}${className && ` ${className}`}`}>
         {data.contents.map((post) => (
           <li key={post.id}>
             <Link href={`/posts/${post.id}`}>
@@ -31,28 +31,33 @@ export default function Posts({
                   fill={true}
                 />
               </div>
-              <div className="date">
-                <p className="published">
-                  <time
-                    dateTime={format(post.publishedAt, "YYYY-MM-DD")}
-                    aria-label={format(
-                      post.publishedAt,
-                      "公開日 YYYY年MM月DD日",
-                    )}
-                  >
-                    {format(post.publishedAt, "YYYY.MM.DD")}
-                  </time>
-                </p>
-                <p className="updated">
-                  <time
-                    dateTime={format(post.updatedAt, "YYYY-MM-DD")}
-                    aria-label={format(post.updatedAt, "更新日 YYYY年MM月DD日")}
-                  >
-                    {format(post.updatedAt, "YYYY.MM.DD")}
-                  </time>
-                </p>
+              <div className="body">
+                <div className="date">
+                  <p className="published">
+                    <time
+                      dateTime={format(post.publishedAt, "YYYY-MM-DD")}
+                      aria-label={format(
+                        post.publishedAt,
+                        "公開日 YYYY年MM月DD日",
+                      )}
+                    >
+                      {format(post.publishedAt, "YYYY.MM.DD")}
+                    </time>
+                  </p>
+                  <p className="updated">
+                    <time
+                      dateTime={format(post.updatedAt, "YYYY-MM-DD")}
+                      aria-label={format(
+                        post.updatedAt,
+                        "更新日 YYYY年MM月DD日",
+                      )}
+                    >
+                      {format(post.updatedAt, "YYYY.MM.DD")}
+                    </time>
+                  </p>
+                </div>
+                <h2>{post.title}</h2>
               </div>
-              <h2>{post.title}</h2>
             </Link>
           </li>
         ))}

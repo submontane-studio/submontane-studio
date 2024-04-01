@@ -11,7 +11,7 @@
     align-items: center;
   }
   h1{
-    font-family: var(--font-futura), sans-serif;
+    font-family: var(--font-futura), fot-udkakugo-large-pr6n, sans-serif;
     letter-spacing: 0;
     margin-block: 20px;
     @media screen and (min-width: 768px) {
@@ -175,14 +175,16 @@
     a{
       display: block;
       text-decoration: none;
-      padding-inline:10px;
-      padding-block:10px 20px;
       transition: all .3s ease;
       border-radius: 5px;
       @media (hover: hover) {
         &:hover{
           background: rgba(3, 61, 66, 0.1);
         }
+      }
+      @media screen and (min-width: 768px) {
+        padding-inline:10px;
+        padding-block:10px 20px;
       }
     }
     &+li{
@@ -304,49 +306,49 @@
       position: relative;
       margin-block-end: 20px;
     }
-  }
-  &:global(.date){
-    display: flex;
-    margin-block-end: 10px;
-    .published,.updated{
-      font-size: rem(14);
-      color: var(--color-primary);
-    }
-    .published{
+    .date{
       display: flex;
-      align-items: center;
-      &:before{
-        content:"";
-        display: inline-flex;
-        width: 20px;
-        height: 20px;
-        background: url(/images/mobile/common/ico_clock02.svg) no-repeat center center / contain;
-        margin-inline-end: 5px;
-        @media screen and (min-width: 768px) {
-          margin-inline-end: 10px;
-          width: 24px;
-          height: 24px;
+      margin-block-end: 10px;
+      .published,.updated{
+        font-size: rem(14);
+        color: var(--color-primary);
+      }
+      .published{
+        display: flex;
+        align-items: center;
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 20px;
+          height: 20px;
+          background: url(/images/mobile/common/ico_clock02.svg) no-repeat center center / contain;
+          margin-inline-end: 5px;
+          @media screen and (min-width: 768px) {
+            margin-inline-end: 10px;
+            width: 24px;
+            height: 24px;
+          }
         }
       }
-    }
-    .updated{
-      display: flex;
-      align-items: center;
-      margin-inline-start: 15px;
-      @media screen and (min-width: 768px) {
-        margin-inline-start: 25px;
-      }
-      &:before{
-        content:"";
-        display: inline-flex;
-        width: 20px;
-        height: 20px;
-        background: url(/images/mobile/common/ico_repeat02.svg) no-repeat center center / contain;
-        margin-inline-end: 5px;
+      .updated{
+        display: flex;
+        align-items: center;
+        margin-inline-start: 15px;
         @media screen and (min-width: 768px) {
-          width: 24px;
-          height: 24px;
-          margin-inline-end: 10px;
+          margin-inline-start: 25px;
+        }
+        &:before{
+          content:"";
+          display: inline-flex;
+          width: 20px;
+          height: 20px;
+          background: url(/images/mobile/common/ico_repeat02.svg) no-repeat center center / contain;
+          margin-inline-end: 5px;
+          @media screen and (min-width: 768px) {
+            width: 24px;
+            height: 24px;
+            margin-inline-end: 10px;
+          }
         }
       }
     }
@@ -361,6 +363,8 @@
           a{
             @media screen and (min-width: 768px) {
               display: flex;
+              position: relative;
+              padding-block-end: 10px;
             }
           }
           @media screen and (min-width: 768px) {
@@ -370,12 +374,110 @@
           .keyvisual{
             @media screen and (min-width: 768px) {
               width: 600px;
+              min-height: 320px;
+              margin-block-end: 0;
             }
           }
           .date{
             @media screen and (min-width: 768px) {
-              margin-block-start: 110px;
+              margin-block-start: 80px;
             }
+          }
+          .category{
+            @media screen and (min-width: 768px) {
+                position: absolute;
+                top: 10px;
+                left: 600px;
+                width: calc(100% - 610px);
+                min-height: 60px;
+                font-size: rem(16);
+            }
+            &:before{
+              @media screen and (min-width: 768px) {
+                margin-inline-end: 30px;
+              }
+            }
+            &.is-javascript{
+              &:before{
+                content:"";
+                display: inline-flex;
+                width: 32px;
+                height: 32px;
+                background: url(/images/mobile/common/ico_js01.svg) no-repeat center center / contain;
+                margin-inline-end: 10px;
+              }
+            }
+            &.is-design{
+              &:before{
+                content:"";
+                display: inline-flex;
+                width: 32px;
+                height: 32px;
+                background: url(/images/mobile/common/ico_design01.svg) no-repeat center center / contain;
+                margin-inline-end: 5px;
+              }
+            }
+            &.is-css{
+              background: #1D92FF;
+              &:before{
+                content:"";
+                display: inline-flex;
+                width: 32px;
+                height: 32px;
+                background: url(/images/mobile/common/ico_css01.svg) no-repeat center center / contain;
+                margin-inline-end: 10px;
+              }
+            }
+            &.is-html{
+              background: #FF5050;
+              &:before{
+                content:"";
+                display: inline-flex;
+                width: 32px;
+                height: 32px;
+                background: url(/images/mobile/common/ico_html01.svg) no-repeat center center / contain;
+                margin-inline-end: 10px;
+              }
+            }
+            &.is-php{
+              background: #6C81E1;
+              &:before{
+                content:"";
+                display: inline-flex;
+                width: 36px;
+                height: 9px;
+                background: url(/images/mobile/common/ico_php01.svg) no-repeat center center / contain;
+                margin-inline-end: 10px;
+              }
+            }
+            &.is-info{
+              background: var(--color-primary);
+              &:before{
+                content:"";
+                display: inline-flex;
+                width: 32px;
+                height: 32px;
+                background: url(/images/mobile/common/ico_info01.svg) no-repeat center center / contain;
+                margin-inline-end: 10px;
+              }
+            }
+            &.is-alert{
+              background: #FF2626;
+              &:before{
+                content:"";
+                display: inline-flex;
+                width: 43px;
+                height: 43px;
+                background: url(/images/mobile/common/ico_alert01.svg) no-repeat center center / contain;
+                margin-inline-end: 10px;
+              }
+            }
+          }
+          .body{
+            @media screen and (min-width: 768px) {
+              width: calc(100% - 600px);
+              margin-inline-start: 20px;
+            };
           }
         }
         &:nth-of-type(3n+2){
