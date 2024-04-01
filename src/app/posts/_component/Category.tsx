@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { CategoryListType, CategoryType } from "../../@types/category";
 import styles from "../styles/posts.module.scss";
-const expand = (e: React.MouseEvent<HTMLButtonElement>) => {
+const expand = (e: React.MouseEvent | React.KeyboardEvent) => {
   const target = e.currentTarget;
   const category = target.nextElementSibling;
   if (category) {
@@ -15,15 +15,16 @@ export default function Category({ contents }: { contents: CategoryListType }) {
   return (
     <>
       <div className={styles.category}>
-        <button
-          type="button"
+        <div
+          role="heading"
           className="category-heading"
           aria-level={2}
           alia-controls="js-category-list"
           onClick={expand}
+          onKeyDown={expand}
         >
           カテゴリーで絞り込み
-        </button>
+        </div>
         <ul id="js-category-list" role="menu" className="category-list">
           {contents.contents.map((category: CategoryType) => (
             <li key={category.id}>
