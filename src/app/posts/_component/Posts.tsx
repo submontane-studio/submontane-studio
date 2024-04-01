@@ -1,3 +1,4 @@
+import { Button } from "@/app/_component/Button/Button";
 import Header from "@/app/_component/Header";
 import { format } from "@formkit/tempo";
 import Image from "next/image";
@@ -64,15 +65,22 @@ export default function Posts({
           ))}
         </ul>
       ) : (
-        <div className="notfound">
-          <Image
-            src="/images/mobile/posts/ico_notfound.svg"
-            alt=""
-            width={80}
-            height={80}
+        <>
+          <div className={styles.notfound}>
+            <Image
+              src="/images/mobile/posts/ico_notfound.svg"
+              alt=""
+              width={80}
+              height={80}
+            />
+            <p>記事が見つかりませんでした。</p>
+          </div>
+          <Button
+            label="記事一覧へ戻る"
+            url="/posts/"
+            buttonName="back-index"
           />
-          <p>記事が見つかりませんでした。</p>
-        </div>
+        </>
       )}
     </>
   );

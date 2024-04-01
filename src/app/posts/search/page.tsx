@@ -1,4 +1,6 @@
 import type { Post } from "@/app/@types/post";
+import Conversion from "@/app/_component/Conversion";
+import Footer from "@/app/_component/Footer";
 import Header from "@/app/_component/Header";
 import getCategories from "@/app/_lib/getCategories";
 import getSearchResults from "@/app/_lib/getSearchResults";
@@ -32,6 +34,8 @@ export default async function Page({
         </div>
       </div>
       <Posts data={data} />
+      <Conversion />
+      <Footer />
     </>
   );
 }

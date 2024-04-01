@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
+import Conversion from "../_component/Conversion";
+import Footer from "../_component/Footer";
 import Header from "../_component/Header";
 import getCategories from "../_lib/getCategories";
 import getPosts from "../_lib/getPosts";
@@ -32,6 +34,8 @@ export default async function Index() {
         </div>
       </div>
       <Posts className="index" data={data} />
+      <Conversion />
+      <Footer />
     </>
   );
 }
