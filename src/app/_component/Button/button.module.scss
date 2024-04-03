@@ -18,7 +18,12 @@
       }
     }
     &.back-index{
-      margin-block: 60px 100px
+      margin-block: 60px 100px;
+      margin-inline: auto;
+      width: calc(100% - 40px);
+      @media screen and (min-width: 768px) {
+        max-width: 600px;
+      };
     }
   }
 }

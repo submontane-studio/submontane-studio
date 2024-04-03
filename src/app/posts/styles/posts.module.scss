@@ -13,10 +13,12 @@
   h1{
     font-family: var(--font-futura), fot-udkakugo-large-pr6n, sans-serif;
     letter-spacing: 0;
-    margin-block: 20px;
+    margin-block: 40px 20px;
+    font-size: rem(26);
     @media screen and (min-width: 768px) {
       margin-block: 0;
       margin-inline: 0 auto;
+      font-size: rem(28);
     }
   }
 }
@@ -49,6 +51,7 @@
       @media screen and (min-width: 768px) {
         font-size: rem(16);
         padding-inline:40px 20px;
+        cursor: pointer;
       }
       &:before{
         content:"";
@@ -540,6 +543,7 @@
   padding-block: 30px 40px;
   @media screen and (min-width: 768px) {
     width: 1200px;
+    padding-block: 20px 30px;
   }
   :global{
     img{
@@ -547,8 +551,11 @@
       margin-block-end: 20px;
     }
     p{
-      font-size: rem(18);
+      font-size: rem(16);
       font-weight: 700;
+      @media screen and (min-width: 768px) {
+        fzont-size: rem(18);
+      }
     }
   }
 }

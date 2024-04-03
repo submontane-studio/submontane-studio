@@ -1,12 +1,19 @@
 import type { CategoryListType } from "@/app/@types/category";
 import type { Post } from "@/app/@types/post";
+import Conversion from "@/app/_component/Conversion";
+import Footer from "@/app/_component/Footer";
 import Header from "@/app/_component/Header";
 import getCategories from "@/app/_lib/getCategories";
 import getCategorizedPosts from "@/app/_lib/getCategorizedPosts";
+import { Metadata } from "next";
 import Category from "../../_component/Category";
 import Posts from "../../_component/Posts";
 import SearchBox from "../../_component/SearchBox";
 import styles from "../../styles/posts.module.scss";
+
+export const metadata: Metadata = {
+  title: "SUBMONTANE STUDIO BLOG",
+};
 
 export async function generateStaticParams() {
   const categories = await getCategories();
@@ -29,13 +36,19 @@ export default async function categorizedPosts({
         <Header />
       </div>
       <div className={styles.heading}>
-        <h1>カテゴリー : {data.contents[0].category.name}</h1>
+        <h1>
+          {data.contents.length >= 1
+            ? `カテゴリー : ${data.contents[0].category.name}`
+            : "該当する記事がありません"}
+        </h1>
         <div className={styles.narrowing}>
           <Category contents={category} />
           <SearchBox />
         </div>
       </div>
       <Posts data={data} />
+      <Conversion />
+      <Footer />
     </>
   );
 }

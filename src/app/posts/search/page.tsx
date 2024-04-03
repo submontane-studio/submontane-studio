@@ -4,10 +4,15 @@ import Footer from "@/app/_component/Footer";
 import Header from "@/app/_component/Header";
 import getCategories from "@/app/_lib/getCategories";
 import getSearchResults from "@/app/_lib/getSearchResults";
+import { Metadata } from "next";
 import Category from "../_component/Category";
 import Posts from "../_component/Posts";
 import SearchBox from "../_component/SearchBox";
 import styles from "../styles/posts.module.scss";
+
+export const metadata: Metadata = {
+  title: "SUBMONTANE STUDIO BLOG",
+};
 
 export default async function Page({
   params,
