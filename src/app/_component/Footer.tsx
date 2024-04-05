@@ -10,8 +10,8 @@ export default function Footer() {
           <Link href="/">
             <Image
               src="/images/mobile/common/footer/logo.svg"
-              width={210}
-              height={16}
+              width={203}
+              height={18}
               alt="SUBMONTANE STUDIO"
             />
           </Link>
