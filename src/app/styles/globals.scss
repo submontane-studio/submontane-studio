@@ -29,9 +29,8 @@ body{
     min-width: 1200px;
   }
 }
-.is-fixed{
+.is-fixed,.is-inpage{
   .header{
-    position: fixed;
     position: fixed;
     top: 0;
     left: 0;
@@ -438,6 +437,29 @@ body{
           }
         }
       }
+    }
+  }
+}
+.inpage{
+  &-heading{
+    margin-block-end: 1000px;
+    padding-block:25px 45px;
+    padding-inline: 20px;
+    font-family: fot-udkakugo-large-pr6n, sans-serif;
+    background: url(/images/mobile/common/header/bg_inpage.svg) var(--color-primary) right bottom /contain no-repeat;
+    h1{
+      font-size: rem(24);
+      color: #fff;
+    }
+  }
+}
+.inpage-heading{
+  h1{
+    margin-block-start: 40px;
+  }
+  .is-fixed{
+    &+h1{
+      margin-block-start: 80px;
     }
   }
 }

@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <>
-      <div className="is-inpage">
+      <div className="inpage-heading">
         <Header />
-        <h1>{metadata.title?.toString() || ""}</h1>
+        <h1>お問い合わせ</h1>
       </div>
       <Conversion />
       <Footer />
