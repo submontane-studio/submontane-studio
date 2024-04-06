@@ -61,6 +61,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://submontane.jp",
   },
+  metadataBase: new URL("https://submontane.jp"),
 };
 
 export default function RootLayout({
