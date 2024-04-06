@@ -25,7 +25,7 @@ export default function Navigation() {
                     <li key={subItem.slug}>
                       <Link
                         key={subItem.slug}
-                        href={`${item.slug}/${subItem.slug}`}
+                        href={`/${item.slug}/${subItem.slug}`}
                         role="menuitem"
                         aria-expanded="false"
                       >
@@ -36,7 +36,7 @@ export default function Navigation() {
                 </ul>
               </>
             ) : (
-              <Link href={item.slug} role="menuitem">
+              <Link href={`/${item.slug}`} role="menuitem">
                 {item.name}
               </Link>
             )}

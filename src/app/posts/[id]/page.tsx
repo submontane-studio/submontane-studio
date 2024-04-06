@@ -1,3 +1,4 @@
+import Breadcrumb from "@/app/_component/Breadcrumb";
 import { Button } from "@/app/_component/Button/Button";
 import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
@@ -86,6 +87,22 @@ export default async function Post({ params }: { params: { id: string } }) {
       <div className="is-blog">
         <Header />
       </div>
+      <Breadcrumb
+        items={[
+          {
+            pathname: `${process.env.SITE_URL}`,
+            title: "トップ",
+          },
+          {
+            pathname: `${process.env.SITE_URL}posts/`,
+            title: "記事一覧",
+          },
+          {
+            pathname: `${process.env.SITE_URL}posts/${params.id}`,
+            title: data.title,
+          },
+        ]}
+      />
       <main>
         <article id={data.id}>
           <div className={styles.heading}>
