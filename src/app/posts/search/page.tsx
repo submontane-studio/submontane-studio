@@ -43,6 +43,7 @@ export default async function Page({
             title: `検索結果 : ${searchParams.q}`,
           },
         ]}
+        className={styles.breadcrumb}
       />
       <div className={styles.heading}>
         <h1>検索結果 : {query}</h1>

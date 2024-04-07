@@ -9,12 +9,12 @@ import type { ReactElement } from "react";
 
 type Props = {
   items: BreadcrumbItem[];
+  className: string;
 };
-
-export default function Breadcrumb({ items }: Props): ReactElement {
+export default function Breadcrumb({ items, className }: Props): ReactElement {
   return (
     <>
-      <ol className="breadcrumb">
+      <ol className={`breadcrumb ${className}`}>
         {items.map(({ pathname, title }, i) => (
           <li key={pathname}>
             {items.length === i + 1 ? (

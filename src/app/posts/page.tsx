@@ -38,6 +38,7 @@ export default async function Index() {
             title: "記事一覧",
           },
         ]}
+        className={styles.breadcrumb}
       />
       <div className={styles.heading}>
         <h1>BLOG</h1>

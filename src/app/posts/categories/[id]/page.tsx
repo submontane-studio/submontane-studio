@@ -7,6 +7,7 @@ import Header from "@/app/_component/Header";
 import getCategories from "@/app/_lib/getCategories";
 import getCategorizedPosts from "@/app/_lib/getCategorizedPosts";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Category from "../../_component/Category";
 import Posts from "../../_component/Posts";
 import SearchBox from "../../_component/SearchBox";
@@ -44,15 +45,20 @@ export default async function categorizedPosts({
           },
           {
             pathname: `${process.env.SITE_URL}posts/${params.id}`,
-            title: data.contents[0]?.category.name,
+            title: `${
+              data.contents.length >= 1
+                ? data.contents[0]?.category.name
+                : notFound()
+            }`,
           },
         ]}
+        className={styles.breadcrumb}
       />
       <div className={styles.heading}>
         <h1>
           {data.contents.length >= 1
             ? `カテゴリー : ${data.contents[0].category.name}`
-            : "該当する記事がありません"}
+            : notFound()}
         </h1>
         <div className={styles.narrowing}>
           <Category contents={category} />
