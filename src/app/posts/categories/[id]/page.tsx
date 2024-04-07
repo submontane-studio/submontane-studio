@@ -1,5 +1,6 @@
 import type { CategoryListType } from "@/app/@types/category";
 import type { Post } from "@/app/@types/post";
+import Breadcrumb from "@/app/_component/Breadcrumb";
 import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
 import Header from "@/app/_component/Header";
@@ -35,6 +36,18 @@ export default async function categorizedPosts({
       <div className="is-blog">
         <Header />
       </div>
+      <Breadcrumb
+        items={[
+          {
+            pathname: `${process.env.SITE_URL}`,
+            title: "トップ",
+          },
+          {
+            pathname: `${process.env.SITE_URL}posts/${params.id}`,
+            title: data.contents[0]?.category.name,
+          },
+        ]}
+      />
       <div className={styles.heading}>
         <h1>
           {data.contents.length >= 1

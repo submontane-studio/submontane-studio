@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
+import Breadcrumb from "../_component/Breadcrumb";
 import Conversion from "../_component/Conversion";
 import Footer from "../_component/Footer";
 import Header from "../_component/Header";
@@ -26,6 +27,18 @@ export default async function Index() {
       <div className="is-blog">
         <Header />
       </div>
+      <Breadcrumb
+        items={[
+          {
+            pathname: `${process.env.SITE_URL}`,
+            title: "トップ",
+          },
+          {
+            pathname: `${process.env.SITE_URL}posts/`,
+            title: "記事一覧",
+          },
+        ]}
+      />
       <div className={styles.heading}>
         <h1>BLOG</h1>
         <div className={styles.narrowing}>

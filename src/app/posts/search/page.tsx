@@ -1,4 +1,5 @@
 import type { Post } from "@/app/@types/post";
+import Breadcrumb from "@/app/_component/Breadcrumb";
 import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
 import Header from "@/app/_component/Header";
@@ -31,6 +32,18 @@ export default async function Page({
       <div className="is-blog">
         <Header />
       </div>
+      <Breadcrumb
+        items={[
+          {
+            pathname: `${process.env.SITE_URL}`,
+            title: "トップ",
+          },
+          {
+            pathname: `${process.env.SITE_URL}posts/${searchParams.q}`,
+            title: `検索結果 : ${searchParams.q}`,
+          },
+        ]}
+      />
       <div className={styles.heading}>
         <h1>検索結果 : {query}</h1>
         <div className={styles.narrowing}>
