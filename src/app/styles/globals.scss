@@ -29,6 +29,39 @@ body{
     min-width: 1200px;
   }
 }
+.breadcrumb{
+  padding-inline: 20px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    width: 1400px;
+    max-width: calc(100% - 40px);
+    margin-inline: auto;
+    align-items: center;
+    padding-inline: 0;
+  }
+  li{
+    display: inline-flex;
+    a{
+      text-decoration: none;
+      @media (hover: hover){
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+      &.home{
+        &:before{
+          content:url(/images/mobile/common/ico_home01.svg);
+          display: inline-block;
+          vertical-align: middle;
+          margin-inline-end: 5px;
+        }
+      }
+    }
+    &:last-of-type{
+      font-weight: 700;
+    }
+  }
+}
 .is-fixed,.is-inpage{
   .header{
     position: fixed;
@@ -52,18 +85,13 @@ body{
   &+.breadcrumb{
     display: none;
     @media screen and (min-width: 768px) {
-      display: flex;
-      width: 1400px;
-      max-width: calc(100% - 80px);
-      margin-inline: auto;
-      align-items: center;
       margin-block-start: 40px;
+      display: flex;
     }
     li{
-      display: inline-flex;
       &+li{
         position: relative;
-        padding-inline-start: 15px;
+        padding-inline-start: 20px;
         margin-inline-start: 10px;
         &:before{
           content:"";
@@ -473,14 +501,13 @@ body{
 }
 .inpage{
   &-heading{
-    margin-block-end: 1000px;
     padding-block:25px 45px;
     padding-inline: 20px;
-    font-family: fot-udkakugo-large-pr6n, sans-serif;
     background: url(/images/mobile/common/header/bg_inpage.svg) var(--color-primary) right bottom /contain no-repeat;
     h1{
       font-size: rem(24);
       color: #fff;
+      font-family: fot-udkakugo-large-pr6n, sans-serif;
     }
   }
 }

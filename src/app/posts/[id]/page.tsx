@@ -30,8 +30,8 @@ export async function generateMetadata(
   return {
     metadataBase: new URL("https://submontane.jp"),
     title: {
-      default: `${data.title} | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
-      template: `%s | ${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
+      default: `${data.title} | SUBMONTANE BLOG | ${process.env.SITE_DESCRIPTION}`,
+      template: `%s | SUBMONTANE BLOG | ${process.env.SITE_DESCRIPTION}`,
     },
     description: `${process.env.SITE_DESCRIPTION}`,
     openGraph: {
@@ -91,7 +91,7 @@ export default async function Post({ params }: { params: { id: string } }) {
         items={[
           {
             pathname: `${process.env.SITE_URL}`,
-            title: "トップ",
+            title: "ホーム",
           },
           {
             pathname: `${process.env.SITE_URL}posts/`,

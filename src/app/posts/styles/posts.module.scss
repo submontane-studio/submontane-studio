@@ -561,4 +561,5 @@
 }
 .breadcrumb{
   width: 1200px !important;
+  max-width: calc(100% - 40px) !important;
 }

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Breadcrumb from "../_component/Breadcrumb";
 import Conversion from "../_component/Conversion";
 import Footer from "../_component/Footer";
 import Header from "../_component/Header";
@@ -15,6 +16,19 @@ export default function Contact() {
         <Header />
         <h1>お問い合わせ</h1>
       </div>
+      <Breadcrumb
+        items={[
+          {
+            pathname: `${process.env.SITE_URL}`,
+            title: "ホーム",
+          },
+          {
+            pathname: `${process.env.SITE_URL}contact/`,
+            title: "お問い合わせ",
+          },
+        ]}
+        className={styles.breadcrumb}
+      />
       <Conversion />
       <Footer />
     </>

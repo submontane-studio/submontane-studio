@@ -15,7 +15,7 @@ import SearchBox from "./_component/SearchBox";
 import styles from "./styles/posts.module.scss";
 
 export const metadata: Metadata = {
-  title: "SUBMONTANE STUDIO BLOG",
+  title: "SUBMONTANE BLOG",
 };
 
 export default async function Index() {
@@ -31,7 +31,7 @@ export default async function Index() {
         items={[
           {
             pathname: `${process.env.SITE_URL}`,
-            title: "トップ",
+            title: "ホーム",
           },
           {
             pathname: `${process.env.SITE_URL}posts/`,

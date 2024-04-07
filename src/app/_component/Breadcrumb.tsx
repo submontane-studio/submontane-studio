@@ -9,7 +9,7 @@ import type { ReactElement } from "react";
 
 type Props = {
   items: BreadcrumbItem[];
-  className: string;
+  className?: string;
 };
 export default function Breadcrumb({ items, className }: Props): ReactElement {
   return (
@@ -20,17 +20,11 @@ export default function Breadcrumb({ items, className }: Props): ReactElement {
             {items.length === i + 1 ? (
               title
             ) : (
-              <Link href={pathname}>
-                {title === "トップ" ? (
-                  <Image
-                    src="/images/mobile/common/ico_home01.svg"
-                    alt="トップ"
-                    width={16}
-                    height={16}
-                  />
-                ) : (
-                  title
-                )}
+              <Link
+                href={pathname}
+                className={title === "ホーム" ? "home" : ""}
+              >
+                {title}
               </Link>
             )}
           </li>
