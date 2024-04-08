@@ -31,8 +31,11 @@ body{
 }
 .breadcrumb{
   padding-inline: 20px;
+  min-height: 40px;
+  border-block-end: 1px solid #eee;
+  display: flex;
+  margin-block-end: 60px;
   @media screen and (min-width: 768px) {
-    display: flex;
     width: 1400px;
     max-width: calc(100% - 40px);
     margin-inline: auto;
@@ -41,14 +44,25 @@ body{
   }
   li{
     display: inline-flex;
+    align-items: center;
+    font-size: rem(11);
+    letter-spacing: .05rem;
     a{
       text-decoration: none;
+      min-height: 100%;
+      position: relative;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-inline-end: 20px;
       @media (hover: hover){
         &:hover{
           text-decoration: underline;
         }
       }
       &.home{
+        display: inline-flex;
+        align-items: center;
+        min-height: 100%;
         &:before{
           content:url(/images/mobile/common/ico_home01.svg);
           display: inline-block;
@@ -56,9 +70,22 @@ body{
           margin-inline-end: 5px;
         }
       }
+      &:after{
+        content:"";
+        display: block;
+        border-inline-end: 1px solid #eee;
+        border-block-end: 1px solid #eee;
+        width: 22px;
+        height: 16px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%) rotate(-68deg) skew(-45deg);
+      }
     }
     &:last-of-type{
       font-weight: 700;
+      padding-inline-start: 10px;
     }
   }
 }
@@ -89,6 +116,9 @@ body{
       display: flex;
     }
     li{
+      @media screen and (min-width: 768px) {
+        font-size: rem(14);
+      }
       &+li{
         position: relative;
         padding-inline-start: 20px;
@@ -520,4 +550,16 @@ body{
       margin-block-start: 80px;
     }
   }
+}
+.required{
+  background: #DB628C;
+  font-size: rem(11);
+  color: #fff;
+  display: inline-block;
+  width: 60px;
+  padding-block: 1px;
+  text-align: center;
+  margin-inline-end: .2rem;
+  border-radius: 3px;
+  font-weight: 700;
 }
