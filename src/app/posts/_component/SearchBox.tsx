@@ -10,8 +10,7 @@ export default function SearchBox() {
           name="q"
           id="search"
           aria-label="記事を検索"
-          // onClick={expand}
-          // onInput={}
+          rel="search"
         />
       </form>
     </div>

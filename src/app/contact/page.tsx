@@ -49,57 +49,83 @@ export default function Contact() {
         <form action="">
           <dl className={styles.form}>
             <dt>
-              お名前<span className="required">必須</span>
+              <label htmlFor="family-name">
+                お名前<span className="required">必須</span>
+              </label>
             </dt>
             <dd>
-              姓
-              <input
-                type="text"
-                name="姓"
-                id="family-name"
-                className="family-name"
-                required
-                aria-required
-              />
-              名
-              <input
-                type="text"
-                name="名"
-                id="first-name"
-                className="first-name"
-                required
-                aria-required
-              />
+              <fieldset name="名前" id="name">
+                <label htmlFor="family-name">姓</label>
+                <input
+                  type="text"
+                  name="family-name"
+                  id="family-name"
+                  className="family-name"
+                  pattern="^[a-zA-Zぁ-んァ-ヶｱ-ﾝﾞﾟ一-龠]*$"
+                  placeholder="山田"
+                  aria-placeholder="山田"
+                  aria-autocomplete="both"
+                  required
+                  aria-required
+                />
+                <label htmlFor="first-name">名</label>
+                <input
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  className="first-name"
+                  pattern="^[a-zA-Zぁ-んァ-ヶｱ-ﾝﾞﾟ一-龠]*$"
+                  placeholder="太郎"
+                  aria-placeholder="太郎"
+                  aria-autocomplete="both"
+                  required
+                  aria-required
+                />
+              </fieldset>
             </dd>
-            <dt>屋号・商号・会社名</dt>
+            <dt>
+              <label htmlFor="trade-name">屋号・商号・会社名</label>
+            </dt>
             <dd>
               <input
                 type="text"
-                name="屋号"
+                name="trade-name"
                 id="trade-name"
                 className="trade-name"
+                placeholder="株式会社〇〇"
+                aria-placeholder="株式会社〇〇"
+                aria-autocomplete="both"
               />
             </dd>
             <dt>
-              メールアドレス<span className="required">必須</span>
+              <label htmlFor="email">
+                メールアドレス<span className="required">必須</span>
+              </label>
             </dt>
             <dd>
               <input
                 type="email"
-                name="メールアドレス"
+                name="email"
                 id="email"
+                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                placeholder="taro@example.com"
+                aria-placeholder="taro@example.com"
+                aria-autocomplete="both"
                 required
                 aria-required
               />
             </dd>
             <dt>
-              メールアドレス（確認）<span className="required">必須</span>
+              <label htmlFor="email-confirm">
+                メールアドレス（確認）<span className="required">必須</span>
+              </label>
             </dt>
             <dd>
               <input
                 type="email"
-                name="メールアドレス（確認）"
+                name="email-confirm"
                 id="email-confirm"
+                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
                 required
                 aria-required
               />
@@ -108,35 +134,45 @@ export default function Contact() {
             <dd>
               <ul>
                 <li>
-                  <input type="radio" name="お見積もり依頼" id="estimate" />
-                  お見積もり依頼
+                  <input type="radio" name="type" id="estimate" />
+                  <label htmlFor="estimate">お見積もり依頼</label>
                 </li>
                 <li>
-                  <input type="radio" name="ご質問" id="question" />
-                  ご質問
+                  <input type="radio" name="type" id="question" />
+                  <label htmlFor="question">ご質問</label>
                 </li>
                 <li>
-                  <input type="radio" name="その他" id="other" />
-                  その他
+                  <input
+                    type="radio"
+                    name="type"
+                    id="other"
+                    defaultChecked
+                    aria-checked="true"
+                  />
+                  <label htmlFor="other">その他</label>
                 </li>
               </ul>
             </dd>
             <dt>
-              お問い合わせ内容<span className="required">必須</span>
+              <label htmlFor="detail">
+                お問い合わせ内容<span className="required">必須</span>
+              </label>
             </dt>
             <dd>
-              <textarea
-                name="お問い合わせ内容"
-                id="detail"
-                className="detail"
-              />
+              <textarea name="detail" id="detail" className="detail" />
             </dd>
           </dl>
-          <input type="checkbox" name="プライバシーポリシー" id="privacy" />{" "}
-          <a href="/privacy-policy" target="_blank" rel="noreferrer">
-            プライバシーポリシー
-          </a>
-          に同意する
+          <input type="checkbox" name="プライバシーポリシー" id="privacy" />
+          <label htmlFor="privacy">
+            <a
+              href="/privacy-policy"
+              target="_blank"
+              rel="noreferrer privacy-policy"
+            >
+              プライバシーポリシー
+            </a>
+            に同意する
+          </label>
           <ul>
             <li>
               <input
@@ -146,9 +182,7 @@ export default function Contact() {
               />
             </li>
             <li>
-              <button type="reset" className="button button-clear">
-                クリア
-              </button>
+              <input type="reset" value="クリア" />
             </li>
           </ul>
         </form>
