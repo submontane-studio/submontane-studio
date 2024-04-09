@@ -9,6 +9,7 @@
   line-height: 1.93;
   font-size: rem(13);
   letter-spacing: .1rem;
+  margin-block-end: 50px;
   a{
     color: #ff7c00;
     &[target="_blank"] {
@@ -19,6 +20,60 @@
         width: 16px;
         height: 16px;
       }
+    }
+  }
+}
+.form{
+  padding-inline:20px;
+  dt{
+    font-weight: 700;
+    margin-block-end: 15px;
+    :global{
+      .required{
+        margin-inline-start: 10px;
+      }
+    }
+  }
+  dd{
+    :global{
+      .name{
+        font-size: rem(12);
+        label{
+          display: inline-block;
+          margin-inline-end: 6px;
+          &[for="first-name"]{
+            margin-inline-start: 9px;
+          }
+        }
+      }
+      .family-name{
+        width: 37.313%;
+      }
+      .first-name{
+        width: 47.462%;
+      }
+      input[type="text"],input[type="email"],input[type="tel"]{
+        border: 1px solid #ddd;
+        appearance: none;
+        box-shadow: inset 2px 2px 0px rgba(221, 221, 221, 0.4);
+        border-radius: 3px;
+        padding-block:5px;
+        padding-inline: 10px;
+        font-size: rem(14);
+        &:focus-visible{
+          border: 0;
+          outline: 2px solid var(--color-primary);
+          box-shadow: none;
+        }
+      }
+      input[type="email"]{
+        width: 100%;
+      }
+    }
+    &:not(:last-of-type){
+      padding-block-end: 20px;
+      border-block-end: 1px solid #e0e0e0;
+      margin-block-end: 20px;
     }
   }
 }

@@ -54,7 +54,7 @@ export default function Contact() {
               </label>
             </dt>
             <dd>
-              <fieldset name="名前" id="name">
+              <fieldset name="名前" id="name" className="name">
                 <label htmlFor="family-name">姓</label>
                 <input
                   type="text"
