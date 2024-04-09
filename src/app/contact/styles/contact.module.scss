@@ -53,7 +53,8 @@
         width: 47.462%;
       }
       input[type="text"],input[type="email"],input[type="tel"]{
-        border: 1px solid #ddd;
+        outline: 1px solid #ddd;
+        border: 0;
         appearance: none;
         box-shadow: inset 2px 2px 0px rgba(221, 221, 221, 0.4);
         border-radius: 3px;
@@ -61,12 +62,12 @@
         padding-inline: 10px;
         font-size: rem(14);
         &:focus-visible{
-          border: 0;
+          // border: 0;
           outline: 2px solid var(--color-primary);
           box-shadow: none;
         }
       }
-      input[type="email"]{
+      input[type="email"],.email-confirm,.trade-name{
         width: 100%;
       }
     }
