@@ -114,6 +114,13 @@
     justify-content: center;
     position: relative;
     transition: all .3s ease;
+    &:focus-visible{
+      background: #fff;
+      color: var(--color-primary);
+      &:after{
+        border-color: var(--color-primary);
+      }
+    }
     @media (hover: hover){
       &:hover{
         background: #fff;

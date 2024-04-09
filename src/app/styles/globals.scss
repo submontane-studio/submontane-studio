@@ -311,6 +311,9 @@ body{
             padding-block: 25px;
             padding-inline-start:25px;
             position: relative;
+            &:focus-visible{
+              outline: 2px solid #fff;
+            }
             @media (hover: hover){
               &:hover{
                 color: #fff;
@@ -413,6 +416,12 @@ body{
       margin-inline: 0 auto;
       width: 253px;
     }
+    a{
+      display: block;
+      &:focus-visible{
+        outline: 2px solid #fff;
+      }
+    }
   }
   .copyright{
     color: #fff;
@@ -440,6 +449,9 @@ body{
           font-weight: 700;
           text-decoration: none;
           font-size: rem(14);
+        }
+        &:focus-visible{
+          outline: 2px solid #fff;
         }
       }
       a{

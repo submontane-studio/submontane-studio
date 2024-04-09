@@ -149,7 +149,7 @@
       min-height: 50px;
       padding-inline:10px 50px;
     }
-    &:focus{
+    &:focus-visible{
       width: calc(100vw - 40px);
       padding-inline:10px 29px;
       @media screen and (min-width: 768px) {
