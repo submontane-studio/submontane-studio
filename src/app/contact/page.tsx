@@ -186,7 +186,7 @@ export default function Contact() {
               に同意する
             </label>
           </div>
-          <ul className="button-list">
+          <ul className={styles["button-list"]}>
             <li>
               <input
                 type="submit"
@@ -195,7 +195,11 @@ export default function Contact() {
               />
             </li>
             <li>
-              <input type="reset" value="クリア" />
+              <input
+                type="reset"
+                value="クリア"
+                className="button button-reset"
+              />
             </li>
           </ul>
         </form>

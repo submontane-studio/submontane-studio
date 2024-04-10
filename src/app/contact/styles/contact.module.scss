@@ -138,6 +138,7 @@
 }
 .privacy{
   text-align: center;
+  margin-bottom: 40px;
   a{
     color: #ff7c00;
   }
@@ -191,5 +192,40 @@
         transform: translateY(calc(50% - 15px)) rotate(45deg);
       }
     }
+  }
+}
+.button-list{
+  display: flex;
+  flex-direction: column;
+  padding-inline: 20px;
+  margin-block-end: 100px;
+  li{
+    &+li{
+      margin-block-start: 20px;
+    }
+  }
+  input,button{
+    appearance: none;
+    border: 0;
+    background: transparent;
+  }
+  input[type="submit"], input[type="reset"] {
+    width: 100%;
+    min-height: 50px;
+    border-radius: 3px;
+  }
+  input[type="submit"]{
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 700;
+    &:disabled{
+      background: #ddd;
+      color: #fff;
+    }
+  }
+  input[type="reset"]{
+    background: #fff;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
   }
 }
