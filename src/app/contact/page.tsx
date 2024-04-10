@@ -132,13 +132,23 @@ export default function Contact() {
             </dd>
             <dt>お問い合わせ種別</dt>
             <dd>
-              <ul>
+              <ul className="type-list">
                 <li>
-                  <input type="radio" name="type" id="estimate" />
+                  <input
+                    type="radio"
+                    name="type"
+                    id="estimate"
+                    className="type visually-hidden"
+                  />
                   <label htmlFor="estimate">お見積もり依頼</label>
                 </li>
                 <li>
-                  <input type="radio" name="type" id="question" />
+                  <input
+                    type="radio"
+                    name="type"
+                    id="question"
+                    className="type visually-hidden"
+                  />
                   <label htmlFor="question">ご質問</label>
                 </li>
                 <li>
@@ -148,6 +158,7 @@ export default function Contact() {
                     id="other"
                     defaultChecked
                     aria-checked="true"
+                    className="type visually-hidden"
                   />
                   <label htmlFor="other">その他</label>
                 </li>
@@ -162,18 +173,20 @@ export default function Contact() {
               <textarea name="detail" id="detail" className="detail" />
             </dd>
           </dl>
-          <input type="checkbox" name="プライバシーポリシー" id="privacy" />
-          <label htmlFor="privacy">
-            <a
-              href="/privacy-policy"
-              target="_blank"
-              rel="noreferrer privacy-policy"
-            >
-              プライバシーポリシー
-            </a>
-            に同意する
-          </label>
-          <ul>
+          <div className={styles.privacy}>
+            <input type="checkbox" name="プライバシーポリシー" id="privacy" />
+            <label htmlFor="privacy">
+              <a
+                href="/privacy-policy"
+                target="_blank"
+                rel="noreferrer privacy-policy"
+              >
+                プライバシーポリシー
+              </a>
+              に同意する
+            </label>
+          </div>
+          <ul className="button-list">
             <li>
               <input
                 type="submit"

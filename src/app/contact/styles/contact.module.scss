@@ -25,6 +25,7 @@
 }
 .form{
   padding-inline:20px;
+  margin-block-end: 20px;
   dt{
     font-weight: 700;
     margin-block-end: 15px;
@@ -70,11 +71,125 @@
       input[type="email"],.email-confirm,.trade-name{
         width: 100%;
       }
+      .type-list{
+        display: flex;
+        li{
+          &+li{
+            margin-inline-start: 15px;
+          }
+        }
+      }
     }
     &:not(:last-of-type){
       padding-block-end: 20px;
       border-block-end: 1px solid #e0e0e0;
       margin-block-end: 20px;
+    }
+    input[type="radio"] {
+      appearance: none;
+      outline: 0;
+      &+label{
+        position: relative;
+        padding-inline-start: 21px;
+        font-size: rem(12);
+        &:before{
+          content:"";
+          display: block;
+          width: 16px;
+          height: 16px;
+          border-radius: 100%;
+          border:2px solid var(--color-primary);
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+      }
+      &:checked+label{
+        &:after{
+          content:"";
+          display: block;
+          width: 8px;
+          height: 8px;
+          border-radius: 100%;
+          background: var(--color-primary);
+          position: absolute;
+          top: 50%;
+          left: 4px;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    textarea{
+      appearance: none;
+      width: 100%;
+      min-height: 10rem;
+      padding:10px;
+      outline: 1px solid #ddd;
+      border: 0;
+      border-radius: 3px;
+      &:focus-visible{
+        border: 0;
+        outline: 2px solid var(--color-primary);
+        box-shadow: none;
+      }
+    }
+  }
+}
+.privacy{
+  text-align: center;
+  a{
+    color: #ff7c00;
+  }
+  input[type="checkbox"] {
+    appearance: none;
+    outline: 0;
+    &+label{
+      position: relative;
+      padding-inline-start: 26px;
+      font-size: rem(14);
+      &:before{
+        content:"";
+        display: block;
+        width: 16px;
+        height: 16px;
+        border-radius: 1px;
+        border: 0;
+        outline:2px solid var(--color-primary);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      a{
+        &[target="_blank"] {
+          margin-inline-end: 3px;
+          &:after{
+            content:"";
+            display: inline-block;
+            background: url(/images/mobile/common/ico_blank01.svg) left top / contain no-repeat;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+    &:checked+label{
+      &:before{
+        background: var(--color-primary);
+      }
+      &:after{
+        content:"";
+        display: block;
+        height: 13px;
+        width: 8px;
+        border-block-end: 3px solid #fff;
+        border-inline-end: 3px solid #fff;
+        position: absolute;
+        top: 50%;
+        left: 4px;
+        transform: translateY(calc(50% - 15px)) rotate(45deg);
+      }
     }
   }
 }
