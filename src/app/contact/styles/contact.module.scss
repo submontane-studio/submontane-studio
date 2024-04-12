@@ -53,6 +53,13 @@
       .first-name{
         width: 47.462%;
       }
+      fieldset{
+        &:has(.is-error){
+          input[type="text"],input[type="email"],input[type="tel"]{
+            outline: 2px solid #ff0000;
+          }
+        }
+      }
       input[type="text"],input[type="email"],input[type="tel"]{
         outline: 1px solid #ddd;
         border: 0;

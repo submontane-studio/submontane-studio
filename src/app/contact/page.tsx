@@ -10,9 +10,6 @@ export const metadata: Metadata = {
   title: "お問い合わせ",
 };
 
-const validate = (e: React.FocusEvent<HTMLInputElement>) => {
-  e.preventDefault();
-};
 export default function Contact() {
   return (
     <>
@@ -70,10 +67,10 @@ export default function Contact() {
                   aria-placeholder="山田"
                   aria-autocomplete="both"
                   required
-                  aria-required
+                  aria-required="true"
                 />
                 <label htmlFor="first-name">名</label>
-                <input
+                <Input
                   type="text"
                   name="first-name"
                   id="first-name"
@@ -91,7 +88,7 @@ export default function Contact() {
               <label htmlFor="trade-name">屋号・商号・会社名</label>
             </dt>
             <dd>
-              <input
+              <Input
                 type="text"
                 name="trade-name"
                 id="trade-name"
@@ -107,7 +104,7 @@ export default function Contact() {
               </label>
             </dt>
             <dd>
-              <input
+              <Input
                 type="email"
                 name="email"
                 id="email"
@@ -125,7 +122,7 @@ export default function Contact() {
               </label>
             </dt>
             <dd>
-              <input
+              <Input
                 type="email"
                 name="email-confirm"
                 id="email-confirm"
@@ -138,7 +135,7 @@ export default function Contact() {
             <dd>
               <ul className="type-list">
                 <li>
-                  <input
+                  <Input
                     type="radio"
                     name="type"
                     id="estimate"
@@ -147,7 +144,7 @@ export default function Contact() {
                   <label htmlFor="estimate">お見積もり依頼</label>
                 </li>
                 <li>
-                  <input
+                  <Input
                     type="radio"
                     name="type"
                     id="question"
@@ -156,7 +153,7 @@ export default function Contact() {
                   <label htmlFor="question">ご質問</label>
                 </li>
                 <li>
-                  <input
+                  <Input
                     type="radio"
                     name="type"
                     id="other"
@@ -178,7 +175,7 @@ export default function Contact() {
             </dd>
           </dl>
           <div className={styles.privacy}>
-            <input type="checkbox" name="プライバシーポリシー" id="privacy" />
+            <Input type="checkbox" name="プライバシーポリシー" id="privacy" />
             <label htmlFor="privacy">
               <a
                 href="/privacy-policy"
