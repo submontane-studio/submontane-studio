@@ -3,12 +3,16 @@ import Breadcrumb from "../_component/Breadcrumb";
 import Conversion from "../_component/Conversion";
 import Footer from "../_component/Footer";
 import Header from "../_component/Header";
+import { Input } from "./_component/Parts";
 import styles from "./styles/contact.module.scss";
 
 export const metadata: Metadata = {
   title: "お問い合わせ",
 };
 
+const validate = (e: React.FocusEvent<HTMLInputElement>) => {
+  e.preventDefault();
+};
 export default function Contact() {
   return (
     <>
@@ -46,7 +50,7 @@ export default function Contact() {
             は必須項目です。必ずご入力ください。
           </p>
         </div>
-        <form action="">
+        <form id="form" action="" noValidate>
           <dl className={styles.form}>
             <dt>
               <label htmlFor="family-name">
@@ -56,7 +60,7 @@ export default function Contact() {
             <dd>
               <fieldset name="名前" id="name" className="name">
                 <label htmlFor="family-name">姓</label>
-                <input
+                <Input
                   type="text"
                   name="family-name"
                   id="family-name"
