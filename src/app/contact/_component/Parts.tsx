@@ -3,7 +3,7 @@
 type InputProps = {
   id: string;
   className?: string | undefined;
-  [x: string]: string | boolean | undefined;
+  [rest: string]: string | boolean | undefined;
 };
 
 const validate = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -24,21 +24,40 @@ const validate = (e: React.FocusEvent<HTMLInputElement>) => {
         "beforeend",
         `<p class="is-error">${part.validationMessage}</p>`,
       );
+    } else if (part.id === "email") {
+      part.setCustomValidity("メールアドレスを入力してください");
+      part.insertAdjacentHTML(
+        "afterend",
+        `<p class="is-error">${part.validationMessage}</p>`,
+      );
+    } else if (part.id === "email-confirm") {
+      part.setCustomValidity("もう一度メールアドレスを入力してください");
+      part.insertAdjacentHTML(
+        "afterend",
+        `<p class="is-error">${part.validationMessage}</p>`,
+      );
     }
-  } else if (part.validity.patternMismatch) {
+  } else if (part.validity.patternMismatch || part.validity.typeMismatch) {
     part.classList.add("is-error");
     if (parent?.id === "name") {
-      if (part.id === "family-name") {
-        part.setCustomValidity("姓の入力が不正です");
-      } else {
-        part.setCustomValidity("名の入力が不正です");
-      }
-
+      part.setCustomValidity(
+        "半角英数字・ひらがな・カタカナ・漢字で入力してください",
+      );
       parent?.insertAdjacentHTML(
         "beforeend",
         `<p class="is-error">${part.validationMessage}</p>`,
       );
+    } else if (parent?.id === "email" || parent?.id === "email-confirm") {
+      part.setCustomValidity("メールアドレスの形式で入力してください");
+      part.append(`<p class="is-error">${part.validationMessage}</p>`);
     }
+  } else if (part.id === "privacy" && part.checked === false) {
+    part.classList.add("is-error");
+    part.setCustomValidity("プライバシーポリシーに同意してください");
+    part.insertAdjacentHTML(
+      "afterend",
+      `<p class="is-error">${part.validationMessage}</p>`,
+    );
   } else {
     part.classList.remove("is-error");
     parent?.querySelector("p.is-error")?.remove();
