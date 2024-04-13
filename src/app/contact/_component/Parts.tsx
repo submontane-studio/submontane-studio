@@ -54,8 +54,8 @@ const validate = (e: React.FocusEvent<HTMLInputElement>) => {
   } else if (part.id === "privacy" && part.checked === false) {
     part.classList.add("is-error");
     part.setCustomValidity("プライバシーポリシーに同意してください");
-    part.insertAdjacentHTML(
-      "afterend",
+    parent?.insertAdjacentHTML(
+      "beforeend",
       `<p class="is-error">${part.validationMessage}</p>`,
     );
   } else {

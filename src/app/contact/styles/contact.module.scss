@@ -212,6 +212,13 @@
       }
     }
   }
+  :global{
+    .is-error{
+      margin-block-start: .5rem;
+      color: #f00;
+      font-weight: 700;
+    }
+  }
 }
 .button-list{
   display: flex;
