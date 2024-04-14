@@ -69,12 +69,12 @@ export default function Contact() {
                   required
                   aria-required="true"
                 />
-                <label htmlFor="first-name">名</label>
+                <label htmlFor="given-name">名</label>
                 <Input
                   type="text"
-                  name="first-name"
-                  id="first-name"
-                  className="first-name"
+                  name="given-name"
+                  id="given-name"
+                  className="given-name"
                   pattern="^[a-zA-Zぁ-んァ-ヶｱ-ﾝﾞﾟ一-龠]*$"
                   placeholder="太郎"
                   aria-placeholder="太郎"

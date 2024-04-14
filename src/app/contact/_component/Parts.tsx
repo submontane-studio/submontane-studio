@@ -18,14 +18,19 @@ const validate = (
     if (parent?.id === "name") {
       if (part.id === "family-name") {
         part.setCustomValidity("姓を入力してください");
+
+        parent?.insertAdjacentHTML(
+          "beforeend",
+          `<p class="is-error is-empty-family-name">${part.validationMessage}</p>`,
+        );
       } else {
         part.setCustomValidity("名を入力してください");
-      }
 
-      parent?.insertAdjacentHTML(
-        "beforeend",
-        `<p class="is-error">${part.validationMessage}</p>`,
-      );
+        parent?.insertAdjacentHTML(
+          "beforeend",
+          `<p class="is-error is-empty-given-name">${part.validationMessage}</p>`,
+        );
+      }
     } else if (part.id === "email") {
       part.setCustomValidity("メールアドレスを入力してください");
       part.insertAdjacentHTML(
