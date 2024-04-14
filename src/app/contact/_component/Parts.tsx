@@ -6,7 +6,9 @@ type InputProps = {
   [rest: string]: string | boolean | undefined;
 };
 
-const validate = (e: React.FocusEvent<HTMLInputElement>) => {
+const validate = (
+  e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+) => {
   const part = e.target;
   const parent = part.parentElement;
   part.setCustomValidity("");
@@ -36,6 +38,12 @@ const validate = (e: React.FocusEvent<HTMLInputElement>) => {
         "afterend",
         `<p class="is-error">${part.validationMessage}</p>`,
       );
+    } else if (part.id === "detail") {
+      part.setCustomValidity("お問い合わせ内容を入力してください");
+      part.insertAdjacentHTML(
+        "afterend",
+        `<p class="is-error">${part.validationMessage}</p>`,
+      );
     }
   } else if (part.validity.patternMismatch || part.validity.typeMismatch) {
     part.classList.add("is-error");
@@ -51,7 +59,10 @@ const validate = (e: React.FocusEvent<HTMLInputElement>) => {
       part.setCustomValidity("メールアドレスの形式で入力してください");
       part.append(`<p class="is-error">${part.validationMessage}</p>`);
     }
-  } else if (part.id === "privacy" && part.checked === false) {
+  } else if (
+    (part as HTMLInputElement).id === "privacy" &&
+    (part as HTMLInputElement).checked === false
+  ) {
     part.classList.add("is-error");
     part.setCustomValidity("プライバシーポリシーに同意してください");
     parent?.insertAdjacentHTML(
@@ -66,4 +77,8 @@ const validate = (e: React.FocusEvent<HTMLInputElement>) => {
 
 export const Input = ({ id, className, ...rest }: InputProps) => {
   return <input id={id} className={className} {...rest} onBlur={validate} />;
+};
+
+export const Textarea = ({ id, className, ...rest }: InputProps) => {
+  return <textarea id={id} className={className} {...rest} onBlur={validate} />;
 };

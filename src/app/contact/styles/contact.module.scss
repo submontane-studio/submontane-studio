@@ -53,13 +53,6 @@
       .first-name{
         width: 47.462%;
       }
-      // fieldset{
-      //   &:has(.is-error){
-      //     input[type="text"],input[type="email"],input[type="tel"]{
-      //       outline: 2px solid #ff0000;
-      //     }
-      //   }
-      // }
       input[type="text"],input[type="email"],input[type="tel"]{
         outline: 1px solid #ddd;
         border: 0;
@@ -70,7 +63,6 @@
         padding-inline: 10px;
         font-size: rem(14);
         &:focus-visible{
-          // border: 0;
           outline: 2px solid var(--color-primary);
           box-shadow: none;
         }
@@ -143,6 +135,9 @@
         outline: 2px solid var(--color-primary);
         box-shadow: none;
       }
+      &.is-error{
+        outline: 2px solid #ff0000;
+      }
     }
     p{
       &:global{
@@ -150,6 +145,15 @@
           margin-block-start: .5rem;
           color: #f00;
           font-weight: 700;
+          &:before{
+            content:"";
+            width: 1.2rem;
+            height: 1.2rem;
+            display: inline-block;
+            background: url(/images/mobile/contact/ico_alert01.svg) center center / contain no-repeat;
+            vertical-align: middle;
+            margin-inline-end: 5px;
+          }
         }
       }
     }

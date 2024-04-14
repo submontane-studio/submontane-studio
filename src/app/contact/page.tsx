@@ -3,7 +3,7 @@ import Breadcrumb from "../_component/Breadcrumb";
 import Conversion from "../_component/Conversion";
 import Footer from "../_component/Footer";
 import Header from "../_component/Header";
-import { Input } from "./_component/Parts";
+import { Input, Textarea } from "./_component/Parts";
 import styles from "./styles/contact.module.scss";
 
 export const metadata: Metadata = {
@@ -171,11 +171,23 @@ export default function Contact() {
               </label>
             </dt>
             <dd>
-              <textarea name="detail" id="detail" className="detail" />
+              <Textarea
+                name="detail"
+                id="detail"
+                className="detail"
+                required
+                aria-required
+              />
             </dd>
           </dl>
           <div className={styles.privacy}>
-            <Input type="checkbox" name="プライバシーポリシー" id="privacy" />
+            <Input
+              type="checkbox"
+              name="プライバシーポリシー"
+              id="privacy"
+              required
+              aria-required
+            />
             <label htmlFor="privacy">
               <a
                 href="/privacy-policy"
