@@ -16,14 +16,20 @@ const validate = (
   if (part.validity.valueMissing) {
     part.classList.add("is-error");
     if (parent?.id === "name") {
-      if (part.id === "family-name") {
+      if (
+        part.id === "family-name" &&
+        !parent.querySelector(".is-empty-family-name")
+      ) {
         part.setCustomValidity("姓を入力してください");
 
         parent?.insertAdjacentHTML(
           "beforeend",
           `<p class="is-error is-empty-family-name">${part.validationMessage}</p>`,
         );
-      } else {
+      } else if (
+        part.id === "given-name" &&
+        !parent.querySelector(".is-empty-given-name")
+      ) {
         part.setCustomValidity("名を入力してください");
 
         parent?.insertAdjacentHTML(
@@ -56,13 +62,16 @@ const validate = (
       part.setCustomValidity(
         "半角英数字・ひらがな・カタカナ・漢字で入力してください",
       );
-      parent?.insertAdjacentHTML(
+      part.insertAdjacentHTML(
         "beforeend",
         `<p class="is-error is-invalid-name">${part.validationMessage}</p>`,
       );
-    } else if (parent?.id === "email" || parent?.id === "email-confirm") {
+    } else if (part.id === "email" || part.id === "email-confirm") {
       part.setCustomValidity("メールアドレスの形式で入力してください");
-      part.append(`<p class="is-error">${part.validationMessage}</p>`);
+      part.insertAdjacentHTML(
+        "afterend",
+        `<p class="is-error">${part.validationMessage}</p>`,
+      );
     }
   } else if (
     (part as HTMLInputElement).id === "privacy" &&
@@ -77,6 +86,21 @@ const validate = (
   } else {
     part.classList.remove("is-error");
     parent?.querySelector("p.is-error")?.remove();
+  }
+
+  const email = document.getElementById("email") as HTMLInputElement;
+
+  if (part.id === "email-confirm" && email.value !== part.value) {
+    part.setCustomValidity("メールアドレスが一致しません");
+    part.classList.add("is-error");
+
+    part.insertAdjacentHTML(
+      "afterend",
+      `<p class="is-error">${part.validationMessage}</p>`,
+    );
+  } else if (part.id === "email-confirm" && email.value === part.value) {
+    part.classList.remove("is-error");
+    part.querySelector("p.is-error")?.remove();
   }
 };
 
