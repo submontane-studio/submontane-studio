@@ -58,7 +58,7 @@ const validate = (
       );
       parent?.insertAdjacentHTML(
         "beforeend",
-        `<p class="is-error">${part.validationMessage}</p>`,
+        `<p class="is-error is-invalid-name">${part.validationMessage}</p>`,
       );
     } else if (parent?.id === "email" || parent?.id === "email-confirm") {
       part.setCustomValidity("メールアドレスの形式で入力してください");
