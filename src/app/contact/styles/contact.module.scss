@@ -10,6 +10,13 @@
   font-size: rem(13);
   letter-spacing: .1rem;
   margin-block-end: 50px;
+  @media screen and (min-width: 768px) {
+    width: 740px;
+    margin-inline:auto;
+    font-size: rem(16);
+    padding-inline: 0;
+    margin-block-end: 130px;
+  }
   a{
     color: #ff7c00;
     &[target="_blank"] {
@@ -26,33 +33,71 @@
 .form{
   padding-inline:20px;
   margin-block-end: 20px;
+  @media screen and (min-width: 768px) {
+    width: 1000px;
+    margin-inline: auto;
+    // display: flex;
+    // flex-wrap: wrap;
+  }
   dt{
     font-weight: 700;
     margin-block-end: 15px;
+    @media screen and (min-width: 768px) {
+      float: left;
+      margin-inline-start: 20px;
+    }
     :global{
       .required{
-        margin-inline-start: 10px;
+        margin-inline: 10px .2rem;
+        background: #DB628C;
+        font-size: rem(11);
+        color: #fff;
+        display: inline-block;
+        width: 60px;
+        padding-block: 1px;
+        text-align: center;
+        border-radius: 3px;
+        font-weight: 700;
+        @media screen and (min-width: 768px) {
+          font-size: rem(13);
+          margin-inline-start: 20px;
+          width: 80px;
+          padding-block: 2px;
+        }
       }
     }
   }
   dd{
+    @media screen and (min-width: 768px) {
+      padding-inline: 340px 20px;
+    }
     :global{
       .name{
         font-size: rem(12);
+        @media screen and (min-width: 768px) {
+          font-size: rem(14);
+        }
         label{
           display: inline-block;
           margin-inline-end: 6px;
-          &[for="first-name"]{
-            margin-inline-start: 9px;
+          @media screen and (min-width: 768px) {
+            margin-inline-end: 10px;
           }
         }
       }
       .family-name{
         width: 37.313%;
         margin-inline-end: 6px;
+        @media screen and (min-width: 768px) {
+          width: 260px;
+          margin-inline-end: 20px;
+        }
       }
       .given-name{
         width: 47.462%;
+        @media screen and (min-width: 768px) {
+          width: 260px;
+        }
       }
       input[type="text"],input[type="email"],input[type="tel"]{
         outline: 1px solid #ddd;
@@ -63,6 +108,11 @@
         padding-block:5px;
         padding-inline: 10px;
         font-size: rem(14);
+        @media screen and (min-width: 768px) {
+          &:not(.family-name, .given-name){
+            width: 100%;
+          }
+        }
         &:focus-visible{
           outline: 2px solid var(--color-primary);
           box-shadow: none;
@@ -87,6 +137,10 @@
       padding-block-end: 20px;
       border-block-end: 1px solid #e0e0e0;
       margin-block-end: 20px;
+      @media screen and (min-width: 768px) {
+        margin-block-end: 30px;
+        padding-block-end: 30px;
+      }
     }
     input[type="radio"] {
       appearance: none;
