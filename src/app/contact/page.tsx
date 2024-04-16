@@ -108,7 +108,7 @@ export default function Contact() {
                 type="email"
                 name="email"
                 id="email"
-                pattern="^[a-zA-Z0-9_+-]+(.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$"
+                // pattern="^[a-zA-Z0-9_+-]+(.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$"
                 placeholder="taro@example.com"
                 aria-placeholder="taro@example.com"
                 aria-autocomplete="both"
@@ -126,7 +126,7 @@ export default function Contact() {
                 type="email"
                 name="email-confirm"
                 id="email-confirm"
-                pattern="^[a-zA-Z0-9_+-]+(.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$"
+                // pattern="^[a-zA-Z0-9_+-]+(.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$"
                 required
                 aria-required
               />

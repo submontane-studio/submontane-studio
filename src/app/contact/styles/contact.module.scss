@@ -136,8 +136,10 @@
         outline: 2px solid var(--color-primary);
         box-shadow: none;
       }
-      &.is-error{
-        outline: 2px solid #ff0000;
+      &:global{
+          &.is-error{
+          outline: 2px solid #ff0000;
+        }
       }
     }
     p{

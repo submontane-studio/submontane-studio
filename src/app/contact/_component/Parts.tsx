@@ -37,26 +37,38 @@ const validate = (
           `<p class="is-error is-empty-given-name">${part.validationMessage}</p>`,
         );
       }
-    } else if (part.id === "email") {
+    } else if (
+      part.id === "email" &&
+      !part.nextElementSibling?.classList.contains("is-empty")
+    ) {
       part.setCustomValidity("メールアドレスを入力してください");
       part.insertAdjacentHTML(
         "afterend",
-        `<p class="is-error">${part.validationMessage}</p>`,
+        `<p class="is-error is-empty">${part.validationMessage}</p>`,
       );
-    } else if (part.id === "email-confirm") {
+    } else if (
+      part.id === "email-confirm" &&
+      !part.nextElementSibling?.classList.contains("is-error")
+    ) {
       part.setCustomValidity("もう一度メールアドレスを入力してください");
       part.insertAdjacentHTML(
         "afterend",
-        `<p class="is-error">${part.validationMessage}</p>`,
+        `<p class="is-error is-empty">${part.validationMessage}</p>`,
       );
-    } else if (part.id === "detail") {
+    } else if (
+      part.id === "detail" &&
+      !part.nextElementSibling?.classList.contains("is-error")
+    ) {
       part.setCustomValidity("お問い合わせ内容を入力してください");
       part.insertAdjacentHTML(
         "afterend",
-        `<p class="is-error">${part.validationMessage}</p>`,
+        `<p class="is-error is-empty">${part.validationMessage}</p>`,
       );
     }
-  } else if (part.validity.patternMismatch || part.validity.typeMismatch) {
+  } else if (
+    (part.validity.patternMismatch || part.validity.typeMismatch) &&
+    !parent?.querySelector("p.is-invalid-name")
+  ) {
     part.classList.add("is-error");
     if (parent?.id === "name") {
       part.setCustomValidity(
@@ -66,22 +78,26 @@ const validate = (
         "beforeend",
         `<p class="is-error is-invalid-name">${part.validationMessage}</p>`,
       );
-    } else if (part.id === "email" || part.id === "email-confirm") {
+    } else if (
+      (part.id === "email" || part.id === "email-confirm") &&
+      !part.nextElementSibling?.classList.contains("is-invalid")
+    ) {
       part.setCustomValidity("メールアドレスの形式で入力してください");
       part.insertAdjacentHTML(
         "afterend",
-        `<p class="is-error">${part.validationMessage}</p>`,
+        `<p class="is-error is-invalid">${part.validationMessage}</p>`,
       );
     }
   } else if (
     (part as HTMLInputElement).id === "privacy" &&
-    (part as HTMLInputElement).checked === false
+    (part as HTMLInputElement).checked === false &&
+    !parent?.querySelector("p.is-disagree")
   ) {
     part.classList.add("is-error");
     part.setCustomValidity("プライバシーポリシーに同意してください");
     parent?.insertAdjacentHTML(
       "beforeend",
-      `<p class="is-error">${part.validationMessage}</p>`,
+      `<p class="is-error is-disagree">${part.validationMessage}</p>`,
     );
   } else {
     part.classList.remove("is-error");
@@ -90,13 +106,17 @@ const validate = (
 
   const email = document.getElementById("email") as HTMLInputElement;
 
-  if (part.id === "email-confirm" && email.value !== part.value) {
+  if (
+    part.id === "email-confirm" &&
+    email.value !== part.value &&
+    !part.nextElementSibling?.classList.contains("is-discord")
+  ) {
     part.setCustomValidity("メールアドレスが一致しません");
     part.classList.add("is-error");
 
     part.insertAdjacentHTML(
       "afterend",
-      `<p class="is-error">${part.validationMessage}</p>`,
+      `<p class="is-error is-discord">${part.validationMessage}</p>`,
     );
   } else if (part.id === "email-confirm" && email.value === part.value) {
     part.classList.remove("is-error");
