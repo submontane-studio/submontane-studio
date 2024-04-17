@@ -109,6 +109,7 @@
         padding-inline: 10px;
         font-size: rem(14);
         @media screen and (min-width: 768px) {
+          font-size: rem(16);
           &:not(.family-name, .given-name){
             width: 100%;
           }
@@ -149,6 +150,9 @@
         position: relative;
         padding-inline-start: 21px;
         font-size: rem(12);
+        @media screen and (min-width: 768px) {
+          font-size: rem(16);
+        }
         &:before{
           content:"";
           display: block;
@@ -185,6 +189,9 @@
       outline: 1px solid #ddd;
       border: 0;
       border-radius: 3px;
+      @media screen and (min-width: 768px) {
+        font-size: rem(16);
+      }
       &:focus-visible{
         border: 0;
         outline: 2px solid var(--color-primary);
@@ -218,7 +225,10 @@
 }
 .privacy{
   text-align: center;
-  margin-bottom: 40px;
+  margin-block-end: 40px;
+  @media screen and (min-width: 768px) {
+    margin-block-end: 60px;
+  }
   a{
     color: #ff7c00;
   }
@@ -229,6 +239,9 @@
       position: relative;
       padding-inline-start: 26px;
       font-size: rem(14);
+      @media screen and (min-width: 768px) {
+        font-size: rem(16);
+      }
       &:before{
         content:"";
         display: block;
@@ -286,9 +299,22 @@
   flex-direction: column;
   padding-inline: 20px;
   margin-block-end: 100px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row-reverse;
+    width: 560px;
+    margin-inline: auto;
+    margin-block-end: 160px;
+  }
   li{
+    @media screen and (min-width: 768px) {
+      width: 260px;
+    }
     &+li{
       margin-block-start: 20px;
+      @media screen and (min-width: 768px) {
+        margin-block-start: 0;
+        margin-inline-end: 40px;
+      }
     }
   }
   input,button{
@@ -300,6 +326,9 @@
     width: 100%;
     min-height: 50px;
     border-radius: 3px;
+    @media screen and (min-width: 768px) {
+      cursor: pointer;
+    }
   }
   input[type="submit"]{
     background: var(--color-primary);
