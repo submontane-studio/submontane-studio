@@ -7,6 +7,7 @@ export default function Form() {
   const [inquiry, setInquiry] = useState({
     family: "",
     given: "",
+    trade: "",
     email: "",
     type: "",
     detail: "",
@@ -144,6 +145,7 @@ export default function Form() {
               className="detail"
               required
               aria-required
+              value={inquiry.detail}
             />
           </dd>
         </dl>
