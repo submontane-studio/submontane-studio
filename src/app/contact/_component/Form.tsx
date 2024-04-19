@@ -3,15 +3,15 @@ import { useState } from "react";
 import styles from "../styles/contact.module.scss";
 import { Input, Textarea } from "./Parts";
 
-const [inquiry, setInquiry] = useState({
-  family: "",
-  given: "",
-  email: "",
-  type: "",
-  detail: "",
-});
-
 export default function Form() {
+  const [inquiry, setInquiry] = useState({
+    family: "",
+    given: "",
+    email: "",
+    type: "",
+    detail: "",
+  });
+
   return (
     <>
       <form id="form" action="" noValidate>
