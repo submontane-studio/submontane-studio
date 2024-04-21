@@ -1,10 +1,13 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import styles from "../styles/contact.module.scss";
 import { Input, Textarea } from "./Parts";
 
 export default function Form() {
+  const router = useRouter();
+
   const [Inquiry, setInquiry] = useState({
     familyName: "",
     givenName: "",
@@ -15,9 +18,21 @@ export default function Form() {
     privacy: false,
   });
 
+  const confirm = (data: object) => {
+    const dataString = JSON.stringify(data);
+    router.push(`/contact/confirm?data=${encodeURIComponent(dataString)}`);
+  };
+
   return (
     <>
-      <form id="form" action="" noValidate>
+      <form
+        id="form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          confirm(Inquiry);
+        }}
+        noValidate
+      >
         <dl className={styles.form}>
           <dt>
             <label htmlFor="family-name">
@@ -194,7 +209,7 @@ export default function Form() {
                 const submitButton = document.querySelector(
                   'input[type="submit"].button-confirm',
                 ) as HTMLInputElement;
-                const invalid = document.querySelectorAll(":invalid");
+                const invalid = document.querySelectorAll(":required:invalid");
                 if (submitButton && invalid.length === 0) {
                   submitButton.disabled = false;
                 }
