@@ -3,7 +3,20 @@
 type InputProps = {
   id: string;
   className?: string | undefined;
-  [rest: string]: string | boolean | undefined;
+  [rest: string]:
+    | string
+    | boolean
+    | undefined
+    | ((
+        e:
+          | React.ChangeEvent<HTMLInputElement>
+          | React.ChangeEvent<HTMLTextAreaElement>,
+      ) => void)
+    | undefined;
+  checked?: boolean;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
 };
 
 const validate = (
@@ -124,8 +137,16 @@ const validate = (
   }
 };
 
-export const Input = ({ id, className, ...rest }: InputProps) => {
-  return <input id={id} className={className} {...rest} onBlur={validate} />;
+export const Input = ({ id, className, onChange, ...rest }: InputProps) => {
+  return (
+    <input
+      id={id}
+      className={className}
+      {...rest}
+      onChange={onChange}
+      onBlur={validate}
+    />
+  );
 };
 
 export const Textarea = ({ id, className, ...rest }: InputProps) => {

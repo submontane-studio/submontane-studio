@@ -1,16 +1,18 @@
 "use client";
+
 import { useState } from "react";
 import styles from "../styles/contact.module.scss";
 import { Input, Textarea } from "./Parts";
 
 export default function Form() {
-  const [inquiry, setInquiry] = useState({
-    family: "",
-    given: "",
-    trade: "",
+  const [Inquiry, setInquiry] = useState({
+    familyName: "",
+    givenName: "",
+    tradeName: "",
     email: "",
-    type: "",
+    type: "その他",
     detail: "",
+    privacy: false,
   });
 
   return (
@@ -36,6 +38,9 @@ export default function Form() {
                 aria-autocomplete="both"
                 required
                 aria-required="true"
+                onChange={(e) => {
+                  setInquiry({ ...Inquiry, familyName: e.target.value });
+                }}
               />
               <label htmlFor="given-name">名</label>
               <Input
@@ -49,6 +54,9 @@ export default function Form() {
                 aria-autocomplete="both"
                 required
                 aria-required
+                onChange={(e) => {
+                  setInquiry({ ...Inquiry, givenName: e.target.value });
+                }}
               />
             </fieldset>
           </dd>
@@ -64,6 +72,9 @@ export default function Form() {
               placeholder="株式会社〇〇"
               aria-placeholder="株式会社〇〇"
               aria-autocomplete="both"
+              onChange={(e) => {
+                setInquiry({ ...Inquiry, tradeName: e.target.value });
+              }}
             />
           </dd>
           <dt>
@@ -82,6 +93,9 @@ export default function Form() {
               aria-autocomplete="both"
               required
               aria-required
+              onChange={(e) => {
+                setInquiry({ ...Inquiry, email: e.target.value });
+              }}
             />
           </dd>
           <dt>
@@ -108,6 +122,10 @@ export default function Form() {
                   name="type"
                   id="estimate"
                   className="type visually-hidden"
+                  value="お見積もり依頼"
+                  onChange={(e) => {
+                    setInquiry({ ...Inquiry, type: e.target.value });
+                  }}
                 />
                 <label htmlFor="estimate">お見積もり依頼</label>
               </li>
@@ -117,6 +135,10 @@ export default function Form() {
                   name="type"
                   id="question"
                   className="type visually-hidden"
+                  value="ご質問"
+                  onChange={(e) => {
+                    setInquiry({ ...Inquiry, type: e.target.value });
+                  }}
                 />
                 <label htmlFor="question">ご質問</label>
               </li>
@@ -128,6 +150,10 @@ export default function Form() {
                   defaultChecked
                   aria-checked="true"
                   className="type visually-hidden"
+                  value="その他"
+                  onChange={(e) => {
+                    setInquiry({ ...Inquiry, type: e.target.value });
+                  }}
                 />
                 <label htmlFor="other">その他</label>
               </li>
@@ -145,7 +171,9 @@ export default function Form() {
               className="detail"
               required
               aria-required
-              value={inquiry.detail}
+              onChange={(e) => {
+                setInquiry({ ...Inquiry, detail: e.target.value });
+              }}
             />
           </dd>
         </dl>
@@ -156,6 +184,22 @@ export default function Form() {
             id="privacy"
             required
             aria-required
+            onChange={(e) => {
+              if ((e.target as HTMLInputElement).checked !== undefined) {
+                setInquiry({
+                  ...Inquiry,
+                  privacy: (e.target as HTMLInputElement).checked,
+                });
+
+                const submitButton = document.querySelector(
+                  'input[type="submit"].button-confirm',
+                ) as HTMLInputElement;
+                const invalid = document.querySelectorAll(":invalid");
+                if (submitButton && invalid.length === 0) {
+                  submitButton.disabled = false;
+                }
+              }
+            }}
           />
           <label htmlFor="privacy">
             <a
@@ -174,6 +218,7 @@ export default function Form() {
               type="submit"
               value="確認"
               className="button button-confirm"
+              disabled
             />
           </li>
           <li>
