@@ -209,7 +209,11 @@ export default function Form() {
                 const submitButton = document.querySelector(
                   'input[type="submit"].button-confirm',
                 ) as HTMLInputElement;
-                const invalid = document.querySelectorAll(":required:invalid");
+
+                const invalid = document.querySelectorAll(
+                  "input:required:invalid , textarea:required:invalid",
+                );
+
                 if (submitButton && invalid.length === 0) {
                   submitButton.disabled = false;
                 }
