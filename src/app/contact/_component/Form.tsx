@@ -19,8 +19,9 @@ export default function Form() {
   });
 
   const confirm = (data: object) => {
-    const dataString = JSON.stringify(data);
-    router.push(`/contact/confirm?data=${encodeURIComponent(dataString)}`);
+    router.push(
+      `/contact/confirm?data=${encodeURIComponent(JSON.stringify(data))}`,
+    );
   };
 
   return (
