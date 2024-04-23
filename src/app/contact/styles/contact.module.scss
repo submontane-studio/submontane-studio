@@ -222,6 +222,18 @@
       }
     }
   }
+  &:global{
+    &.is-confirm{
+      .confirm-name{
+        font-size: rem(14);
+        display: inline-block;
+        margin-inline-end: 10px;
+        @media screen and (min-width: 768px) {
+          font-size: rem(16);
+        }
+      }
+    }
+  }
 }
 .privacy{
   text-align: center;
@@ -314,6 +326,17 @@
       @media screen and (min-width: 768px) {
         margin-block-start: 0;
         margin-inline-end: 40px;
+      }
+    }
+    :global{
+      .button-back{
+        width: 100%;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        border:1px solid var(--color-primary);
       }
     }
   }

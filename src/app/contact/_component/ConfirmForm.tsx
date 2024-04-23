@@ -24,7 +24,7 @@ export default function ConfirmForm() {
   return (
     <>
       <form action="" noValidate>
-        <dl className={styles.form}>
+        <dl className={`${styles.form} is-confirm`}>
           <dt>
             <label htmlFor="family-name">
               お名前<span className="required">必須</span>
@@ -32,7 +32,6 @@ export default function ConfirmForm() {
           </dt>
           <dd>
             <fieldset name="名前" id="name" className="name">
-              <label htmlFor="family-name">姓</label>
               <p className="confirm-name">{Inquiry.familyName}</p>
               <input
                 type="hidden"
@@ -41,7 +40,6 @@ export default function ConfirmForm() {
                 className="family-name"
                 value={Inquiry.familyName}
               />
-              <label htmlFor="given-name">名</label>
               <p className="confirm-name">{Inquiry.givenName}</p>
               <input
                 type="hidden"
@@ -115,7 +113,7 @@ export default function ConfirmForm() {
             />
           </li>
           <li>
-            <a href="/contact/" className="button button-confirm" role="button">
+            <a href="/contact/" className="button button-back" role="button">
               戻る
             </a>
           </li>
