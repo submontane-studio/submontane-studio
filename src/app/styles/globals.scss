@@ -2,9 +2,6 @@
 @use './foundation/var' as *;
 @use './foundation/function' as *;
 
-:root{
-  --autofill: false;
-}
 body{
   position: relative;
   font-family: var(--font-inter), var(--font-biz), sans-serif;
@@ -592,8 +589,8 @@ body{
     padding-inline: 20px;
     background: url(/images/mobile/common/header/bg_inpage.svg) var(--color-primary) right bottom /contain no-repeat;
     @media screen and (min-width: 768px) {
-      padding-block: 35px 70px;
-      padding-inline: 50px;
+      padding-block: 40px 70px;
+      padding-inline: 40px;
     }
     h1{
       font-size: rem(24);

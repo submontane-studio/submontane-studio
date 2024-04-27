@@ -1,5 +1,7 @@
 "use client";
 
+import validate from "../_lib/validate";
+
 type InputProps = {
   id: string;
   className?: string | undefined;
@@ -26,13 +28,11 @@ export const Input = ({ id, className, onChange, ...rest }: InputProps) => {
       className={className}
       {...rest}
       onChange={onChange}
-      // onBlur={validatingInput}
+      onBlur={validate}
     />
   );
 };
 
 export const Textarea = ({ id, className, ...rest }: InputProps) => {
-  return (
-    <textarea id={id} className={className} {...rest} /*onBlur={validate}*/ />
-  );
+  return <textarea id={id} className={className} {...rest} onBlur={validate} />;
 };

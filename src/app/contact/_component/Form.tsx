@@ -211,11 +211,16 @@ export default function Form() {
                   'input[type="submit"].button-confirm',
                 ) as HTMLInputElement;
 
-                const invalid = document.querySelectorAll(
-                  "input:required:invalid , textarea:required:invalid",
-                );
+                const invalid = document.querySelector(
+                  ".is-error:required:invalid",
+                ) as HTMLInputElement | HTMLTextAreaElement;
 
-                if (submitButton && invalid.length === 0) {
+                if (submitButton && invalid.value !== "") {
+                  invalid.classList.remove("is-error");
+                  invalid.setCustomValidity("");
+
+                  document.querySelector("p.is-error")?.remove();
+
                   submitButton.disabled = false;
                 }
               }

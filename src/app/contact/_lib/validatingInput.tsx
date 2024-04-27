@@ -3,20 +3,32 @@
 import { useState } from "react";
 
 const message = "必須項目です";
-const errorEl = document.createElement("p");
-errorEl.innerText = message;
-errorEl.classList.add("is-error");
 
-console.log(
-  getComputedStyle(document.documentElement).getPropertyValue("--autofill"),
-);
+const root = document.querySelector(":root") as HTMLElement;
+const autofill = root.style.getPropertyValue("--autofill");
 
-const validatingEmpty = (el: HTMLInputElement | HTMLTextAreaElement) => {
-  errorEl.classList.add("is-empty");
+const validatingEmpty = (
+  el: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+) => {
+  const errorEl = document.querySelector(".is-error");
+  const target = el.target as HTMLInputElement;
+  const parent = target.closest("dd");
 
-  if (el.validity.valueMissing) {
-    el.closest("dd")?.appendChild(errorEl);
-  } else if (el.getAttribute("data")) {
-    errorEl.remove();
+  target.setCustomValidity("");
+
+  if (!parent?.querySelector(".is-error")) {
+    if (el.target.validity.valueMissing) {
+      el.target.setCustomValidity(message);
+      el.target
+        .closest("dd")
+        ?.insertAdjacentHTML(
+          "beforeend",
+          `<p class="is-error is-empty">${message}</p>`,
+        );
+    } else if (autofill || target.validity.valid) {
+      errorEl?.remove();
+    }
   }
 };
+
+export default validatingEmpty;

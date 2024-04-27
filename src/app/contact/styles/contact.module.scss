@@ -108,6 +108,7 @@
         padding-block:5px;
         padding-inline: 10px;
         font-size: rem(14);
+        --autofill: false;
         @media screen and (min-width: 768px) {
           font-size: rem(16);
           &:not(.family-name, .given-name){
@@ -120,9 +121,6 @@
         }
         &.is-error{
           outline: 2px solid #ff0000;
-        }
-        &:-internal-autofill-selected{
-          --autofill: true;
         }
       }
       input[type="email"],.email-confirm,.trade-name{
