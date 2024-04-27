@@ -2,6 +2,9 @@
 @use './foundation/var' as *;
 @use './foundation/function' as *;
 
+:root{
+  --autofill: false;
+}
 body{
   position: relative;
   font-family: var(--font-inter), var(--font-biz), sans-serif;

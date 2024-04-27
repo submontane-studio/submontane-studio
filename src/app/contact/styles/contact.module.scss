@@ -121,6 +121,9 @@
         &.is-error{
           outline: 2px solid #ff0000;
         }
+        &:-internal-autofill-selected{
+          --autofill: true;
+        }
       }
       input[type="email"],.email-confirm,.trade-name{
         width: 100%;

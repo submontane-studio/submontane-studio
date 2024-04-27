@@ -26,7 +26,7 @@ export const Input = ({ id, className, onChange, ...rest }: InputProps) => {
       className={className}
       {...rest}
       onChange={onChange}
-      // onBlur={validate}
+      // onBlur={validatingInput}
     />
   );
 };
