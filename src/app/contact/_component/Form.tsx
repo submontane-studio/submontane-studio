@@ -215,7 +215,7 @@ export default function Form() {
                   ".is-error:required:invalid",
                 ) as HTMLInputElement | HTMLTextAreaElement;
 
-                if (submitButton && invalid.value !== "") {
+                if (submitButton /* && invalid.value !== "" */) {
                   invalid.classList.remove("is-error");
                   invalid.setCustomValidity("");
 

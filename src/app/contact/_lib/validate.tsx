@@ -88,9 +88,6 @@ export default function validate(
     (part as HTMLInputElement).checked === false &&
     !parent?.querySelector("p.is-disagree")
   ) {
-    console.log(
-      (document.querySelector("input:invalid") as HTMLInputElement)?.value,
-    );
     part.classList.add("is-error");
     part.setCustomValidity("プライバシーポリシーに同意してください");
 
