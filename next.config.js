@@ -2,9 +2,9 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    runtime: "edge",
-  },
+  // experimental: {
+  //   runtime: "edge",
+  // },
   // output: "export",
   // images: {
   //   remotePatterns: [
