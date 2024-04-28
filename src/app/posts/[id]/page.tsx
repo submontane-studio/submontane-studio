@@ -244,9 +244,11 @@ export default async function Post({ params }: { params: { id: string } }) {
             </li>
           </ul>
           <Tocbot />
-          <div id="body" className={styles.body}>
-            <div dangerouslySetInnerHTML={{ __html: data.content }} />
-          </div>
+          <div
+            id="body"
+            className={styles.body}
+            dangerouslySetInnerHTML={{ __html: data.content }}
+          />
         </article>
       </main>
       <Button buttonName="button-blog" label="記事一覧へ戻る" url="/posts/" />
