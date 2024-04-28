@@ -1,34 +1,40 @@
 "use client";
 
-import { useState } from "react";
+const validatingEmpty = (el: HTMLInputElement | HTMLTextAreaElement) => {
+  const message: string = "必須項目です";
+  const parent: HTMLElement | null = el.closest("dd");
 
-const message = "必須項目です";
+  el.setCustomValidity("");
 
-const root = document.querySelector(":root") as HTMLElement;
-const autofill = root.style.getPropertyValue("--autofill");
+  if (el.validity.valueMissing) {
+    el.setCustomValidity(message);
 
-const validatingEmpty = (
-  el: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
-) => {
-  const errorEl = document.querySelector(".is-error");
-  const target = el.target as HTMLInputElement;
-  const parent = target.closest("dd");
+    if (!parent?.querySelector("p.is-empty")) {
+      el.classList.add("is-error");
 
-  target.setCustomValidity("");
-
-  if (!parent?.querySelector(".is-error")) {
-    if (el.target.validity.valueMissing) {
-      el.target.setCustomValidity(message);
-      el.target
-        .closest("dd")
-        ?.insertAdjacentHTML(
-          "beforeend",
-          `<p class="is-error is-empty">${message}</p>`,
-        );
-    } else if (autofill || target.validity.valid) {
-      errorEl?.remove();
+      parent?.insertAdjacentHTML(
+        "beforeend",
+        `<p class="is-error is-empty">${message}</p>`,
+      );
     }
+
+    if (
+      el.classList.contains("family-name") ||
+      el.classList.contains("given-name")
+    ) {
+      el.classList.add("is-error");
+    }
+  } else {
+    if (!parent?.querySelector("input.is-error")) {
+      parent?.querySelector(".is-empty")?.remove();
+      console.log(document.querySelector(".is-empty"));
+    }
+    el.classList.remove("is-error");
   }
 };
 
-export default validatingEmpty;
+export default function validatingInput(
+  e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+) {
+  validatingEmpty(e.target as HTMLInputElement | HTMLTextAreaElement);
+}

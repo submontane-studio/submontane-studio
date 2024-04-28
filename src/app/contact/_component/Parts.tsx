@@ -1,6 +1,7 @@
 "use client";
 
 import validate from "../_lib/validate";
+import validatingInput from "../_lib/validatingInput";
 
 type InputProps = {
   id: string;
@@ -28,7 +29,7 @@ export const Input = ({ id, className, onChange, ...rest }: InputProps) => {
       className={className}
       {...rest}
       onChange={onChange}
-      onBlur={validate}
+      onBlur={validatingInput}
     />
   );
 };

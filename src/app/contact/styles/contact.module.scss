@@ -121,6 +121,7 @@
         }
         &.is-error{
           outline: 2px solid #ff0000;
+          background: #ffcece;
         }
       }
       input[type="email"],.email-confirm,.trade-name{
