@@ -5,7 +5,6 @@ import Footer from "@/app/_component/Footer";
 import getPostDetail from "@/app/_lib/getPostDetail";
 import getPostIds from "@/app/_lib/getPostIds";
 import { format } from "@formkit/tempo";
-import parse from "html-react-parser";
 import type { Metadata, ResolvingMetadata } from "next";
 import { Content } from "next/font/google";
 import Image from "next/image";
@@ -247,6 +246,7 @@ export default async function Post({ params }: { params: { id: string } }) {
           <div
             id="body"
             className={styles.body}
+            // biome-ignore lint/security/noDangerouslySetInnerHtml:
             dangerouslySetInnerHTML={{ __html: data.content }}
           />
         </article>
