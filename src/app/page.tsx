@@ -7,6 +7,8 @@ import Message from "./_component/Message/Message";
 import Services from "./_component/Services/Services";
 import styles from "./styles/home.module.scss";
 
+export const runtime = "edge";
+
 export default function Home() {
   return (
     <>
