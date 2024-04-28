@@ -16,7 +16,7 @@ import Header from "../../_component/Header";
 import Tocbot from "./Tocbot";
 import styles from "./styles/[id].module.scss";
 
-// export const runtime = "edge";
+export const runtime = "edge";
 
 type Props = {
   params: { id: string };
@@ -245,7 +245,7 @@ export default async function Post({ params }: { params: { id: string } }) {
           </ul>
           <Tocbot />
           <div id="body" className={styles.body}>
-            {parse(data.content)}
+            <div dangerouslySetInnerHTML={{ __html: data.content }} />
           </div>
         </article>
       </main>
