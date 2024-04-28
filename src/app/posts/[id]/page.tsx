@@ -1,5 +1,3 @@
-export const runtime = "edge";
-
 import Breadcrumb from "@/app/_component/Breadcrumb";
 import { Button } from "@/app/_component/Button/Button";
 import Conversion from "@/app/_component/Conversion";
@@ -9,12 +7,16 @@ import getPostIds from "@/app/_lib/getPostIds";
 import { format } from "@formkit/tempo";
 import parse from "html-react-parser";
 import type { Metadata, ResolvingMetadata } from "next";
+import { Content } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
+import { ReactNode } from "react";
 import Header from "../../_component/Header";
 import Tocbot from "./Tocbot";
 import styles from "./styles/[id].module.scss";
+
+// export const runtime = "edge";
 
 type Props = {
   params: { id: string };
