@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import Breadcrumb from "@/app/_component/Breadcrumb";
 import { Button } from "@/app/_component/Button/Button";
 import Conversion from "@/app/_component/Conversion";

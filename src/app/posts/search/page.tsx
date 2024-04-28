@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import type { Post } from "@/@types/post";
 import Breadcrumb from "@/app/_component/Breadcrumb";
 import Conversion from "@/app/_component/Conversion";
