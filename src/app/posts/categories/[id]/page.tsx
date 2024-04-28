@@ -1,5 +1,5 @@
-import type { CategoryListType } from "@/app/@types/category";
-import type { Post } from "@/app/@types/post";
+import type { CategoryListType } from "@/@types/category";
+import type { Post } from "@/@types/post";
 import Breadcrumb from "@/app/_component/Breadcrumb";
 import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
@@ -26,9 +26,9 @@ export async function generateStaticParams() {
 }
 
 export default async function categorizedPosts({
-  categories,
+  // categories,
   params,
-}: { categories: CategoryListType; params: { id: string } }) {
+}: { /*categories: CategoryListType;*/ params: { id: string } }) {
   const data = await getCategorizedPosts(params.id);
   const category = await getCategories();
 

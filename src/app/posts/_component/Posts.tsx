@@ -1,10 +1,10 @@
+import type { CategoryListType } from "@/@types/category";
+import type { PostList } from "@/@types/post";
 import { Button } from "@/app/_component/Button/Button";
 import Header from "@/app/_component/Header";
 import { format } from "@formkit/tempo";
 import Image from "next/image";
 import Link from "next/link";
-import type { CategoryListType } from "../../@types/category";
-import type { PostList } from "../../@types/post";
 import styles from "../styles/posts.module.scss";
 
 export default function Posts({

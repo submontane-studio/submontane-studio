@@ -1,4 +1,4 @@
-import type { Post } from "@/app/@types/post";
+import type { Post } from "@/@types/post";
 import Breadcrumb from "@/app/_component/Breadcrumb";
 import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
@@ -6,6 +6,7 @@ import Header from "@/app/_component/Header";
 import getCategories from "@/app/_lib/getCategories";
 import getSearchResults from "@/app/_lib/getSearchResults";
 import { Metadata } from "next";
+import { Suspense } from "react";
 import Category from "../_component/Category";
 import Posts from "../_component/Posts";
 import SearchBox from "../_component/SearchBox";
@@ -49,10 +50,14 @@ export default async function Page({
         <h1>検索結果 : {query}</h1>
         <div className={styles.narrowing}>
           <Category contents={category} />
-          <SearchBox />
+          <Suspense>
+            <SearchBox />
+          </Suspense>
         </div>
       </div>
-      <Posts data={data} />
+      <Suspense>
+        <Posts data={data} />
+      </Suspense>
       <Conversion />
       <Footer />
     </>

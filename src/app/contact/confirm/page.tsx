@@ -5,6 +5,7 @@ import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
 import Header from "@/app/_component/Header";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import ConfirmForm from "../_component/ConfirmForm";
 import Form from "../_component/Form";
 import styles from "../styles/contact.module.scss";
@@ -34,7 +35,9 @@ export default function Confirm() {
         className={styles.breadcrumb}
       />
       <main>
-        <ConfirmForm />
+        <Suspense>
+          <ConfirmForm />
+        </Suspense>
       </main>
       <Conversion />
       <Footer />

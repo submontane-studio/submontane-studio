@@ -1,7 +1,7 @@
 "use client";
 
+import type { CategoryListType, CategoryType } from "@/@types/category";
 import Link from "next/link";
-import type { CategoryListType, CategoryType } from "../../@types/category";
 import styles from "../styles/posts.module.scss";
 const expand = (e: React.MouseEvent | React.KeyboardEvent) => {
   const target = e.currentTarget;

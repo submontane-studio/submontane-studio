@@ -1,9 +1,9 @@
 "use server";
 
+import type { Post } from "@/@types/post";
 import { format } from "@formkit/tempo";
 import Image from "next/image";
 import Link from "next/link";
-import type { Post } from "../@types/post";
 import styles from "../posts/styles/posts.module.scss";
 
 export default async function getMore(limit: number, offset: number) {
