@@ -1,8 +1,9 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import styles from "../styles/contact.module.scss";
+import Form from "./Form";
 import { Input, Textarea } from "./Parts";
 
 export default function ConfirmForm() {
@@ -10,6 +11,7 @@ export default function ConfirmForm() {
   const query = params.get("data");
   const decoded = query ? decodeURIComponent(query) : null;
   const parsed = decoded ? JSON.parse(decoded) : null;
+  const router = useRouter();
 
   const [Inquiry, setInquiry] = useState({
     familyName: parsed.familyName,
@@ -23,7 +25,25 @@ export default function ConfirmForm() {
 
   return (
     <>
-      <form action="" noValidate>
+      <form
+        action=""
+        onSubmit={async (e) => {
+          e.preventDefault();
+
+          const form = new FormData(e.currentTarget);
+          const res = await fetch("/api/form", {
+            method: "POST",
+            body: form,
+          });
+
+          if (res.ok) {
+            router.replace("/contact/thanks/");
+          } else {
+            alert("送信に失敗しました。");
+          }
+        }}
+        noValidate
+      >
         <dl className={`${styles.form} is-confirm`}>
           <dt>
             <label htmlFor="family-name">

@@ -21,6 +21,9 @@ export const onRequest = async ({
       personalizations: [
         {
           to: [{ email: recipientEmail }],
+          dkim_domain: "submontane.jp",
+          dkim_selector: "mailchannels",
+          dkim_private_key: process.env.DKIM_PRIVATE_KEY,
         },
       ],
       from: { email: senderEmail, name: sender },
