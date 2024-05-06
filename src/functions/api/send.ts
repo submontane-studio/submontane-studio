@@ -12,6 +12,7 @@ export const onRequest = async ({
   const type = form.get("type");
   const detail = form.get("detail");
 
+  console.log(request);
   const res = await fetch("https://api.mailchannels.net/tx/v1/send", {
     method: "POST",
     headers: {
