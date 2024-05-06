@@ -107,15 +107,14 @@ export default function ConfirmForm() {
             </label>
           </dt>
           <dd>
+            {Inquiry.detail}
             <Textarea
               name="detail"
               id="detail"
-              className="detail"
+              className="detail is-confirm"
               required
               aria-required
-              onChange={(e) => {
-                setInquiry({ ...Inquiry, detail: e.target.value });
-              }}
+              value={Inquiry.detail}
             />
           </dd>
         </dl>

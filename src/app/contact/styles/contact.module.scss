@@ -203,6 +203,9 @@
           &.is-error{
           outline: 2px solid #ff0000;
         }
+        &.is-confirm{
+          display: none;
+        }
       }
     }
     p{
