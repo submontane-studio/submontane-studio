@@ -1,4 +1,4 @@
-// .wrangler/tmp/bundle-ox1AiH/checked-fetch.js
+// .wrangler/tmp/bundle-FIqFLL/checked-fetch.js
 var urls = /* @__PURE__ */ new Set();
 function checkURL(request, init) {
   const url = request instanceof URL ? request : new URL(
@@ -23,10 +23,11 @@ globalThis.fetch = new Proxy(globalThis.fetch, {
   }
 });
 
-// src/index.ts
-var src_default = {
-  async fetch(request, env, ctx) {
-    return new Response("Hello World!");
+// node_modules/wrangler/templates/pages-shim.ts
+var pages_shim_default = {
+  async fetch(request, env, context) {
+    const response = await env.ASSETS.fetch(request.url, request);
+    return new Response(response.body, response);
   }
 };
 
@@ -70,13 +71,13 @@ var jsonError = async (request, env, _ctx, middlewareCtx) => {
 };
 var middleware_miniflare3_json_error_default = jsonError;
 
-// .wrangler/tmp/bundle-ox1AiH/middleware-insertion-facade.js
-src_default.middleware = [
+// .wrangler/tmp/bundle-FIqFLL/middleware-insertion-facade.js
+pages_shim_default.middleware = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default,
-  ...src_default.middleware ?? []
+  ...pages_shim_default.middleware ?? []
 ].filter(Boolean);
-var middleware_insertion_facade_default = src_default;
+var middleware_insertion_facade_default = pages_shim_default;
 
 // node_modules/wrangler/templates/middleware/common.ts
 var __facade_middleware__ = [];
@@ -100,7 +101,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
   ]);
 }
 
-// .wrangler/tmp/bundle-ox1AiH/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-FIqFLL/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
@@ -194,4 +195,4 @@ var middleware_loader_entry_default = WRAPPED_ENTRY;
 export {
   middleware_loader_entry_default as default
 };
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=pages-shim.js.map
