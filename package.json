@@ -40,7 +40,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "markuplint": "^4.1.0",
     "schema-dts": "^1.1.2",
-    "typescript": "^5",
+    "typescript": "^5.4.5",
     "vitest": "^1.6.0",
     "wrangler": "^3.52.0"
   }

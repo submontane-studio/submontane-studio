@@ -31,12 +31,11 @@ export default function ConfirmForm() {
           e.preventDefault();
 
           const formData = new FormData(e.currentTarget);
-          const res = await fetch("/api/send", {
+          const res = await fetch("/api/sendForm", {
             method: "POST",
             body: formData,
           });
 
-          console.log(formData);
           if (res.ok) {
             router.replace("/contact/thanks/");
           } else {

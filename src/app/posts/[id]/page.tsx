@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import Breadcrumb from "@/app/_component/Breadcrumb";
 import { Button } from "@/app/_component/Button/Button";
 import Conversion from "@/app/_component/Conversion";
@@ -14,8 +16,6 @@ import { ReactNode } from "react";
 import Header from "../../_component/Header";
 import Tocbot from "./Tocbot";
 import styles from "./styles/[id].module.scss";
-
-export const runtime = "edge";
 
 type Props = {
   params: { id: string };
