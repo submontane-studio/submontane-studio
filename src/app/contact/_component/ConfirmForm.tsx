@@ -31,7 +31,7 @@ export default function ConfirmForm() {
           e.preventDefault();
 
           const formData = new FormData(e.currentTarget);
-          const res = await fetch("/api/sendForm", {
+          const res = await fetch("/api/send", {
             method: "POST",
             body: formData,
           });
