@@ -3,15 +3,15 @@
 // export dynamically through wrangler, or we can potentially let users directly
 // add them as a sort of "plugin" system.
 
-import ENTRY from "/Users/Tsuyoshi/Dropbox/Projects/s.SUBMONTANE/Code/submontane-studio/.wrangler/tmp/bundle-FIqFLL/middleware-insertion-facade.js";
+import ENTRY from "/Users/Tsuyoshi/Dropbox/Projects/s.SUBMONTANE/Code/submontane-studio/.wrangler/tmp/bundle-nKVHlQ/middleware-insertion-facade.js";
 import { __facade_invoke__, __facade_register__, Dispatcher } from "/Users/Tsuyoshi/Dropbox/Projects/s.SUBMONTANE/Code/submontane-studio/node_modules/wrangler/templates/middleware/common.ts";
 import type {
 	WithMiddleware,
 	WorkerEntrypointConstructor,
-} from "/Users/Tsuyoshi/Dropbox/Projects/s.SUBMONTANE/Code/submontane-studio/.wrangler/tmp/bundle-FIqFLL/middleware-insertion-facade.js";
+} from "/Users/Tsuyoshi/Dropbox/Projects/s.SUBMONTANE/Code/submontane-studio/.wrangler/tmp/bundle-nKVHlQ/middleware-insertion-facade.js";
 
 // Preserve all the exports from the worker
-export * from "/Users/Tsuyoshi/Dropbox/Projects/s.SUBMONTANE/Code/submontane-studio/.wrangler/tmp/bundle-FIqFLL/middleware-insertion-facade.js";
+export * from "/Users/Tsuyoshi/Dropbox/Projects/s.SUBMONTANE/Code/submontane-studio/.wrangler/tmp/bundle-nKVHlQ/middleware-insertion-facade.js";
 
 class __Facade_ScheduledController__ implements ScheduledController {
 	readonly #noRetry: ScheduledController["noRetry"];
