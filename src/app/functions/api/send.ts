@@ -12,8 +12,7 @@ export const onRequest = async ({
   const type = form.get("type");
   const detail = form.get("detail");
 
-  console.log(request);
-  const res = await fetch("https://api.mailchannels.net/tx/v1/send", {
+  const toAdminRes = await fetch("https://api.mailchannels.net/tx/v1/send", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -38,7 +37,7 @@ export const onRequest = async ({
     }),
   });
 
-  if (res.ok) {
+  if (toAdminRes.ok) {
     await fetch("https://api.mailchannels.net/tx/v1/send", {
       method: "POST",
       headers: {

@@ -30,12 +30,13 @@ export default function ConfirmForm() {
         onSubmit={async (e) => {
           e.preventDefault();
 
-          const form = new FormData(e.currentTarget);
+          const formData = new FormData(e.currentTarget);
           const res = await fetch("/api/send", {
             method: "POST",
-            body: form,
+            body: formData,
           });
 
+          console.log(formData);
           if (res.ok) {
             router.replace("/contact/thanks/");
           } else {
