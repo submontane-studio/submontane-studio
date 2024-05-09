@@ -1,5 +1,7 @@
 import mailChannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
 
+console.log("DKIM_PRIVATE_KEY", process.env.DKIM_PRIVATE_KEY);
+
 export const onRequest: PagesFunction = (context) =>
   mailChannelsPlugin({
     personalizations: [
