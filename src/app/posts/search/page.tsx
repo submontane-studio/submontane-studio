@@ -1,6 +1,7 @@
 export const runtime = "edge";
 
-import type { Post } from "@/@types/post";
+import type { CategoryListType } from "@/@types/category";
+import type { Post, PostList } from "@/@types/post";
 import Breadcrumb from "@/app/_component/Breadcrumb";
 import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
@@ -27,8 +28,11 @@ export default async function Page({
 }) {
   const query = searchParams.q;
 
-  const data = await getSearchResults(query as string);
-  const category = await getCategories();
+  const req = await getSearchResults(query as string);
+  const data = req as PostList;
+
+  const catReq = await getCategories();
+  const category = catReq as CategoryListType;
 
   return (
     <>

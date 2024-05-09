@@ -1,13 +1,16 @@
+import type { BlogList } from "@/@types/blog";
+import { PostList } from "@/@types/post";
 import { format, parse } from "@formkit/tempo";
 import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
+import { Blog } from "schema-dts";
 import styles from "../../styles/home.module.scss";
 
 type Item = {
   id: string;
-  publishedAt: string;
-  updatedAt?: string;
+  publishedAt: Date;
+  updatedAt?: Date;
   title: string;
   category: {
     id: string;
@@ -32,7 +35,7 @@ export default async function BlogItem() {
 
   return (
     <ul className={styles["blog-list"]}>
-      {data.contents.map((item: Item) => (
+      {(data as BlogList).contents.map((item: Item) => (
         <li className="blog-item" key={item.id}>
           <Link href={`posts/${item.id}`}>
             <p className={`category is-${item.category.id}`}>

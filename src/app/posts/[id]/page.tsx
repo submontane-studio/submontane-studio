@@ -1,5 +1,6 @@
 export const runtime = "edge";
 
+import type { Post, PostList } from "@/@types/post";
 import Breadcrumb from "@/app/_component/Breadcrumb";
 import { Button } from "@/app/_component/Button/Button";
 import Conversion from "@/app/_component/Conversion";
@@ -26,7 +27,8 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const data = await getPostDetail(params.id);
+  const req = await getPostDetail(params.id);
+  const data = req as Post;
 
   // const previousImage = (await parent).openGraph?.images || [];
 
@@ -75,15 +77,19 @@ export async function generateMetadata(
 export async function generateStaticParams({
   params,
 }: { params: { id: string } }) {
-  const data = await getPostIds();
+  const req = await getPostIds();
+  const data = req as PostList;
 
   return data.contents.map((item: { id: string }) => ({
     id: item.id,
   }));
 }
 
-export default async function Post({ params }: { params: { id: string } }) {
-  const data = await getPostDetail(params.id);
+export default async function PostDetail({
+  params,
+}: { params: { id: string } }) {
+  const req = await getPostDetail(params.id);
+  const data = req as Post;
 
   return (
     <>

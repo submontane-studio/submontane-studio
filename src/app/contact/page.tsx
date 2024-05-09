@@ -13,7 +13,29 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <>
-      <div className="inpage-heading">
+      <h1>Contact</h1>
+      <form data-static-form-name="contact">
+        <div>
+          <label>
+            Name
+            <input type="text" name="name" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Email
+            <input type="email" name="email" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Message
+            <textarea name="message" />
+          </label>
+        </div>
+        <button type="submit">Send!</button>
+      </form>
+      {/* <div className="inpage-heading">
         <Header />
         <h1>お問い合わせ</h1>
       </div>
@@ -50,7 +72,7 @@ export default function Contact() {
         <Form />
       </main>
       <Conversion />
-      <Footer />
+      <Footer /> */}
     </>
   );
 }

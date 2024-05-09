@@ -1,7 +1,7 @@
 export const runtime = "edge";
 
-import type { CategoryListType } from "@/@types/category";
-import type { Post } from "@/@types/post";
+import type { CategoryListType, CategoryType } from "@/@types/category";
+import type { Post, PostList } from "@/@types/post";
 import Breadcrumb from "@/app/_component/Breadcrumb";
 import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
@@ -20,7 +20,8 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  const categories = await getCategories();
+  const req = await getCategories();
+  const categories = req as PostList;
 
   return categories.contents.map((posts: Post) => ({
     id: posts.id,
@@ -31,8 +32,11 @@ export default async function categorizedPosts({
   // categories,
   params,
 }: { /*categories: CategoryListType;*/ params: { id: string } }) {
-  const data = await getCategorizedPosts(params.id);
-  const category = await getCategories();
+  const req = await getCategorizedPosts(params.id);
+  const data = req as PostList;
+
+  const catReq = await getCategories();
+  const category = catReq as CategoryListType;
 
   return (
     <>

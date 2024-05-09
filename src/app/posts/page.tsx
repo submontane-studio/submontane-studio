@@ -1,3 +1,5 @@
+import type { CategoryListType } from "@/@types/category";
+import type { PostList } from "@/@types/post";
 import { format } from "@formkit/tempo";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -19,8 +21,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Index() {
-  const data = await getPosts();
-  const categories = await getCategories();
+  const req = await getPosts();
+  const data = req as PostList;
+
+  const catReq = await getCategories();
+  const categories = catReq as CategoryListType;
 
   return (
     <>

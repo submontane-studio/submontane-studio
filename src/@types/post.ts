@@ -2,7 +2,7 @@ export type Post = {
   id: string;
   updatedAt: Date;
   publishedAt: Date;
-  pin: boolean;
+  pin?: boolean;
   title: string;
   category: {
     id: string;
@@ -14,6 +14,7 @@ export type Post = {
     width: number;
   };
   content: string;
+  [key: string]: string | Date | boolean | object | undefined;
 };
 
 export type PostList = {

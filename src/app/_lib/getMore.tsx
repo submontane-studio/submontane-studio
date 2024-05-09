@@ -1,6 +1,7 @@
 "use server";
 
-import type { Post } from "@/@types/post";
+import type { BlogList } from "@/@types/blog";
+import type { Post, PostList } from "@/@types/post";
 import { format } from "@formkit/tempo";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +17,7 @@ export default async function getMore(limit: number, offset: number) {
     },
   );
 
-  const data = await res.json();
+  const data: PostList = await res.json();
 
   const jsx = (
     <>
@@ -41,18 +42,18 @@ export default async function getMore(limit: number, offset: number) {
             <div className={styles.date}>
               <p className="published">
                 <time
-                  dateTime={format(data.publishedAt, "YYYY-MM-DD")}
-                  aria-label={format(data.publishedAt, "公開日 YYYY年MM月DD日")}
+                  dateTime={format(post.publishedAt, "YYYY-MM-DD")}
+                  aria-label={format(post.publishedAt, "公開日 YYYY年MM月DD日")}
                 >
-                  {format(data.publishedAt, "YYYY.MM.DD")}
+                  {format(post.publishedAt, "YYYY.MM.DD")}
                 </time>
               </p>
               <p className="updated">
                 <time
-                  dateTime={format(data.updatedAt, "YYYY-MM-DD")}
-                  aria-label={format(data.updatedAt, "更新日 YYYY年MM月DD日")}
+                  dateTime={format(post.updatedAt, "YYYY-MM-DD")}
+                  aria-label={format(post.updatedAt, "更新日 YYYY年MM月DD日")}
                 >
-                  {format(data.updatedAt, "YYYY.MM.DD")}
+                  {format(post.updatedAt, "YYYY.MM.DD")}
                 </time>
               </p>
             </div>

@@ -1,11 +1,12 @@
+import type { BlogList } from "@/@types/blog";
 import { format, parse } from "@formkit/tempo";
 import { headers } from "next/headers";
 import Link from "next/link";
 import styles from "../../styles/home.module.scss";
 type Item = {
   id: string;
-  publishedAt: string;
-  updatedAt?: string;
+  publishedAt: Date;
+  updatedAt?: Date;
   title: string;
 };
 export default async function InformationItem() {
@@ -20,7 +21,7 @@ export default async function InformationItem() {
 
   const data = await res.json();
 
-  return data.contents.map((item: Item) => (
+  return (data as BlogList).contents.map((item: Item) => (
     <li key={item.title}>
       <Link href={`/${item.id}`}>
         <p className={styles.time}>
