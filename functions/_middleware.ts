@@ -1,24 +1,10 @@
-export const onRequestOptions: PagesFunction = async () => {
-  return new Response(null, {
-    status: 204,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "*",
-      "Access-Control-Allow-Methods": "GET, OPTIONS",
-      "Access-Control-Max-Age": "86400",
-      "Submontane-Header": "submontane-code",
-    },
-  });
-};
+export async function onRequest(context) {
+  console.log(
+    `[LOGGING FROM /hello]: Request came from ${context.request.url}`,
+  );
 
-// Set CORS to all /api responses
-export const onRequest: PagesFunction = async (context) => {
-  const response = await context.next();
-  response.headers.set("Access-Control-Allow-Origin", "*");
-  response.headers.set("Access-Control-Max-Age", "86400");
-  response.headers.set("Submontane-Header", "submontane-code");
-  return response;
-};
+  return new Response("Hello, world!");
+}
 
 // import mailChannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
 
