@@ -1,3 +1,9 @@
+export const corsHeaders = {
+  "Access-Control-Allow-Origin": "https://api.mailchannels.net",
+  "Access-Control-Allow-Methods": "POST",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
 export default async function sendMail(formData: FormData) {
   const payload = {
     personalizations: [
@@ -21,6 +27,7 @@ export default async function sendMail(formData: FormData) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      ...corsHeaders,
     },
     body: JSON.stringify(payload),
   });
