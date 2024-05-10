@@ -1,7 +1,8 @@
 export const corsHeaders = {
-  "Access-Control-Allow-Origin": "https://api.mailchannels.net",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, HEAD, OPTIONS",
+  "Access-Control-Allow-Headers":
+    "Origin, X-Requested-With, Content-Type, Authorization, Accept",
 };
 
 export default async function sendMail(formData: FormData) {
