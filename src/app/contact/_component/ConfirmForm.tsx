@@ -2,7 +2,6 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
-import sendMail from "../../_lib/sendMail";
 import styles from "../styles/contact.module.scss";
 import { Input, Textarea } from "./Parts";
 
@@ -25,7 +24,7 @@ export default function ConfirmForm() {
 
   return (
     <>
-      <form action={sendMail} noValidate>
+      <form action="https://ssgform.com/s/W0d299NTctAX" noValidate>
         <dl className={`${styles.form} is-confirm`}>
           <dt>
             <label htmlFor="family-name">
