@@ -24,7 +24,11 @@ export default function ConfirmForm() {
 
   return (
     <>
-      <form action="https://ssgform.com/s/W0d299NTctAX" noValidate>
+      <form
+        action="https://ssgform.com/s/W0d299NTctAX"
+        method="POST"
+        noValidate
+      >
         <dl className={`${styles.form} is-confirm`}>
           <dt>
             <label htmlFor="family-name">
