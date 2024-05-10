@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { send } from "process";
 import { useState } from "react";
 import styles from "../styles/contact.module.scss";
 import Form from "./Form";
@@ -25,25 +26,7 @@ export default function ConfirmForm() {
 
   return (
     <>
-      <form
-        // action=""
-        onSubmit={async (e) => {
-          e.preventDefault();
-
-          const formData = new FormData(e.currentTarget);
-          const res = await fetch("/api/send", {
-            method: "POST",
-            body: formData,
-          });
-
-          if (res.ok) {
-            router.replace("/contact/thanks/");
-          } else {
-            alert("送信に失敗しました。");
-          }
-        }}
-        noValidate
-      >
+      <form action={sendMail} noValidate>
         <dl className={`${styles.form} is-confirm`}>
           <dt>
             <label htmlFor="family-name">

@@ -1,8 +1,4 @@
-async function sendMail({
-  content,
-}: {
-  content: string;
-}) {
+async function sendMail(formData: FormData) {
   const payload = {
     personalizations: [
       {
@@ -17,7 +13,7 @@ async function sendMail({
       email: "contact@submontane.jp",
     },
     subject: "お問い合わせがありました",
-    content: [{ type: 'text/plain; charset="UTF-8"', value: content }],
+    contents: [{ type: 'text/plain; charset="UTF-8"', value: formData }],
   };
 
   // MailChannels APIを利用してメール送信
