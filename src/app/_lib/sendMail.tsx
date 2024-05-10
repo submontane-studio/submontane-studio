@@ -1,4 +1,4 @@
-async function sendMail(formData: FormData) {
+export default async function sendMail(formData: FormData) {
   const payload = {
     personalizations: [
       {

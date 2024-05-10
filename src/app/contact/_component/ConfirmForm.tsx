@@ -1,10 +1,9 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { send } from "process";
 import { useState } from "react";
+import sendMail from "../../_lib/sendMail";
 import styles from "../styles/contact.module.scss";
-import Form from "./Form";
 import { Input, Textarea } from "./Parts";
 
 export default function ConfirmForm() {
