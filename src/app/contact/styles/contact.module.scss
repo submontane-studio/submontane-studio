@@ -373,3 +373,30 @@
     border: 1px solid var(--color-primary);
   }
 }
+
+.thanks{
+  padding-inline: 20px;
+  color: var(--color-primary);
+  @media screen and (min-width: 768px) {
+    width: 600px;
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+  h2{
+    font-size: rem(18);
+    margin-block-end: 20px;
+  }
+  p{
+    line-height: 1.8;
+  }
+  &:global{
+    & + .button-index{
+      width: calc(100% - 40px˝);
+      margin-block: 60px;
+      margin-inline: auto;
+      @media screen and (min-width: 768px) {
+        width: 460px;
+      }
+    }
+  }
+}
