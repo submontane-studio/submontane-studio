@@ -44,7 +44,10 @@ export const POST = async (req: NextRequest) => {
   });
 
   if (response.status === 200 || response.status === 202) {
-    return NextResponse.json("正常に送信されました", { status: 200 });
+    return NextResponse.json(
+      { message: "正常に送信されました" },
+      { status: 200 },
+    );
   }
   // const res = await req.json();
 
