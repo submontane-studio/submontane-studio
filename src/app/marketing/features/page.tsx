@@ -107,57 +107,59 @@ export default function Features() {
               すべてが揃ってこそ、お客さまにご満足いただける結果が得られるのです。
             </p>
           </div>
-          <picture className={styles.graph}>
-            <source
-              media="(min-width: 768px)"
-              srcSet="/images/desktop/marketing/features/graph.svg"
-            />
-            <img
-              src="/images/mobile/marketing/features/graph.svg"
-              alt="UX、アクセシビリティ、SEOの3つの柱"
-            />
-          </picture>
-          <ul className={styles["pillar-list"]}>
-            <li className="ux">
-              <h3>UX</h3>
-              <div className="txt">
-                <p>
-                  UX（User eXperience :
-                  ユーザーがサービスを通じて得られる体験）は、マーケティング上でも重要な要素です。
-                  <br />
-                  UXが優れていなければユーザーはお客さまが求めるお問い合わせや資料請求などの手続きまでたどり着くことなくWebサイトを離れてしまいます。
-                  <br />
-                  優れたUXを実現するには、パーツの1つ1つまでこだわってデザイン・設計する必要があり、技術と知識が必要です。
-                  <br />
-                  当事務所では10年以上のWeb制作経験からくる知識と技術を活かして、優れたUXのWebサイトをご提供できます。
-                </p>
-              </div>
-            </li>
-            <li className="a11y">
-              <h3>アクセシビリティ</h3>
-              <div className="txt">
-                <p>
-                  たとえデザインやUXが優れていても、健常者の方しか閲覧できないのでは、優れたWebサイトとはいえません。
-                  <br />
-                  障害を持つ方がアクセスできなければ、潜在的な顧客を取りこぼすことになってしまいます。
-                  <br />
-                  当事務所では、読みやすいUDフォントの使用、色覚に障害を持つ方でも見やすいデザイン、適切なマークアップ、アクセシビリティの標準仕様であるWCAG、WAI-ARIAの使用などの様々な施策によって、アクセシビリティを最大化させています。
-                </p>
-              </div>
-            </li>
-            <li className="support">
-              <h3>サポート</h3>
-              <div className="txt">
-                <p>
-                  お客さまへのサポートはこの中でも最も重要と言ってもいいでしょう。
-                  <br />
-                  当事務所では制作・提案を一貫して1人が担当し、コミュニケーションロスによるお客さまとのすれ違いや対応の遅延などを最小化し、素早く適切なサポートを実現しています。
-                  <br />
-                  また、公開後も必要であれば引き続き保守・管理を請け負い、更新作業の代行など、お客さまのご要望を可能な限り実現します。
-                </p>
-              </div>
-            </li>
-          </ul>
+          <div className={styles.inner}>
+            <picture className={styles.graph}>
+              <source
+                media="(min-width: 768px)"
+                srcSet="/images/desktop/marketing/features/graph.svg"
+              />
+              <img
+                src="/images/mobile/marketing/features/graph.svg"
+                alt="UX、アクセシビリティ、SEOの3つの柱"
+              />
+            </picture>
+            <ul className={styles["pillar-list"]}>
+              <li className="ux">
+                <h3>UX</h3>
+                <div className="txt">
+                  <p>
+                    UX（User eXperience :
+                    ユーザーがサービスを通じて得られる体験）は、マーケティング上でも重要な要素です。
+                    <br className="is-breakSp" />
+                    UXが優れていなければユーザーはお客さまが求めるお問い合わせや資料請求などの手続きまでたどり着くことなくWebサイトを離れてしまいます。
+                    <br />
+                    優れたUXを実現するには、パーツの1つ1つまでこだわってデザイン・設計する必要があり、技術と知識が必要です。
+                    <br />
+                    当事務所では10年以上のWeb制作経験からくる知識と技術を活かして、優れたUXのWebサイトをご提供できます。
+                  </p>
+                </div>
+              </li>
+              <li className="a11y">
+                <h3>アクセシビリティ</h3>
+                <div className="txt">
+                  <p>
+                    たとえデザインやUXが優れていても、健常者の方しか閲覧できないのでは、優れたWebサイトとはいえません。
+                    <br className="is-breakSp" />
+                    障害を持つ方がアクセスできなければ、潜在的な顧客を取りこぼすことになってしまいます。
+                    <br />
+                    当事務所では、読みやすいUDフォントの使用、色覚に障害を持つ方でも見やすいデザイン、適切なマークアップ、アクセシビリティの標準仕様であるWCAG、WAI-ARIAの使用などの様々な施策によって、アクセシビリティを最大化させています。
+                  </p>
+                </div>
+              </li>
+              <li className="support">
+                <h3>サポート</h3>
+                <div className="txt">
+                  <p>
+                    お客さまへのサポートはこの中でも最も重要と言ってもいいでしょう。
+                    <br className="is-breakSp" />
+                    当事務所では制作・提案を一貫して1人が担当し、コミュニケーションロスによるお客さまとのすれ違いや対応の遅延などを最小化し、素早く適切なサポートを実現しています。
+                    <br />
+                    また、公開後も必要であれば引き続き保守・管理を請け負い、更新作業の代行など、お客さまのご要望を可能な限り実現します。
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </section>
       </main>
       <Conversion />
