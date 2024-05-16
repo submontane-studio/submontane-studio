@@ -34,6 +34,7 @@ body{
   min-height: 40px;
   display: flex;
   margin-block-end: 60px;
+  border-block-end: 1px solid #eee;
   @media screen and (min-width: 768px) {
     width: 100%;
     margin-inline: auto;
@@ -66,6 +67,9 @@ body{
         &:hover{
           text-decoration: underline;
         }
+      }
+      &[href$="marketing/"]{
+        pointer-events: none;
       }
       &.home{
         display: inline-flex;
@@ -619,5 +623,25 @@ body{
         margin-block-start: 120px;
       }
     }
+  }
+}
+
+.heading{
+  font-size: rem(20);
+  font-weight: 700;
+  font-family: fot-udkakugo-large-pr6n, sans-serif;
+  padding-inline: 20px;
+  text-align: center;
+  position: relative;
+  padding-block-end: 20px;
+  background: url(/images/mobile/common/bg_heading01.svg) center bottom no-repeat;
+  margin-block-end: 40px;
+  color: #000;
+  @media screen and (min-width: 768px) {
+    margin-block-end: 60px;
+    background: url(/images/desktop/common/bg_heading01.svg) center bottom no-repeat;
+    padding-block-end: 30px;
+    font-size: rem(28);
+    padding-inline: 0;
   }
 }

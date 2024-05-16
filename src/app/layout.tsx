@@ -36,6 +36,18 @@ const futura = localFont({
   variable: "--font-futura",
 });
 
+const futuraCond = localFont({
+  src: [
+    {
+      path: "../../public/font/futura-condensed/Bold/FuturaCon-Bol.woff",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  variable: "--font-futura-cond",
+});
+
 export const metadata: Metadata = {
   title: {
     default: `${process.env.SITE_TITLE} | ${process.env.SITE_DESCRIPTION}`,
@@ -72,7 +84,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${inter.variable} ${biz.variable} ${futura.variable}`}
+      className={`${inter.variable} ${biz.variable} ${futura.variable} ${futuraCond.variable}`}
     >
       <head>
         <Script src="/scripts/typekit.js" strategy="beforeInteractive" />

@@ -511,3 +511,28 @@
     margin-block-end: 0;
   }
 }
+
+.breadcrumb{
+  @media screen and (min-width: 768px) {
+    width: 1400px !important;
+    max-width: calc(100% - 40px) !important;
+    border-block-end: 0;
+    padding-inline:0;
+    li{
+      a{
+        padding-inline-end: 0;
+        &::after{
+          display: none;
+        }
+      }
+      &:not(:first-of-type):not(:last-of-type) {
+        &:after{
+          display: none;
+        }
+        a{
+          padding-inline-start: 0;
+        }
+      }
+    }
+  }
+}

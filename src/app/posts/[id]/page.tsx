@@ -111,6 +111,7 @@ export default async function PostDetail({
             title: data.title,
           },
         ]}
+        className={styles.breadcrumb}
       />
       <main>
         <article id={data.id}>

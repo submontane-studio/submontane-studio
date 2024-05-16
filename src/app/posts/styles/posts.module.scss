@@ -560,6 +560,17 @@
   }
 }
 .breadcrumb{
-  width: 1200px !important;
-  max-width: calc(100% - 40px) !important;
+  @media screen and (min-width: 768px) {
+    width: 1200px !important;
+    max-width: calc(100% - 40px) !important;
+    border-block-end: 0;
+    li{
+      a{
+        padding-inline-end: 0;
+        &::after{
+          display: none;
+        }
+      }
+    }
+  }
 }
