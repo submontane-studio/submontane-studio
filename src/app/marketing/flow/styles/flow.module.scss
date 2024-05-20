@@ -9,7 +9,83 @@
     margin-block-end: 50px;
     }
   }
-  .chart{
-
-  }
 }
+.chart{
+    counter-reset: step;
+    background: url(/images/mobile/marketing/flow/line-flow01.svg) left top repeat-y;
+    margin-block-end: 140px;
+    li{
+      h3{
+        display: block;
+        font-size: rem(20);
+        margin-block-end: 10px;
+        color: var(--color-primary);
+        line-height: 1.8;
+        position: relative;
+        padding-inline-start: 30px;
+        padding-block: .2em;
+        &:before{
+          content: counter(step, decimal-leading-zero);
+          counter-increment: step;
+          font-family: --font-futura-cond, sans-serif;
+          font-weight: 700;
+          font-size: rem(18);
+          display: flex;
+          width: 40px;
+          height: 40px;
+          justify-content: center;
+          align-items: center;
+          border-radius: 0 3px 3px 0;
+          margin-inline-end: 10px;
+          position: absolute;
+          top: 0;
+          left: -20px;
+        }
+      }
+      :global{
+        .txt{
+          margin-inline-start: 30px;
+          font-size: rem(14);
+          color: var(--color-primary);
+          line-height: 1.8;
+        }
+      }
+      &:global{
+        &.together{
+          h3{
+            &::before{
+              background: var(--color-primary);
+              color: var(--color-base);
+            }
+          }
+        }
+        &.my-turn{
+          h3{
+            &::before{
+              background: var(--color-base);
+              border: 2px solid var(--color-primary);
+              border-left: 0;
+              color: var(--color-primary);
+            }
+          }
+        }
+        &.release{
+          h3{
+            color: #ff7c00;
+            &:before{
+              background: var(--color-secoundary);
+              color: var(--color-base);
+            }
+          }
+        }
+      }
+      &+li{
+        margin-block-start: 50px;
+      }
+      &:last-of-type{
+        background: var(--color-base);
+        margin-inline-start: -3px;
+        padding-inline-start: 3px;
+      }
+    }
+  }
