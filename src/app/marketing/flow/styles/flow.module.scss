@@ -2,11 +2,22 @@
 
 .flow{
   padding-inline: 20px;
+  @media screen and (min-width: 768px) {
+    padding: 0;
+    width: 1200px;
+    margin-inline: auto;
+  }
   :global{
     .intro{
       font-size: rem(14);
-    line-height: 1.8;
-    margin-block-end: 50px;
+      line-height: 1.8;
+      margin-block-end: 50px;
+      @media screen and (min-width: 768px) {
+        width: 900px;
+        margin-inline: auto;
+        margin-block-end: 80px;
+        font-size: rem(16);
+      }
     }
   }
 }
@@ -14,6 +25,10 @@
     counter-reset: step;
     background: url(/images/mobile/marketing/flow/line-flow01.svg) left top repeat-y;
     margin-block-end: 140px;
+    @media screen and (min-width: 768px) {
+      margin-block-end: 160px;
+      background-position: 28px top;
+    }
     li{
       h3{
         display: block;
@@ -23,7 +38,13 @@
         line-height: 1.8;
         position: relative;
         padding-inline-start: 30px;
-        padding-block: .2em;
+        padding-block-start: .2em;
+        @media screen and (min-width: 768px) {
+          padding-inline-start: 80px;
+          font-size: rem(22);
+          padding-block-start: .5em;
+          margin-block-end: 20px;
+        }
         &:before{
           content: counter(step, decimal-leading-zero);
           counter-increment: step;
@@ -40,6 +61,13 @@
           position: absolute;
           top: 0;
           left: -20px;
+          @media screen and (min-width: 768px) {
+            left: 0;
+            border-radius: 3px;
+            width: 60px;
+            height: 60px;
+            font-size: rem(20);
+          }
         }
       }
       :global{
@@ -48,6 +76,10 @@
           font-size: rem(14);
           color: var(--color-primary);
           line-height: 1.8;
+          @media screen and (min-width: 768px) {
+            margin-inline-start: 80px;
+            font-size: rem(16);
+          }
         }
       }
       &:global{
@@ -66,6 +98,9 @@
               border: 2px solid var(--color-primary);
               border-left: 0;
               color: var(--color-primary);
+              @media screen and (min-width: 768px) {
+                border-left: 2px solid var(--color-primary);
+              }
             }
           }
         }
