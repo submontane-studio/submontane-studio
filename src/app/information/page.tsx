@@ -43,23 +43,32 @@ export default function Flow() {
             <tbody>
               <tr>
                 <th>商号</th>
-                <td></td>
+                <td>SUBMONTANE STUDIO</td>
               </tr>
               <tr>
                 <th>代表者名</th>
-                <td></td>
+                <td>山下 剛</td>
               </tr>
               <tr>
                 <th>創業</th>
-                <td></td>
+                <td>2015年7月1日</td>
               </tr>
               <tr>
                 <th>所在地</th>
-                <td></td>
+                <td>
+                  <address>〒562-0027 大阪府箕面市石丸2-8-4</address>
+                </td>
               </tr>
               <tr>
                 <th>事業内容</th>
-                <td></td>
+                <td>
+                  <ul>
+                    <li>Webサイトの企画・制作・運用</li>
+                    <li>ソーシャルネットワークサービスの登録代行・運用支援</li>
+                    <li>Webコンサルティング</li>
+                    <li>自事務所サイトの運用及びブログ記事制作</li>
+                  </ul>
+                </td>
               </tr>
             </tbody>
           </table>
