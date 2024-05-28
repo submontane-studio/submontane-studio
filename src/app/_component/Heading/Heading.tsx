@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-
+import styles from "./styles/Heading.module.scss";
 interface Props {
   className?: string;
   children: ReactNode;
@@ -8,7 +8,7 @@ interface Props {
 export default function Heading({ className, children }: Props) {
   return (
     <>
-      <h2 className="heading">{children}</h2>
+      <h2 className={styles.heading}>{children}</h2>
     </>
   );
 }

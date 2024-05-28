@@ -1,0 +1,22 @@
+@use '../../../styles/foundation/function' as *;
+
+.heading{
+  font-size: rem(20);
+  font-weight: 700;
+  font-family: fot-udkakugo-large-pr6n, sans-serif;
+  padding-inline: 20px;
+  text-align: center;
+  position: relative;
+  padding-block-end: 20px;
+  background: url(/images/mobile/common/bg_heading01.svg) center bottom no-repeat;
+  margin-block-end: 40px;
+  color: #000;
+  letter-spacing: .2em;
+  @media screen and (min-width: 768px) {
+    margin-block-end: 60px;
+    background: url(/images/desktop/common/bg_heading01.svg) center bottom no-repeat;
+    padding-block-end: 30px;
+    font-size: rem(28);
+    padding-inline: 0;
+  }
+}
