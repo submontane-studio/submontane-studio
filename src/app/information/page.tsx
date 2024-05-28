@@ -51,7 +51,9 @@ export default function Flow() {
               </tr>
               <tr>
                 <th>創業</th>
-                <td>2015年7月1日</td>
+                <td>
+                  <time dateTime="2015-07-01">2015年7月1日</time>
+                </td>
               </tr>
               <tr>
                 <th>所在地</th>
@@ -62,7 +64,7 @@ export default function Flow() {
               <tr>
                 <th>事業内容</th>
                 <td>
-                  <ul>
+                  <ul className="projects">
                     <li>Webサイトの企画・制作・運用</li>
                     <li>ソーシャルネットワークサービスの登録代行・運用支援</li>
                     <li>Webコンサルティング</li>

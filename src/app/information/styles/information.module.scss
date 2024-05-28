@@ -1,5 +1,56 @@
 @use '../../styles/foundation/function' as *;
 
 .information{
-
+  padding-inline: 20px;
+  margin-block-end: 100px;
+  :global{
+    .intro{
+      font-size: rem(14);
+      line-height: 1.8;
+      margin-block-end: 55px;
+    }
+    .office{
+      display: flex;
+      font-size: rem(13);
+      border: 1px solid var(--color-primary);
+      tbody{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      tr{
+        display: flex;
+        flex-direction: column;
+        &:nth-of-type(even){
+          th{
+            background: #1F8B95;
+          }
+        }
+      }
+      th,td{
+        display: flex;
+      }
+      th{
+        min-height: 55px;
+        background: var(--color-primary);
+        align-items: center;
+        padding-inline: 30px;
+        color: #fff;
+      }
+      td{
+        padding-inline:30px;
+        padding-block: 22px 20px;
+        address{
+          font-style: normal;
+        }
+      }
+    }
+    .projects{
+      li{
+        &+li{
+          margin-block-start: 5px;
+        }
+      }
+    }
+  }
 }
