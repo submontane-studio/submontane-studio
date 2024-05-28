@@ -3,32 +3,64 @@
 .information{
   padding-inline: 20px;
   margin-block-end: 100px;
+  @media screen and (min-width: 768px) {
+    padding-inline: 0;
+    margin-block-end: 200px;
+  }
   :global{
     .intro{
       font-size: rem(14);
       line-height: 1.8;
       margin-block-end: 55px;
+      @media screen and (min-width: 768px) {
+        font-size: rem(16);
+        line-height: 2;
+        margin-block-end: 90px;
+        width: 900px;
+        margin-inline: auto;
+      }
     }
     .office{
       display: flex;
       font-size: rem(13);
       border: 1px solid var(--color-primary);
+      @media screen and (min-width: 768px) {
+        display: table;
+        width: 1200px;
+        margin-inline: auto;
+        border-collapse: collapse;
+        font-size: rem(16);
+      }
       tbody{
         display: flex;
         flex-direction: column;
         width: 100%;
+        @media screen and (min-width: 768px) {
+          display: table-row-group;
+        }
       }
       tr{
         display: flex;
         flex-direction: column;
+        @media screen and (min-width: 768px) {
+          display: table-row;
+        }
         &:nth-of-type(even){
           th{
             background: #1F8B95;
+          }
+          td{
+            @media screen and (min-width: 768px) {
+              background: #f9f9f9;
+            }
           }
         }
       }
       th,td{
         display: flex;
+        @media screen and (min-width: 768px) {
+          display: table-cell;
+        }
       }
       th{
         min-height: 55px;
@@ -36,10 +68,17 @@
         align-items: center;
         padding-inline: 30px;
         color: #fff;
+        @media screen and (min-width: 768px) {
+          min-height: 60px;
+          text-align: center;
+        }
       }
       td{
         padding-inline:30px;
         padding-block: 22px 20px;
+        @media screen and (min-width: 768px) {
+          padding-inline: 40px;
+        }
         address{
           font-style: normal;
         }
