@@ -32,7 +32,7 @@ export default async function getMore(limit: number, offset: number) {
                 src={
                   post.keyvisual
                     ? post.keyvisual.url
-                    : "/images/mobile/common/mohammad-alizade-XgeZu2jBaVI-unsplash.jpg"
+                    : "/images/mobile/common/empty_keyvisual.png"
                 }
                 alt=""
                 sizes="100vw"
