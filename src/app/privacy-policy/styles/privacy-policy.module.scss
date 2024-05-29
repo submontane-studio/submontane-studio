@@ -3,4 +3,88 @@
 .intro{
   padding-inline: 20px;
   font-size: rem(14);
+  line-height: 2;
+  margin-block-end: 50px;
+  @media screen and (min-width: 768px) {
+    padding-inline: 0;
+    font-size: rem(16);
+    width: 1200px;
+    margin-block-end: 35px;
+    margin-inline: auto;
+  }
+}
+.paragraph{
+  padding-inline: 20px;
+  @media screen and (min-width: 768px) {
+    width: 1200px;
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+  :global{
+    font-size: rem(14);
+    line-height: 2;
+    @media screen and (min-width: 768px) {
+      font-size: rem(16);
+    }
+    .txt{
+      *{
+        &:not(:last-child){
+          margin-block-end: 1rem;
+          @media screen and (min-width: 768px) {
+            margin-block-end: 10px;
+          }
+        }
+      }
+      .purpose-list{
+        li{
+          margin-block-end: 0;
+          position: relative;
+          padding-inline-start: 16px;
+          &:before{
+            content:"";
+            display: block;
+            width: 6px;
+            height: 6px;
+            position: absolute;
+            top: 0.7rem;
+            left: 0;
+            background: var(--color-primary);
+          }
+        }
+      }
+      .address{
+        background: #f9f9f9;
+        padding:30px;
+        @media screen and (min-width: 768px) {
+          padding:60px;
+        }
+        h3{
+          font-size: rem(16);
+          @media screen and (min-width: 768px) {
+            margin-block-end: 30px;
+          }
+        }
+        address{
+          font-style: normal;
+          font-size: rem(14);
+          line-height: 2;
+          @media screen and (min-width: 768px) {
+            font-size: rem(16);
+          }
+        }
+      }
+    }
+  }
+  &:not(:last-of-type) {
+    margin-block-end: 50px;
+    @media screen and (min-width: 768px) {
+      margin-block-end: 60px;
+    }
+  }
+  &:last-of-type{
+    margin-block-end: 140px;
+    @media screen and (min-width: 768px) {
+      margin-block-end: 200px;
+    }
+  }
 }
