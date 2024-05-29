@@ -2,7 +2,6 @@ import Breadcrumb from "@/app/_component/Breadcrumb";
 import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
 import Header from "@/app/_component/Header";
-import Heading from "@/app/_component/Heading/Heading";
 import { Metadata } from "next";
 import styles from "./styles/information.module.scss";
 
