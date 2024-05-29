@@ -74,6 +74,7 @@ export const metadata: Metadata = {
     canonical: "https://submontane.jp",
   },
   metadataBase: new URL("https://submontane.jp"),
+  authors: [{ name: "Tsuyoshi Yamashita", url: "https://submontane.jp/" }],
 };
 
 export default function RootLayout({
