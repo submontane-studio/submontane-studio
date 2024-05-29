@@ -26,7 +26,7 @@ export default function Posts({
                     src={
                       post.keyvisual
                         ? post.keyvisual.url
-                        : "/images/mobile/common/empty_keyvisual.png"
+                        : "/images/desktop/common/empty_keyvisual.png"
                     }
                     alt=""
                     sizes="100vw"

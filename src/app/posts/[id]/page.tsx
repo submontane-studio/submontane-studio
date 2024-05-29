@@ -149,7 +149,7 @@ export default async function PostDetail({
               src={
                 data.keyvisual?.url
                   ? data.keyvisual.url
-                  : "/images/mobile/common/empty_keyvisual.png"
+                  : "/images/desktop/common/empty_keyvisual.png"
               }
               fill={true}
               sizes="100vw"

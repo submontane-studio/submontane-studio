@@ -46,7 +46,7 @@ export default async function BlogItem() {
                 src={
                   item.keyvisual?.url
                     ? item.keyvisual?.url
-                    : "/images/mobile/common/empty_keyvisual.png"
+                    : "/images/desktop/common/empty_keyvisual.png"
                 }
                 alt=""
                 fill={true}
