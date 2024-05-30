@@ -308,6 +308,9 @@
       height: 235px;
       position: relative;
       margin-block-end: 20px;
+      img{
+        object-fit: cover;
+      }
     }
     .date{
       display: flex;

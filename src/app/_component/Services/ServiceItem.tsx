@@ -7,11 +7,11 @@ export default function ServiceItem({
   slug,
   isContract,
 }: Readonly<{ children: React.ReactNode; slug: string; isContract: boolean }>) {
-  const matches = useMediaQuery("(max-width: 768px)");
+  const matches = useMediaQuery("(min-width: 768px)");
 
-  const expand: (
+  const expand = (
     e: React.MouseEvent<HTMLLIElement> | React.KeyboardEvent<HTMLLIElement>,
-  ) => void = (e) => {
+  ) => {
     e.currentTarget.classList.toggle("is-expanded");
     if (e.currentTarget.getAttribute("aria-expanded") === "true") {
       e.currentTarget.setAttribute("aria-expanded", "false");
