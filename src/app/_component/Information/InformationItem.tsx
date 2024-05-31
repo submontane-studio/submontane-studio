@@ -23,7 +23,7 @@ export default async function InformationItem() {
 
   return (data as BlogList).contents.map((item: Item) => (
     <li key={item.title}>
-      <Link href={`/${item.id}`}>
+      <Link href={`/posts/${item.id}`}>
         <p className={styles.time}>
           <time dateTime={format(item.publishedAt, "YYYY-MM-DD")}>
             {format(item.publishedAt, "YYYY.MM.DD")}
