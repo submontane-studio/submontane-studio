@@ -187,9 +187,9 @@ export default async function PostDetail({
             </li>
             <li>
               <Link
-                href={`https://twitter.com/share?ref_src=twsrc%5Etfw&text=${encodeURI(
+                href={`https://x.com/intent/tweet?text=${encodeURI(
                   data.title,
-                )}`}
+                )}&url=https://submontane.jp/posts/${data.id}`}
                 className="x twitter-share-button"
                 data-show-count="false"
               >
