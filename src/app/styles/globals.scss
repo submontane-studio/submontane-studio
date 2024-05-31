@@ -489,7 +489,7 @@ body{
       display: flex;
     }
     li{
-      a,.hasChildren{
+      a,span,.hasChildren{
         @media screen and (min-width: 768px) {
           color: #fff;
           font-weight: 700;
