@@ -310,23 +310,14 @@
   }
 }
 .message{
-  background: url(/images/mobile/home/bg_message01.svg) left top / contain no-repeat;
+  background: url(/images/mobile/home/bg_message01.svg) center bottom / contain no-repeat;
   padding-inline: 20px;
-  padding-block: 37.333% 80px;
+  padding-block: 50px 75px;
   @media screen and (min-width: 768px) {
-    background: none;
+    background: url(/images/desktop/home/bg_message01.svg) center bottom / contain no-repeat;
     padding-block: 120px 140px;
     padding-inline: 0;
     position: relative;
-    &:before{
-      content:"";
-      width: 22.8333%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background:url(/images/desktop/home/bg_message01.svg) left top repeat-x;
-    }
   }
   h2{
     font-size: rem(20);
@@ -364,10 +355,11 @@
     .txt{
       font-size: rem(14);
       line-height: 2;
+      text-shadow: rgb(255, 255, 255) 2px 0px 0px, rgb(255, 255, 255) 1.75517px 0.958851px 0px, rgb(255, 255, 255) 1.0806px 1.68294px 0px, rgb(255, 255, 255) 0.141474px 1.99499px 0px, rgb(255, 255, 255) -0.832294px 1.81859px 0px, rgb(255, 255, 255) -1.60229px 1.19694px 0px, rgb(255, 255, 255) -1.97998px 0.28224px 0px, rgb(255, 255, 255) -1.87291px -0.701566px 0px, rgb(255, 255, 255) -1.30729px -1.5136px 0px, rgb(255, 255, 255) -0.421592px -1.95506px 0px, rgb(255, 255, 255) 0.567324px -1.91785px 0px, rgb(255, 255, 255) 1.41734px -1.41108px 0px, rgb(255, 255, 255) 1.92034px -0.558831px 0px;
       @media screen and (min-width: 768px) {
         font-size: rem(16);
-        width: 900px;
         margin-inline-start: auto;
+        padding-inline:10px
       }
     }
   }

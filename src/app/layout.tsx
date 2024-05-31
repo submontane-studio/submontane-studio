@@ -1,3 +1,4 @@
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Metadata } from "next";
 import config from "next/config";
 import { BIZ_UDPGothic, Inter } from "next/font/google";
@@ -90,7 +91,9 @@ export default function RootLayout({
       <head>
         <Script src="/scripts/typekit.js" strategy="beforeInteractive" />
       </head>
+      <GoogleTagManager gtmId="GTM-KMQVVJKL" />
       <body>{children}</body>
+      <GoogleAnalytics gaId="G-SP0XFECK0L" />
     </html>
   );
 }
