@@ -203,7 +203,7 @@ export default async function PostDetail({
                   <use href="/images/mobile/common/ico_x01.svg#x" />
                 </svg>
               </Link>
-              <Script async src="https://platform.twitter.com/widgets.js" />
+              {/* <Script async src="https://platform.twitter.com/widgets.js" /> */}
             </li>
             <li>
               <Link

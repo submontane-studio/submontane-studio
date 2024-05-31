@@ -14,12 +14,7 @@ export default function FooterNavigation() {
         <ParentItem slug={item.slug} key={item.slug}>
           {item.slug === "marketing" ? (
             <>
-              <span
-                role="menuitem"
-                className="hasChildren"
-                tabIndex={0}
-                aria-haspopup="true"
-              >
+              <span role="menuitem" tabIndex={0}>
                 {item.name}
               </span>
               <ul className="navigation-children">
@@ -29,7 +24,6 @@ export default function FooterNavigation() {
                       key={subItem.slug}
                       href={`${item.slug}/${subItem.slug}`}
                       role="menuitem"
-                      aria-expanded="false"
                     >
                       {subItem.name}
                     </Link>

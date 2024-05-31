@@ -22,8 +22,8 @@
       }
       h3{
         position: relative;
-        padding-inline-start: 50px;
-        padding-block-start: .1rem;
+        padding-inline-start: 40px;
+        padding-block-start: .05rem;
         font-size: rem(18);
         line-height: 1.8;
         text-wrap: pretty;
@@ -104,7 +104,7 @@
       &:last-of-type{
         h3{
           @media screen and (min-width: 768px) {
-            margin-block-end: 60px;
+            margin-block-end: 50px;
           }
         }
       }
