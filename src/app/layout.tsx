@@ -1,4 +1,4 @@
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Metadata } from "next";
 import config from "next/config";
 import { BIZ_UDPGothic, Inter } from "next/font/google";
