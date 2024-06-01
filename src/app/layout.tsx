@@ -93,7 +93,6 @@ export default function RootLayout({
       </head>
       <GoogleTagManager gtmId="GTM-KMQVVJKL" />
       <body>{children}</body>
-      <GoogleAnalytics gaId="G-SP0XFECK0L" />
     </html>
   );
 }
