@@ -11,7 +11,7 @@ export default function FooterNavigation() {
   return matches ? null : (
     <ul className="footer-navigation">
       {Items.map((item) => (
-        <ParentItem slug={item.slug} key={item.slug}>
+        <li key={item.slug}>
           {item.slug === "marketing" ? (
             <>
               <span role="menuitem" tabIndex={0}>
@@ -36,7 +36,7 @@ export default function FooterNavigation() {
               {item.name}
             </Link>
           )}
-        </ParentItem>
+        </li>
       ))}
     </ul>
   );
