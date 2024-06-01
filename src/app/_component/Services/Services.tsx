@@ -36,7 +36,7 @@ const services = [
     slug: "outsourcing",
     heading: "アウトソーシング請負",
     description:
-      "どんな環境やハンディキャップをお持ちの方でも閲覧しやすい、アクセシビリティの高いWebサイトを制作いたします",
+      "高い技術力とノウハウを持って、不足したリソースを埋める手助けを行います。",
     contract: false,
   },
   {
