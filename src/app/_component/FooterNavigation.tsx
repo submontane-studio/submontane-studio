@@ -22,7 +22,7 @@ export default function FooterNavigation() {
                   <li key={subItem.slug}>
                     <Link
                       key={subItem.slug}
-                      href={`${item.slug}/${subItem.slug}`}
+                      href={`/${item.slug}/${subItem.slug}`}
                       role="menuitem"
                     >
                       {subItem.name}
@@ -32,7 +32,7 @@ export default function FooterNavigation() {
               </ul>
             </>
           ) : (
-            <Link href={item.slug} role="menuitem">
+            <Link href={`/${item.slug}`} role="menuitem">
               {item.name}
             </Link>
           )}
