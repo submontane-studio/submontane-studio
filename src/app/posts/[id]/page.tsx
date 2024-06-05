@@ -1,4 +1,4 @@
-// export const runtime = "edge";
+export const runtime = "edge";
 
 import type { Post, PostList } from "@/@types/post";
 import Breadcrumb from "@/app/_component/Breadcrumb";
