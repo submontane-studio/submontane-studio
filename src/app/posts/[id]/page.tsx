@@ -28,8 +28,6 @@ export async function generateMetadata(
   const req = await getPostDetail(params.id);
   const data = req as Post;
 
-  console.log(data);
-
   // const previousImage = (await parent).openGraph?.images || [];
 
   return {
@@ -154,16 +152,6 @@ export default async function PostDetail({
               fill={true}
               sizes="100vw"
               alt=""
-            />
-            <Image
-              src={
-                data.keyvisual
-                  ? data.keyvisual.url
-                  : "/images/desktop/common/empty_keyvisual.png"
-              }
-              alt=""
-              sizes="100vw"
-              fill={true}
             />
           </div>
           <ul className={styles.share}>
