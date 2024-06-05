@@ -5,7 +5,7 @@ export default async function getPostDetail(id: string) {
     headers: {
       "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
     },
-    cache: "no-store",
+    next: { revalidate: 3600 },
   });
 
   const data = await res.json();
