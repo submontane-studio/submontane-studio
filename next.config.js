@@ -7,7 +7,14 @@ const nextConfig = {
   // },
   // output: "export",
   images: {
-    domains: ["images.microcms-assets.io"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.microcms-assets.io",
+        port: "",
+        pathname: "/assets/**/**",
+      },
+    ],
     // unoptimized: true,
   },
 };

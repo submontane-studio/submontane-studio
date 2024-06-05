@@ -90,7 +90,6 @@ export default async function PostDetail({
 }: { params: { id: string } }) {
   const req = await getPostDetail(params.id);
   const data = req as Post;
-  console.log(data);
 
   return (
     <>
@@ -155,6 +154,7 @@ export default async function PostDetail({
               fill={true}
               sizes="100vw"
               alt=""
+              unoptimized={true}
             />
           </div>
           <ul className={styles.share}>
