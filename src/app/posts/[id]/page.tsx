@@ -9,11 +9,9 @@ import getPostDetail from "@/app/_lib/getPostDetail";
 import getPostIds from "@/app/_lib/getPostIds";
 import { format } from "@formkit/tempo";
 import type { Metadata, ResolvingMetadata } from "next";
-import { Content } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { ReactNode } from "react";
 import Header from "../../_component/Header";
 import Tocbot from "./Tocbot";
 import styles from "./styles/[id].module.scss";
@@ -29,6 +27,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const req = await getPostDetail(params.id);
   const data = req as Post;
+
+  console.log(data);
 
   // const previousImage = (await parent).openGraph?.images || [];
 
