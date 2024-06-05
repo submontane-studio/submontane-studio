@@ -1,20 +1,13 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  // reactStrictMode: true,
+  reactStrictMode: true,
   // experimental: {
   //   runtime: "edge",
   // },
   // output: "export",
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.microcms-assets.io",
-        port: "",
-        pathname: "/assets/**/**",
-      },
-    ],
+    domains: ["images.microcms-assets.io"],
     // unoptimized: true,
   },
 };

@@ -61,7 +61,7 @@ export async function generateMetadata(
       description: `${process.env.SITE_DESCRIPTION}`,
       images: [
         `${
-          data.keyvisual?.url
+          data.keyvisual
             ? data.keyvisual?.url
             : "https://submontane.jp/images/mobile/common/OGP.jpg"
         }`,
@@ -90,6 +90,7 @@ export default async function PostDetail({
 }: { params: { id: string } }) {
   const req = await getPostDetail(params.id);
   const data = req as Post;
+  console.log(data);
 
   return (
     <>
