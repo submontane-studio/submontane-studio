@@ -154,7 +154,16 @@ export default async function PostDetail({
               fill={true}
               sizes="100vw"
               alt=""
-              unoptimized={true}
+            />
+            <Image
+              src={
+                data.keyvisual
+                  ? data.keyvisual.url
+                  : "/images/desktop/common/empty_keyvisual.png"
+              }
+              alt=""
+              sizes="100vw"
+              fill={true}
             />
           </div>
           <ul className={styles.share}>
