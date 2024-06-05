@@ -147,7 +147,7 @@ export default async function PostDetail({
           <div className={styles.keyvisual}>
             <Image
               src={
-                data.keyvisual?.url
+                data.keyvisual
                   ? data.keyvisual.url
                   : "/images/desktop/common/empty_keyvisual.png"
               }
