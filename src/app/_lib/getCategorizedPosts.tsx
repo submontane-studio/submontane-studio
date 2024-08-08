@@ -5,6 +5,7 @@ export default async function getCategorizedPosts(id: string) {
       headers: {
         "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
       },
+      next: { revalidate: 3600 },
     },
   );
 
