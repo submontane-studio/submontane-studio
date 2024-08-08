@@ -11,7 +11,7 @@ type Item = {
 };
 export default async function InformationItem() {
   const res = await fetch(
-    "https://submontane.microcms.io/api/v1/posts?filters=category%5Bequals%5Dalert%5Bor%5Dinformation&limit=3",
+    "https://submontane.microcms.io/api/v1/posts?filters=category%5Bequals%5Dinformation&limit=3",
     {
       headers: {
         "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
