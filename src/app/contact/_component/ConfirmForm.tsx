@@ -1,26 +1,74 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { z } from "zod";
 import styles from "../styles/contact.module.scss";
 import { Input, Textarea } from "./Parts";
 
+// バリデーションスキーマ
+const InquirySchema = z.object({
+  familyName: z.string().min(1),
+  givenName: z.string().min(1),
+  tradeName: z.string().optional(),
+  email: z.string().email(),
+  type: z.string().min(1),
+  detail: z.string().min(1),
+  privacy: z.boolean().optional(),
+});
+
 export default function ConfirmForm() {
   const params = useSearchParams();
-  const query = params.get("data");
-  const decoded = query ? decodeURIComponent(query) : null;
-  const parsed = decoded ? JSON.parse(decoded) : null;
   const router = useRouter();
+  const [Inquiry, setInquiry] = useState<z.infer<typeof InquirySchema> | null>(
+    null,
+  );
+  const [error, setError] = useState<string | null>(null);
 
-  const [Inquiry, setInquiry] = useState({
-    familyName: parsed.familyName,
-    givenName: parsed.givenName,
-    tradeName: parsed.tradeName || "",
-    email: parsed.email,
-    type: parsed.type,
-    detail: parsed.detail,
-    privacy: parsed.privacy || false,
-  });
+  useEffect(() => {
+    const query = params.get("data");
+
+    if (!query) {
+      router.push("/contact");
+      return;
+    }
+
+    try {
+      const decoded = decodeURIComponent(query);
+      const parsed = JSON.parse(decoded);
+      const validated = InquirySchema.parse(parsed);
+
+      setInquiry({
+        familyName: validated.familyName,
+        givenName: validated.givenName,
+        tradeName: validated.tradeName || "",
+        email: validated.email,
+        type: validated.type,
+        detail: validated.detail,
+        privacy: validated.privacy || false,
+      });
+    } catch (err) {
+      console.error("Invalid form data:", err);
+      setError("フォームデータが不正です。入力画面に戻ります。");
+      setTimeout(() => router.push("/contact"), 2000);
+    }
+  }, [params, router]);
+
+  if (error) {
+    return (
+      <div className={styles.error}>
+        <p>{error}</p>
+      </div>
+    );
+  }
+
+  if (!Inquiry) {
+    return (
+      <div className={styles.loading}>
+        <p>読み込み中...</p>
+      </div>
+    );
+  }
 
   return (
     <>

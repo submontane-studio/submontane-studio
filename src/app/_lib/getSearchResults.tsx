@@ -1,14 +1,12 @@
-export default async function getSearchResults(query: string) {
-  const res = await fetch(
-    `${process.env.MICROCMS_API_URL}posts?limit=9&q=${query}`,
-    {
-      headers: {
-        "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
-      },
-    },
-  );
+import type { PostList } from "@/@types/post";
+import { fetchMicroCMS } from "./api";
 
-  const data = await res.json();
-
-  return data;
+export default async function getSearchResults(
+  query: string,
+): Promise<PostList> {
+  // クエリパラメータは fetchMicroCMS 内で自動的にエンコードされる
+  return fetchMicroCMS<PostList>("posts", {
+    limit: "9",
+    q: query,
+  });
 }

@@ -7,6 +7,7 @@ import Conversion from "@/app/_component/Conversion";
 import Footer from "@/app/_component/Footer";
 import getPostDetail from "@/app/_lib/getPostDetail";
 import getPostIds from "@/app/_lib/getPostIds";
+import { sanitizeHTML } from "@/app/_lib/sanitize";
 import { format } from "@formkit/tempo";
 import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
@@ -17,14 +18,15 @@ import Tocbot from "./Tocbot";
 import styles from "./styles/[id].module.scss";
 
 type Props = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
+  props: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
+  const params = await props.params;
   const req = await getPostDetail(params.id);
   const data = req as Post;
 
@@ -83,9 +85,10 @@ export async function generateStaticParams({
   }));
 }
 
-export default async function PostDetail({
-  params,
-}: { params: { id: string } }) {
+export default async function PostDetail(props: {
+  params: Promise<{ id: string }>;
+}) {
+  const params = await props.params;
   const req = await getPostDetail(params.id);
   const data = req as Post;
 
@@ -251,8 +254,7 @@ export default async function PostDetail({
           <div
             id="body"
             className={styles.body}
-            // biome-ignore lint/security/noDangerouslySetInnerHtml:
-            dangerouslySetInnerHTML={{ __html: data.content }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHTML(data.content) }}
           />
         </article>
       </main>

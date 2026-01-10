@@ -1,4 +1,5 @@
-export const runtime = "edge";
+// Next.js 15: runtime = "edge" と generateStaticParams の併用不可のためコメントアウト
+// export const runtime = "edge";
 
 import type { CategoryListType, CategoryType } from "@/@types/category";
 import type { Post, PostList } from "@/@types/post";
@@ -28,10 +29,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function categorizedPosts({
-  // categories,
-  params,
-}: { /*categories: CategoryListType;*/ params: { id: string } }) {
+export default async function categorizedPosts(props: {
+  /*categories: CategoryListType;*/
+  params: Promise<{ id: string }>;
+}) {
+  const params = await props.params;
   const req = await getCategorizedPosts(params.id);
   const data = req as PostList;
 
