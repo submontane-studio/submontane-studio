@@ -1,11 +1,8 @@
-export default async function getPostIds() {
-  const res = await fetch(`${process.env.MICROCMS_API_URL}posts?fields=id`, {
-    headers: {
-      "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
-    },
+import type { PostList } from "@/@types/post";
+import { fetchMicroCMS } from "./api";
+
+export default async function getPostIds(): Promise<PostList> {
+  return fetchMicroCMS<PostList>("posts", {
+    fields: "id",
   });
-
-  const data = await res.json();
-
-  return data;
 }

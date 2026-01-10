@@ -7,17 +7,13 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../posts/styles/posts.module.scss";
 
-export default async function getMore(limit: number, offset: number) {
-  const res = await fetch(
-    `${process.env.MICROCMS_API_URL}posts?limit=${limit}&offset=${offset}`,
-    {
-      headers: {
-        "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
-      },
-    },
-  );
+import { fetchMicroCMS } from "./api";
 
-  const data: PostList = await res.json();
+export default async function getMore(limit: number, offset: number) {
+  const data: PostList = await fetchMicroCMS<PostList>("posts", {
+    limit: String(limit),
+    offset: String(offset),
+  });
 
   const jsx = (
     <>

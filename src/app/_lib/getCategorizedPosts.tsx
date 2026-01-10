@@ -1,15 +1,16 @@
-export default async function getCategorizedPosts(id: string) {
-  const res = await fetch(
-    `${process.env.MICROCMS_API_URL}posts?filters=category%5Bequals%5D${id}`,
+import type { PostList } from "@/@types/post";
+import { fetchMicroCMS } from "./api";
+
+export default async function getCategorizedPosts(
+  id: string,
+): Promise<PostList> {
+  return fetchMicroCMS<PostList>(
+    "posts",
     {
-      headers: {
-        "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
-      },
+      filters: `category[equals]${id}`,
+    },
+    {
       next: { revalidate: 3600 },
     },
   );
-
-  const data = await res.json();
-
-  return data;
 }

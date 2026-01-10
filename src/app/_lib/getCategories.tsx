@@ -1,12 +1,8 @@
-export default async function getCategories() {
-  const res = await fetch(`${process.env.MICROCMS_API_URL}categories`, {
-    headers: {
-      "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
-    },
+import type { CategoryListType } from "@/@types/category";
+import { fetchMicroCMS } from "./api";
+
+export default async function getCategories(): Promise<CategoryListType> {
+  return fetchMicroCMS<CategoryListType>("categories", undefined, {
     next: { revalidate: 3600 },
   });
-
-  const data = await res.json();
-
-  return data;
 }

@@ -22,10 +22,9 @@ export const metadata: Metadata = {
 
 export async function generateStaticParams() {
   const req = await getCategories();
-  const categories = req as PostList;
 
-  return categories.contents.map((posts: Post) => ({
-    id: posts.id,
+  return req.contents.map((category: CategoryType) => ({
+    id: category.id,
   }));
 }
 
