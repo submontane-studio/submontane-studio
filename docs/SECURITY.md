@@ -63,10 +63,14 @@ const safeHTML = sanitizeHTML(unsafeHTML);
 - APIキーの安全な管理
 
 **対象ファイル**:
-- `src/app/_lib/api.ts`
+- `src/app/_lib/api.ts` - 共通API関数
 - `src/app/_lib/getPosts.tsx`
 - `src/app/_lib/getPostDetail.tsx`
 - `src/app/_lib/getSearchResults.tsx`
+- `src/app/_lib/getCategorizedPosts.tsx`
+- `src/app/_lib/getCategories.tsx`
+- `src/app/_lib/getMore.tsx`
+- `src/app/_lib/getPostIds.tsx`
 
 ## 環境変数の設定
 
