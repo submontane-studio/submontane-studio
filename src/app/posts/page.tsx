@@ -12,7 +12,7 @@ import Header from "../_component/Header";
 import getCategories from "../_lib/getCategories";
 import getPosts from "../_lib/getPosts";
 import Category from "./_component/Category";
-import Posts from "./_component/Posts";
+import More from "./_component/More";
 import SearchBox from "./_component/SearchBox";
 import styles from "./styles/posts.module.scss";
 
@@ -52,7 +52,11 @@ export default async function Index() {
           <SearchBox />
         </div>
       </div>
-      <Posts className="index" data={data} />
+      <More
+        initialPosts={data.contents}
+        initialTotalCount={data.totalCount}
+        itemsPerPage={9}
+      />
       <Conversion />
       <Footer />
     </>

@@ -1,27 +1,24 @@
-import type { BlogList } from "@/@types/blog";
-import { format, parse } from "@formkit/tempo";
-import { headers } from "next/headers";
+import type { PostList } from "@/@types/post";
+import { format } from "@formkit/tempo";
 import Link from "next/link";
+import { fetchMicroCMS } from "@/app/_lib/api";
 import styles from "../../styles/home.module.scss";
+
 type Item = {
   id: string;
   publishedAt: Date;
   updatedAt?: Date;
   title: string;
 };
+
 export default async function InformationItem() {
-  const res = await fetch(
-    "https://submontane.microcms.io/api/v1/posts?filters=category%5Bequals%5Dinformation&limit=3",
-    {
-      headers: {
-        "X-MICROCMS-API-KEY": process.env.MICROCMS_API_KEY || "",
-      },
-    },
-  );
+  try {
+    const data = await fetchMicroCMS<PostList>("posts", {
+      filters: "category[equals]information",
+      limit: "3",
+    });
 
-  const data = await res.json();
-
-  return (data as BlogList).contents.map((item: Item) => (
+    return data.contents.map((item: Item) => (
     <li key={item.title}>
       <Link href={`/posts/${item.id}`}>
         <p className={styles.time}>
@@ -32,5 +29,9 @@ export default async function InformationItem() {
         <h3>{item.title}</h3>
       </Link>
     </li>
-  ));
+    ));
+  } catch (error) {
+    console.error("Failed to fetch information items:", error);
+    return <p>お知らせの読み込みに失敗しました。</p>;
+  }
 }
