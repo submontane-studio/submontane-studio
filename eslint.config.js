@@ -45,27 +45,6 @@ export default [
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs["core-web-vitals"].rules,
       "@next/next/no-img-element": "error",
-      "import/order": [
-        "warn",
-        {
-          alphabetize: {
-            caseInsensitive: true,
-            order: "asc",
-          },
-          groups: [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index",
-            "object",
-            "type",
-          ],
-          "newlines-between": "always",
-          pathGroupsExcludedImportTypes: ["builtin"],
-        },
-      ],
       "react/jsx-sort-props": "warn",
     },
   },

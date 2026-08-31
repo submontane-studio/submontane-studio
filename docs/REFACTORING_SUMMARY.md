@@ -133,7 +133,7 @@ src/app/_lib/getPostIds.tsx - 記事ID一覧取得
 ```
 
 **主要機能**:
-- URLエンコーディング: `encodeURIComponent()`で自動処理
+- URLエンコーディング: `URLSearchParams`が自動処理（`encodeURIComponent()`を併用すると二重エンコードになるため不可）
 - エラーハンドリング: `APIError`クラスでステータスコードとメッセージを管理
 - キャッシュ制御: Next.js 15の`revalidate`オプションに対応
 

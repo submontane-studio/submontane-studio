@@ -32,6 +32,6 @@ export default async function InformationItem() {
     ));
   } catch (error) {
     console.error("Failed to fetch information items:", error);
-    return <p>お知らせの読み込みに失敗しました。</p>;
+    return <li>お知らせの読み込みに失敗しました。</li>;
   }
 }
