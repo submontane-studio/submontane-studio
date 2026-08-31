@@ -27,10 +27,11 @@ export async function fetchMicroCMS<T>(
 ): Promise<T> {
   const url = new URL(endpoint, env.MICROCMS_API_URL);
 
-  // クエリパラメータを安全に追加
+  // クエリパラメータを安全に追加（URLSearchParams が自動でエンコードするため、
+  // encodeURIComponent は不要。併用すると二重エンコードになり filters が壊れる）
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
-      url.searchParams.append(key, encodeURIComponent(value));
+      url.searchParams.append(key, value);
     });
   }
 
